@@ -107,58 +107,70 @@ const corresponding = {
 let setupMode = false;
 
 export function Avatar(props) {
-    const { nodes, materials, scene } = useGLTF(
-    "/models/67a47721736ce9f3e126d847.glb"
-  );
+  const { nodes, materials, scene } = useGLTF("/models/67a47721736ce9f3e126d847.glb");
+  const { message, onMessagePlayed } = useChat();
 
-  const { message, onMessagePlayed, chat } = useChat();
+  const group = useRef();
+  const { animations } = useGLTF("/models/animations.glb");
+  const { actions } = useAnimations(animations, group);
+
+  const [animation, setAnimation] = useState("Waving");
   const [lipsync, setLipsync] = useState();
   const [currentMessage, setCurrentMessage] = useState(null);
+  const [audio, setAudio] = useState(null);
+  const [facialExpression, setFacialExpression] = useState("");
+  
+
+const talkingAnimations = ["Talking_3"]; // Default animasi
+const availableAnimations = animations.map((a) => a.name);
+
 useEffect(() => {
   if (message) {
     setCurrentMessage(message);
   }
 }, [message]);
+
 useEffect(() => {
   if (!currentMessage || !currentMessage.audio) return;
 
-  setAnimation(currentMessage.animation || "Talking_0");
-   setFacialExpression(currentMessage.facialExpression || "Standing Idle");
+  // Pilih animasi dari AI, fallback ke Talking_3
+  const selectedAnim = availableAnimations.includes(currentMessage.animation)
+    ? currentMessage.animation
+    : "Talking_3";
+  setAnimation(selectedAnim);
+
+  setFacialExpression(currentMessage.facialExpression || "smile");
   setLipsync(currentMessage.lipsync || { mouthCues: [] });
 
   const audio = new Audio("data:audio/mp3;base64," + currentMessage.audio);
   audio.play();
   setAudio(audio);
+
   audio.onended = () => {
-  setAnimation("Idle"); // 🔄 reset ke animasi diam
-  onMessagePlayed();
-};
+    setAnimation("Idle");
+    setFacialExpression("neutral");
+    onMessagePlayed();
+  };
 }, [currentMessage]);
 
-
-  const { animations } = useGLTF("/models/animations.glb");
-
-  const group = useRef();
-  const { actions, mixer } = useAnimations(animations, group);
-  const [animation, setAnimation] = useState(
-    animations.find((a) => a.name === "Idle") ? "Idle" : animations[0].name // Check if Idle animation exists otherwise use first animation
-  );
   useEffect(() => {
-    actions[animation]
-      .reset()
-      .fadeIn(mixer.stats.actions.inUse === 0 ? 0 : 0.5)
-      .play();
-    return () => actions[animation].fadeOut(0.5);
-  }, [animation]);
+    if (!animation || !actions[animation]) {
+      console.warn("⚠️ Animasi tidak ditemukan:", animation);
+      return;
+    }
+
+    console.log("🎬 Menjalankan animasi:", animation);
+    actions[animation].reset().fadeIn(0.2).play();
+    return () => {
+      actions[animation]?.fadeOut(0.2);
+    };
+  }, [animation, actions]);
 
   const lerpMorphTarget = (target, value, speed = 0.1) => {
     scene.traverse((child) => {
       if (child.isSkinnedMesh && child.morphTargetDictionary) {
         const index = child.morphTargetDictionary[target];
-        if (
-          index === undefined ||
-          child.morphTargetInfluences[index] === undefined
-        ) {
+        if (index === undefined || child.morphTargetInfluences[index] === undefined) {
           return;
         }
         child.morphTargetInfluences[index] = THREE.MathUtils.lerp(
@@ -181,8 +193,8 @@ useEffect(() => {
   const [blink, setBlink] = useState(false);
   const [winkLeft, setWinkLeft] = useState(false);
   const [winkRight, setWinkRight] = useState(false);
-  const [facialExpression, setFacialExpression] = useState("");
-  const [audio, setAudio] = useState();
+  // const [facialExpression, setFacialExpression] = useState("");
+  // const [audio, setAudio] = useState();
 
   useFrame(() => {
     !setupMode &&

@@ -3,9 +3,10 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { exec } from "child_process";
-import { writeFile } from "fs/promises";
+// import { writeFile } from "fs/promises";
 import { promises as fs } from "fs";
 import fetch from "node-fetch";
+import {spawn} from "child_process";
 
 dotenv.config();
 
@@ -14,74 +15,95 @@ app.use(cors());
 app.use(express.json());
 const port = 3000;
 
-// Endpoint untuk chat via Ollama + TTS (gTTS) + lipsync
 app.post("/chat-ollama", async (req, res) => {
   const { message } = req.body;
   if (!message) return res.status(400).json({ error: "Message is required" });
 
   try {
-    // 1. Kirim ke LLM (Ollama)
+    // 1. Kirim pertanyaan ke LLM (Ollama)
     const response = await fetch("http://localhost:11434/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         model: "tinyllama",
-        messages: [{ role: "user", content: message }],
-      }),
+        messages: [
+          {
+            role: "system",
+            content:
+              "Anda adalah guru AI yang ramah dan berpengetahuan luas. Tugas Anda adalah menjelaskan konsep pendidikan dengan jelas dan akurat kepada siswa SMA dan mahasiswa di Indonesia."
+          },
+          {
+            role: "user",
+            content: message
+          }
+        ]
+      })
     });
 
     const body = await response.text();
     const messages = body
       .split("\n")
-      .map(line => {
+      .map((line) => {
         try {
           return JSON.parse(line.trim());
         } catch {
           return null;
         }
       })
-      .filter(msg => msg && msg.message && msg.message.content);
+      .filter((msg) => msg && msg.message && msg.message.content);
 
-    const fullContent = messages.map(m => m.message.content).join(" ").trim();
+    const fullContent = messages.map((m) => m.message.content).join(" ").trim();
 
-    if (!fullContent) {
-      console.error("Ollama reply empty or invalid:", body);
-      return res.status(500).json({ error: "Empty response from LLM" });
-    }
+    // 2. Jalankan gesture AI
+    const gestureResultRaw = await execPromise(`py Text2gestures/generate_gesture.py`);
+    const gestureResult = JSON.parse(gestureResultRaw);
 
-    // 2. Panggil Python TTS (gTTS) untuk buat generated.mp3
-    await new Promise((resolve, reject) => {
-      exec(`py tts.py "${fullContent}"`, (err, stdout, stderr) => {
-        if (err) {
-          console.error("Python TTS Error:", stderr);
-          return reject("TTS failed");
+    // 3. Panggil ElevenLabs TTS API
+    const elevenApiKey = process.env.ELEVEN_LABS_API_KEY;
+    const voiceId = "Lpe7uP03WRpCk9XkpFnf";
+
+    const ttsResponse = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "xi-api-key": elevenApiKey
+      },
+      body: JSON.stringify({
+        text: fullContent,
+        model_id: "eleven_multilingual_v2",
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.7
         }
-        console.log("Python TTS OK:", stdout);
-        resolve();
-      });
+      })
     });
 
-    // 3. Konversi ke WAV pakai ffmpeg
-    await execPromise(`ffmpeg -y -i \"concat:audios/sentence_0.mp3|audios/sentence_1.mp3\" -acodec copy audios/generated.mp3
-`);
-// 3.1 Konversi ke WAV (untuk Rhubarb)
-await execPromise(`ffmpeg -y -i audios/generated.mp3 audios/generated.wav`);
+    if (!ttsResponse.ok) {
+      const error = await ttsResponse.text();
+      throw new Error("TTS API error: " + error);
+    }
 
-    // 4. Generate lipsync JSON pakai Rhubarb
-   await execPromise(`..\\Rhubarb-Lip-Sync\\bin\\rhubarb.exe -f json -o audios\\generated.json audios\\generated.wav -r phonetic`);
+    // 4. Simpan MP3
+    const audioBuffer = await ttsResponse.arrayBuffer();
+    await fs.writeFile("audios/generated.mp3", Buffer.from(audioBuffer));
+    const audioBase64 = Buffer.from(audioBuffer).toString("base64");
 
+    // 5. Konversi ke WAV untuk Rhubarb
+    await execPromise(`ffmpeg -y -i audios/generated.mp3 audios/generated.wav`);
 
-
-    // 5. Baca audio dan lipsync
-    const audioBuffer = await fs.readFile("audios/generated.mp3");
-    const audioBase64 = audioBuffer.toString("base64");
+    // 6. Jalankan Rhubarb untuk lipsync
+    await execPromise(`..\\Rhubarb-Lip-Sync\\bin\\rhubarb.exe -f json -o audios\\generated.json audios\\generated.wav -r phonetic`);
     const lipsyncJson = await fs.readFile("audios/generated.json", "utf-8");
 
+    // 7. Kembalikan respon ke frontend
     res.json({
       reply: fullContent,
       audio: audioBase64,
       lipsync: JSON.parse(lipsyncJson),
+      gesture: gestureResult.gesture,
+      expression: gestureResult.expression
     });
+
   } catch (err) {
     const errorMsg = Buffer.isBuffer(err?.response?.data)
       ? err.response.data.toString()
@@ -104,17 +126,32 @@ function execPromise(command) {
   });
 }
 
-// Endpoint prediksi gesture sederhana
-app.post("/gesture", (req, res) => {
+
+// Endpoint AI Gesture
+app.post("/gesture-ai", async (req, res) => {
   const { message } = req.body;
-  if (!message) return res.status(400).json({ error: "Message is required" });
+  if (!message) return res.status(400).json({ error: "Message required" });
 
-  let gesture = "neutral";
-  if (message.includes("senang") || message.includes("baik")) gesture = "smile";
-  else if (message.includes("sedih")) gesture = "sad";
-  else if (message.includes("jelaskan") || message.includes("materi")) gesture = "explain";
+  const py = spawn("py", ["Text2gestures/generate_gesture.py", message]);
 
-  res.json({ gesture });
+  let result = "";
+  py.stdout.on("data", (data) => {
+    result += data.toString();
+  });
+
+  py.stderr.on("data", (data) => {
+    console.error("Python error:", data.toString());
+  });
+
+  py.on("close", (code) => {
+    try {
+      const parsed = JSON.parse(result);
+      res.json(parsed); // ✅ kirim gesture dan ekspresi ke frontend
+    } catch (e) {
+      console.error("Parse error:", result);
+      res.status(500).json({ error: "Invalid gesture result" });
+    }
+  });
 });
 
 app.listen(port, () => {
