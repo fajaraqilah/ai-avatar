@@ -142,14 +142,30 @@ useEffect(() => {
   setFacialExpression(currentMessage.facialExpression || "smile");
   setLipsync(currentMessage.lipsync || { mouthCues: [] });
 
-  const audio = new Audio("data:audio/mp3;base64," + currentMessage.audio);
-  audio.play();
+  // Handle both base64 string and file path
+  const audioSrc = currentMessage.audio.startsWith('data:') ? 
+    currentMessage.audio : 
+    "data:audio/mp3;base64," + currentMessage.audio;
+  const audio = new Audio(audioSrc);
+  audio.addEventListener('canplay', () => {
+    // Audio is ready to play
+    audio.play().catch(e => console.error("Audio play error:", e));
+  });
   setAudio(audio);
 
-  audio.onended = () => {
+  audio.addEventListener('ended', () => {
     setAnimation("Idle");
     setFacialExpression("neutral");
     onMessagePlayed();
+  });
+  
+  // Clean up audio on unmount
+  return () => {
+    if (audio) {
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+    }
   };
 }, [currentMessage]);
 
@@ -218,17 +234,25 @@ useEffect(() => {
       return;
     }
     const appliedMorphTargets = [];
-    if (currentMessage && lipsync) {
-      const currentAudioTime = audio.currentTime;
-      for (let i = 0; i < lipsync.mouthCues.length; i++) {
-        const mouthCue = lipsync.mouthCues[i];
-        if (
-          currentAudioTime >= mouthCue.start &&
-          currentAudioTime <= mouthCue.end
-        ) {
-          appliedMorphTargets.push(corresponding[mouthCue.value]);
-          lerpMorphTarget(corresponding[mouthCue.value], 1, 0.2);
-          break;
+    // Check if all required objects exist and audio is ready
+    if (currentMessage && lipsync && audio && audio.readyState >= 2) {
+      // Check if lipsync and lipsync.mouthCues exist and are arrays
+      const mouthCues = lipsync.mouthCues || [];
+      if (Array.isArray(mouthCues)) {
+        const currentAudioTime = audio.currentTime || 0;
+        for (let i = 0; i < mouthCues.length; i++) {
+          const mouthCue = mouthCues[i];
+          if (mouthCue && 
+              typeof mouthCue.start === 'number' && 
+              typeof mouthCue.end === 'number' &&
+              currentAudioTime >= mouthCue.start &&
+              currentAudioTime <= mouthCue.end) {
+            if (corresponding[mouthCue.value]) {
+              appliedMorphTargets.push(corresponding[mouthCue.value]);
+              lerpMorphTarget(corresponding[mouthCue.value], 1, 0.2);
+            }
+            break;
+          }
         }
       }
     }

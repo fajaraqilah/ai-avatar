@@ -1,4 +1,3 @@
-
 import {
   CameraControls,
   ContactShadows,
@@ -42,7 +41,7 @@ const Dots = (props) => {
 
 export const Experience = () => {
   const cameraControls = useRef();
-  const { cameraZoomed, message, audio } = useChat();
+  const { cameraZoomed, message, audio, onMessagePlayed } = useChat();
 
   const { scene: ruangKelas } = useGLTF("/models/classroom_default.glb");
 
@@ -58,63 +57,39 @@ export const Experience = () => {
     }
   }, [cameraZoomed]);
 
-const [displayedText, setDisplayedText] = useState("");
+  // Display subtitles properly without duplication
+  const [currentSubtitle, setCurrentSubtitle] = useState("");
 
-useEffect(() => {
-  if (!message || !message.segments || !audio) return;
-
-  let currentIndex = 0;
-  const interval = setInterval(() => {
-    if (currentIndex < message.segments.length) {
-      setDisplayedText((prev) => prev + " " + message.segments[currentIndex]);
-      currentIndex++;
-    } else {
-      clearInterval(interval);
-    }
-  }, 1500); // 1.5 detik per kalimat (tune sesuai panjang suara)
-
-  return () => clearInterval(interval);
-}, [message, audio]);
-
-const [subtitleChunks, setSubtitleChunks] = useState([]);
-const [currentChunkIndex, setCurrentChunkIndex] = useState(0);
-
-
-// Auto pindah ke potongan berikutnya per 5 detik
+  // Update subtitle when message changes
   useEffect(() => {
-    if (!audio || subtitleChunks.length <= 1) return;
+    if (!message) {
+      setCurrentSubtitle("");
+      return;
+    }
 
-    const interval = setInterval(() => {
-      setCurrentChunkIndex((i) => {
-        if (i + 1 < subtitleChunks.length) return i + 1;
-        return i;
-      });
-    }, 5000); // ⏱ 5 detik per chunk, bisa disesuaikan
+    // Use the subtitles array from the backend if available, otherwise fallback to text
+    if (message.subtitles && message.subtitles.length > 0) {
+      // Join all subtitles with line breaks for proper display
+      setCurrentSubtitle(message.subtitles.join("\n"));
+    } else {
+      setCurrentSubtitle(message.text || "");
+    }
+  }, [message]);
 
-    audio.onended = () => {
-      setCurrentChunkIndex(0);
-      setSubtitleChunks([]);
-      onMessagePlayed(); // reset state
+  // Handle audio ended event
+  useEffect(() => {
+    if (!audio) return;
+
+    const handleAudioEnded = () => {
+      onMessagePlayed();
     };
 
-    return () => clearInterval(interval);
-  }, [audio, subtitleChunks]);
+    audio.addEventListener('ended', handleAudioEnded);
 
-useEffect(() => {
-  if (!message || !message.text) return;
-
-  const chunks = [];
-  const maxLength = 400;
-  let text = message.text.trim();
-
-  while (text.length > 0) {
-    chunks.push(text.slice(0, maxLength));
-    text = text.slice(maxLength);
-  }
-
-  setSubtitleChunks(chunks);
-  setCurrentChunkIndex(0);
-}, [message]);
+    return () => {
+      audio.removeEventListener('ended', handleAudioEnded);
+    };
+  }, [audio, onMessagePlayed]);
 
   return (
     <>
@@ -130,8 +105,8 @@ useEffect(() => {
   <Dots position={[-1.1, 1.8, -1.1]} rotation={[0, 0.3, 0]} />
 
   
-  {/* Subtitle UI */}
-  {message?.text && (
+  {/* Subtitle UI - Display subtitles properly without duplication */}
+  {currentSubtitle && (
  <Html
   position={[0.15, 1.5, -1]} // 🧭 Sesuaikan dengan posisi papan tulis
   transform
@@ -153,9 +128,7 @@ useEffect(() => {
       textAlign: "justify",
     }}
   >
-    {message.text}
-    {displayedText}
-    {subtitleChunks[currentChunkIndex]}
+    {currentSubtitle}
   </div>
 </Html>
   )}
