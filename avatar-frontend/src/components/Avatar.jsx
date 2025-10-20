@@ -154,7 +154,7 @@ useEffect(() => {
   setAudio(audio);
 
   audio.addEventListener('ended', () => {
-    setAnimation("Idle");
+    setAnimation("Waving");
     setFacialExpression("neutral");
     onMessagePlayed();
   });

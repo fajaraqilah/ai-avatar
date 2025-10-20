@@ -7,7 +7,7 @@ export const UI = ({ hidden, ...props }) => {
 
   const sendMessage = () => {
     const text = input.current.value;
-    if (!loading && !message) {
+    if (!loading && !message && text.trim()) {
       chat(text);
       input.current.value = "";
     }
@@ -19,15 +19,15 @@ export const UI = ({ hidden, ...props }) => {
   return (
     <>
 <div className="fixed top-0 left-0 right-0 bottom-0 z-10 flex justify-between p-4 flex-col pointer-events-none">
-  <div className="self-start backdrop-blur-md bg-white bg-opacity-50 p-4 rounded-lg">
-    <h1 className="font-black text-xl">Guru Virtual</h1>
-    <p>Nuraini Purwandari, S.kom.,MMSI 📚</p>
+  <div className="self-start backdrop-blur-md bg-white/80 p-4 rounded-xl shadow-lg">
+    <h1 className="font-black text-xl text-gray-800">Guru Virtual</h1>
+    <p className="text-gray-600 font-medium">Nuraini Purwandari, S.kom.,MMSI 📚</p>
   </div>
   <div className="w-full flex flex-col items-end justify-center gap-4">
 
           <button
             onClick={() => setCameraZoomed(!cameraZoomed)}
-            className="pointer-events-auto bg-pink-500 hover:bg-pink-600 text-white p-4 rounded-md"
+            className="pointer-events-auto bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white p-4 rounded-full shadow-lg transition-all duration-200 transform hover:scale-105"
           >
             {cameraZoomed ? (
               <svg
@@ -70,7 +70,7 @@ export const UI = ({ hidden, ...props }) => {
                 body.classList.add("greenScreen");
               }
             }}
-            className="pointer-events-auto bg-pink-500 hover:bg-pink-600 text-white p-4 rounded-md"
+            className="pointer-events-auto bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white p-4 rounded-full shadow-lg transition-all duration-200 transform hover:scale-105"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,9 +87,9 @@ export const UI = ({ hidden, ...props }) => {
             </svg>
           </button>
         </div>
-        <div className="flex items-center gap-2 pointer-events-auto max-w-screen-sm w-full mx-auto">
+        <div className="flex items-center gap-3 pointer-events-auto max-w-2xl w-full mx-auto">
           <input
-            className="w-full placeholder:text-gray-800 placeholder:italic p-4 rounded-md bg-opacity-50 bg-white backdrop-blur-md"
+            className="w-full placeholder:text-gray-600 placeholder:italic p-5 rounded-2xl bg-white/90 backdrop-blur-md shadow-lg border border-gray-200 focus:border-pink-300 focus:ring-2 focus:ring-pink-200 focus:outline-none transition-all duration-200"
             placeholder="Type a message..."
             ref={input}
             onKeyDown={(e) => {
@@ -101,8 +101,8 @@ export const UI = ({ hidden, ...props }) => {
           <button
             disabled={loading || message}
             onClick={sendMessage}
-            className={`bg-pink-500 hover:bg-pink-600 text-white p-4 px-10 font-semibold uppercase rounded-md ${
-              loading || message ? "cursor-not-allowed opacity-30" : ""
+            className={`bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white p-5 px-8 font-semibold uppercase rounded-2xl shadow-lg transition-all duration-200 transform hover:scale-105 ${
+              loading || message ? "cursor-not-allowed opacity-50" : ""
             }`}
           >
             Send

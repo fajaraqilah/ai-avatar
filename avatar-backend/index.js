@@ -28,10 +28,20 @@ function getPrompt(lang, input) {
     : `Answer in English clearly and informatively. User question: ${input}`;
 }
 
+// Function to clean text for TTS - removes markdown and special characters
+function cleanTextForTTS(text) {
+  // Remove markdown characters and other symbols that shouldn't be read aloud
+  return text.replace(/[\*\_\`\~\#\@\!\^\&\%\$\(\)\[\]\{\}\<\>\|\\]/g, ' ')
+             .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+             .trim();
+}
+
 function createLineByLineSubtitles(text, maxChars = 100) {
+  // Clean text for better subtitle display
+  const cleanText = cleanTextForTTS(text);
   const lines = [];
   let current = "";
-  for (const word of text.split(" ")) {
+  for (const word of cleanText.split(" ")) {
     if ((current + word).length > maxChars) {
       lines.push(current.trim());
       current = "";
@@ -69,13 +79,16 @@ app.post("/chat", async (req, res) => {
 
     console.log("Response received, length:", text.length);
 
+    // Clean text for TTS
+    const cleanText = cleanTextForTTS(text);
+
     // === PIPELINE ===
     // 1. Generate gesture
     await execPromise(`py Text2gestures/generate_gesture.py`);
     
     // 2. Generate TTS
     const tempTextFile = "audios/temp_text.txt";
-    await fs.writeFile(tempTextFile, text, "utf-8");
+    await fs.writeFile(tempTextFile, cleanText, "utf-8");
     await execPromise(`py tts.py "${tempTextFile}"`);
     
     // 3. Convert to WAV
