@@ -6,7 +6,7 @@ import {
   Text,
   useGLTF,
 } from "@react-three/drei";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState, memo } from "react";
 import { useChat } from "../hooks/useChat";
 import { Avatar } from "./Avatar";
 import { AvatarStudent } from "./AvatarStudent";
@@ -21,7 +21,7 @@ const Dots = (props) => {
           if (loadingText.length >= 3) {
             return "";
           }
-          return loadingText + "●";
+          return loadingText + ".";
         });
       }, 500);
       return () => clearInterval(interval);
@@ -44,6 +44,227 @@ const Dots = (props) => {
     </group>
   );
 };
+
+// Typewriter subtitle component for real-time display
+const TypewriterSubtitle = memo(({ message, fontSize = "medium" }) => {
+  const subtitles = message?.subtitles || [];
+  const [displayText, setDisplayText] = useState("");
+  const [lineIndex, setLineIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+
+  // Refs for timers and current values to avoid stale closures
+  const timerRef = useRef(null);
+  const subtitlesRef = useRef(subtitles);
+
+  // Keep refs in sync with state
+  useEffect(() => { subtitlesRef.current = subtitles; }, [subtitles]);
+
+  // Reset when the overall message object changes (new response)
+  useEffect(() => {
+    // reset indices and displayed text
+    setDisplayText("");
+    setLineIndex(0);
+    setCharIndex(0);
+    setIsComplete(false);
+
+    // clear any pending timers
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, [message]); // triggers when message changes
+
+  // Clear timers on unmount
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
+    };
+  }, []);
+
+  // Helper: typing step function (runs schedule loop)
+  useEffect(() => {
+    // If no subtitles, nothing to do
+    if (!subtitlesRef.current || subtitlesRef.current.length === 0) {
+      setDisplayText("");
+      return;
+    }
+
+    // Clear existing timer to avoid duplicates
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+
+    // Check if we've displayed all lines
+    if (isComplete) {
+      // Clear text after 3 seconds when all text is displayed
+      timerRef.current = setTimeout(() => {
+        setDisplayText("");
+        setIsComplete(false);
+      }, 3000);
+      return;
+    }
+
+    // Get current line
+    const currentLineIndex = Math.min(lineIndex, subtitlesRef.current.length - 1);
+    const currentLine = subtitlesRef.current[currentLineIndex] || "";
+    
+    // Typing phase
+    if (charIndex < currentLine.length) {
+      timerRef.current = setTimeout(() => {
+        setCharIndex(prev => {
+          const next = prev + 1;
+          // Build display text with all previous lines plus current line progress
+          let newDisplayText = "";
+          for (let i = 0; i < currentLineIndex; i++) {
+            newDisplayText += subtitlesRef.current[i] + " ";
+          }
+          newDisplayText += currentLine.slice(0, next);
+          setDisplayText(newDisplayText);
+          return next;
+        });
+      }, 10); // typing speed (ms) - faster typing
+      return;
+    }
+
+    // Finished typing current line
+    if (charIndex === currentLine.length && currentLine.length > 0) {
+      // Check if this is the last line
+      const isLastLine = currentLineIndex >= subtitlesRef.current.length - 1;
+      
+      if (isLastLine) {
+        // Mark as complete but don't clear text yet
+        setIsComplete(true);
+      } else {
+        // Move to next line after pause
+        timerRef.current = setTimeout(() => {
+          setLineIndex(prev => prev + 1);
+          setCharIndex(0);
+        }, 1000); // pause at end of line (ms) - shorter pause
+      }
+      return;
+    }
+  }, [
+    // include these so effect re-runs when any of them change
+    lineIndex, charIndex, message, isComplete
+  ]);
+
+  const getFontSizeClass = () => {
+    switch (fontSize) {
+      case "small": return "text-sm";
+      case "large": return "text-lg";
+      case "extra-large": return "text-xl";
+      default: return "text-base";
+    }
+  };
+
+  return (
+    <div className={`${getFontSizeClass()} leading-relaxed min-h-[4.5rem]`}>
+      {displayText}
+      <span className="inline-block w-2 h-5 bg-white ml-1 animate-pulse" />
+    </div>
+  );
+}, (prevProps, nextProps) => {
+  // Only re-render if the message.text or subtitles array changed content or fontSize changed
+  const prevSubs = prevProps.message?.subtitles || [];
+  const nextSubs = nextProps.message?.subtitles || [];
+  const subsEqual = prevSubs.length === nextSubs.length && prevSubs.every((s, i) => s === nextSubs[i]);
+  return prevProps.message?.text === nextProps.message?.text &&
+         subsEqual &&
+         prevProps.fontSize === nextProps.fontSize;
+});
+
+// New component to display user input subtitles above AvatarStudent
+const UserInputSubtitle = memo((props) => {
+  const { userInput } = useChat();
+  const [subtitle, setSubtitle] = useState("");
+  
+  useEffect(() => {
+    // Show the user's input text above the AvatarStudent
+    if (userInput) {
+      setSubtitle(userInput);
+      
+      // Clear subtitle after 10 seconds (longer display time)
+      const timer = setTimeout(() => {
+        setSubtitle("");
+      }, 10000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [userInput]);
+  
+  if (!subtitle) return null;
+  
+  return (
+    <group {...props}>
+      {/* Improved background box with better styling */}
+      <mesh position={[0, 0, -0.01]}>
+        <planeGeometry args={[1, 0.4]} />
+        <meshBasicMaterial
+          color="#000000"
+          opacity={0.7}
+          transparent
+          side={2}
+        />
+      </mesh>
+      <Text 
+        fontSize={0.1}
+        anchorX={"center"} 
+        anchorY={"middle"}
+        color="#ffffff"
+        outlineWidth={0.01}
+        outlineColor="#000000"
+        maxWidth={2.2}
+      >
+        {subtitle}
+        <meshBasicMaterial attach="material" color="#ffffff" />
+      </Text>
+    </group>
+  );
+}, (prevProps, nextProps) => {
+  // Custom comparison function for memo
+  return prevProps.position[0] === nextProps.position[0] &&
+         prevProps.position[1] === nextProps.position[1] &&
+         prevProps.position[2] === nextProps.position[2];
+});
+
+// Separate component for the board content to prevent unnecessary re-renders
+const BoardContent = memo(({ message, fontSize }) => {
+  // Get font size class
+  const getFontSizeClass = () => {
+    switch (fontSize) {
+      case "small": return "text-sm";
+      case "large": return "text-lg";
+      case "extra-large": return "text-xl";
+      default: return "text-base";
+    }
+  };
+
+  return (
+    <div className={`${getFontSizeClass()} leading-relaxed min-h-[4.5rem]`}>
+      {message?.subtitles ? (
+        <div>
+          {message.subtitles.map((subtitle, index) => (
+            <div key={index}>{subtitle}</div>
+          ))}
+        </div>
+      ) : message?.text ? (
+        <p>{message.text}</p>
+      ) : (
+        <p className="italic text-gray-400">Waiting for response...</p>
+      )}
+    </div>
+  );
+}, (prevProps, nextProps) => {
+  // Only re-render if message content actually changed
+  return prevProps.message?.text === nextProps.message?.text &&
+         prevProps.fontSize === nextProps.fontSize &&
+         JSON.stringify(prevProps.message?.subtitles) === JSON.stringify(nextProps.message?.subtitles);
+});
 
 export const Experience = () => {
   const cameraControls = useRef();
@@ -103,16 +324,6 @@ export const Experience = () => {
     }));
   };
 
-  // Get font size class
-  const getFontSizeClass = () => {
-    switch (boardSettings.fontSize) {
-      case "small": return "text-sm";
-      case "large": return "text-lg";
-      case "extra-large": return "text-xl";
-      default: return "text-base";
-    }
-  };
-
   // Get background style
   const getBackgroundStyle = () => {
     switch (boardSettings.backgroundColor) {
@@ -159,7 +370,10 @@ export const Experience = () => {
 
      <Suspense fallback={null}>
   {/* Dot di atas kepala Avatar */}
-  <Dots position={[-1.1, 1.8, -1.1]} rotation={[0, 0.3, 0]} />
+  <Dots position={[-1.0, 1.9, -1.1]} rotation={[0, 0.3, 0]} />
+  
+  {/* User input subtitle above AvatarStudent */}
+  <UserInputSubtitle position={[1.5, 1.5, 2.6]} />
 
   {/* Interactive Board */}
   {boardSettings.visible ? (
@@ -211,22 +425,10 @@ export const Experience = () => {
           </div>
 
           {/* Subtitle Content */}
-          <div className={`${getFontSizeClass()} leading-relaxed`}>
-            {message?.subtitles ? (
-              message.subtitles.map((line, index) => (
-                <p key={index} className="mb-2 last:mb-0">
-                  {line}
-                </p>
-              ))
-            ) : message?.text ? (
-              <p>{message.text}</p>
-            ) : (
-              <p className="italic text-gray-400">Waiting for response...</p>
-            )}
-          </div>
+          <BoardContent message={message} fontSize={boardSettings.fontSize} />
 
           {/* Board Footer with Options */}
-          <div className="flex justify-between mt-4 pt-2 border-t border-white/20">
+          <div className="flex justify-between mt-20 pt-2 border-t border-white/20">
             <div className="flex gap-2">
               <button 
                 onClick={() => changeBackground("dark")}

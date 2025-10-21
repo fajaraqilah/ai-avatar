@@ -7,6 +7,7 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { button, useControls } from "leva";
 import React, { useEffect, useRef, useState } from "react";
+import { Text } from "@react-three/drei";
 
 import * as THREE from "three";
 import { useChat } from "../hooks/useChat";
@@ -123,6 +124,8 @@ export function AvatarStudent(props) {
   const [currentMessage, setCurrentMessage] = useState(null);
   const [audio, setAudio] = useState(null);
   const [facialExpression, setFacialExpression] = useState("");
+  const [userInput, setUserInput] = useState(""); // New state for user input
+  const [isListening, setIsListening] = useState(false); // New state for listening indicator
 
   // Set the initial animation based on available animations
   useEffect(() => {
@@ -138,6 +141,25 @@ export function AvatarStudent(props) {
       console.log("Setting initial animation to:", initialAnimation);
     }
   }, [animations]);
+
+  // Handle user input to show listening expression
+  useEffect(() => {
+    if (message && message.text) {
+      // Set listening state and facial expression when user sends input
+      setIsListening(true);
+      setFacialExpression("smile");
+      setUserInput(message.text);
+      
+      // Reset to default expression after a delay
+      const timer = setTimeout(() => {
+        setIsListening(false);
+        setFacialExpression("default");
+        setUserInput("");
+      }, 3000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   // Play animations
   useEffect(() => {
@@ -432,6 +454,13 @@ export function AvatarStudent(props) {
 
   return (
     <group {...props} dispose={null} ref={group}>
+      {/* Listening indicator above the avatar */}
+{isListening && (
+  <Text position={[0, 2.5, 0]} fontSize={0.2} color="#4ade80">
+    👂 Listening...
+  </Text>
+)}
+
       <primitive object={nodes.Hips} />
       <skinnedMesh
         name="Wolf3D_Body"

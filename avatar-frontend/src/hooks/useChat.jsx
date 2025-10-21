@@ -5,7 +5,12 @@ const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:3007";
 const ChatContext = createContext();
 
 export const ChatProvider = ({ children }) => { 
+  const [userInput, setUserInput] = useState(""); // New state to track user input
+  
   const chat = async (message) => { 
+    // Store the user's input
+    setUserInput(message);
+    
     setLoading(true);
 
     try {
@@ -89,7 +94,9 @@ export const ChatProvider = ({ children }) => {
       onMessagePlayed, 
       loading, 
       cameraZoomed, 
-      setCameraZoomed 
+      setCameraZoomed,
+      userInput, // Expose userInput to context
+      setUserInput // Expose setUserInput to context
     }} > 
       {children} 
     </ChatContext.Provider> 

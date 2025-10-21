@@ -59,16 +59,37 @@ app.post("/chat", async (req, res) => {
 
     console.log(`[${new Date().toISOString()}] Sending to Ollama:`, userMsg);
 
-    const ollamaResponse = await fetch("http://localhost:11434/api/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "gemma:2b",
-        prompt: getPrompt(lang, userMsg),
-        stream: false
-      }),
-      timeout: 120000, // 120 seconds
-    });
+    // Add retry logic for Ollama connection
+    let ollamaResponse;
+    let retryCount = 0;
+    const maxRetries = 3;
+    
+    while (retryCount < maxRetries) {
+      try {
+        ollamaResponse = await fetch("http://localhost:11434/api/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model: "gemma:2b",
+            prompt: getPrompt(lang, userMsg),
+            stream: false
+          }),
+          timeout: 120000, // 120 seconds
+        });
+        
+        if (ollamaResponse.ok) {
+          break;
+        }
+      } catch (fetchError) {
+        retryCount++;
+        console.log(`Ollama request failed (attempt ${retryCount}/${maxRetries}):`, fetchError.message);
+        if (retryCount >= maxRetries) {
+          throw fetchError;
+        }
+        // Wait before retry
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
+    }
 
     if (!ollamaResponse.ok) {
       throw new Error(`Ollama API error: ${ollamaResponse.status} ${ollamaResponse.statusText}`);
@@ -118,7 +139,15 @@ app.post("/chat", async (req, res) => {
 
   } catch (error) {
     console.error("❌ Error:", error);
-    res.status(500).json({ success: false, message: error.message });
+    res.status(500).json({ 
+      success: false, 
+      message: error.message,
+      // Provide a fallback response for better user experience
+      text: "Sorry, I'm having trouble connecting to my AI brain right now. Please try again in a moment.",
+      subtitles: ["Sorry, I'm having trouble connecting to my AI brain right now.", "Please try again in a moment."],
+      audio: "",
+      lipsync: { mouthCues: [] }
+    });
   }
 });
 
@@ -139,3 +168,34 @@ function execPromise(command) {
 }
 
 app.listen(port, () => console.log(`AI Teacher backend running on port ${port}`));
+
+// Add health check endpoint
+app.get("/health", async (req, res) => {
+  try {
+    const ollamaResponse = await fetch("http://localhost:11434/api/tags", {
+      method: "GET",
+      timeout: 5000,
+    });
+    
+    if (ollamaResponse.ok) {
+      const data = await ollamaResponse.json();
+      res.json({
+        status: "healthy",
+        ollama: "connected",
+        models: data.models.map(m => m.name)
+      });
+    } else {
+      res.status(500).json({
+        status: "unhealthy",
+        ollama: "error",
+        error: `Ollama API error: ${ollamaResponse.status}`
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      status: "unhealthy",
+      ollama: "disconnected",
+      error: error.message
+    });
+  }
+});
