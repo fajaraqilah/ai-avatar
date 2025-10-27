@@ -1,9 +1,61 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useChat } from "../hooks/useChat";
 
 export const UI = ({ hidden, ...props }) => {
   const input = useRef();
   const { chat, loading, cameraZoomed, setCameraZoomed, message } = useChat();
+  const [isListening, setIsListening] = useState(false);
+  const [recognition, setRecognition] = useState(null);
+
+  // Initialize speech recognition
+  const initSpeechRecognition = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    if (!SpeechRecognition) {
+      alert("Speech recognition is not supported in your browser. Please try Chrome or Edge.");
+      return null;
+    }
+    
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'id-ID'; // Set to Indonesian, change if needed
+    
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      input.current.value = transcript;
+      setIsListening(false);
+    };
+    
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error", event.error);
+      setIsListening(false);
+    };
+    
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+    
+    return recognition;
+  };
+
+  const toggleSpeechRecognition = () => {
+    if (isListening) {
+      if (recognition) {
+        recognition.stop();
+      }
+      setIsListening(false);
+    } else {
+      let rec = recognition;
+      if (!rec) {
+        rec = initSpeechRecognition();
+        if (!rec) return;
+        setRecognition(rec);
+      }
+      rec.start();
+      setIsListening(true);
+    }
+  };
 
   const sendMessage = () => {
     const text = input.current.value;
@@ -12,6 +64,7 @@ export const UI = ({ hidden, ...props }) => {
       input.current.value = "";
     }
   };
+  
   if (hidden) {
     return null;
   }
@@ -98,6 +151,25 @@ export const UI = ({ hidden, ...props }) => {
               }
             }}
           />
+          <button
+            onClick={toggleSpeechRecognition}
+            className={`p-5 rounded-2xl shadow-lg transition-all duration-200 transform hover:scale-105 flex items-center justify-center ${
+              isListening 
+                ? "bg-red-500 hover:bg-red-600 text-white" 
+                : "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white"
+            }`}
+          >
+            {isListening ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+            )}
+          </button>
           <button
             disabled={loading || message}
             onClick={sendMessage}
