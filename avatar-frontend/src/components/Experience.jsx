@@ -10,6 +10,7 @@ import { Suspense, useEffect, useRef, useState, memo } from "react";
 import { useChat } from "../hooks/useChat";
 import { Avatar } from "./Avatar";
 import { AvatarStudent } from "./AvatarStudent";
+import { a, useSpring } from "@react-spring/three";
 
 const Dots = (props) => {
   const { loading } = useChat();
@@ -182,48 +183,58 @@ const TypewriterSubtitle = memo(({ message, fontSize = "medium" }) => {
 const UserInputSubtitle = memo((props) => {
   const { userInput } = useChat();
   const [subtitle, setSubtitle] = useState("");
-  
+
+  // Animasi muncul dan hilang
+  const fade = useSpring({
+    opacity: subtitle ? 1 : 0,
+    scale: subtitle ? 1 : 0.9,
+    config: { tension: 120, friction: 15 },
+  });
+
   useEffect(() => {
-    // Show the user's input text above the AvatarStudent
     if (userInput) {
       setSubtitle(userInput);
-      
-      // Clear subtitle after 10 seconds (longer display time)
-      const timer = setTimeout(() => {
-        setSubtitle("");
-      }, 10000);
-      
+
+      // Clear subtitle after 8 seconds
+      const timer = setTimeout(() => setSubtitle(""), 8000);
       return () => clearTimeout(timer);
     }
   }, [userInput]);
-  
+
   if (!subtitle) return null;
-  
+
   return (
-    <group {...props}>
-      {/* Improved background box with better styling */}
-      <mesh position={[0, 0, -0.01]}>
-        <planeGeometry args={[1, 0.4]} />
-        <meshBasicMaterial
-          color="#000000"
-          opacity={0.7}
+    <a.group {...props} {...fade}>
+      {/* Calm board design with soft edges */}
+      <mesh position={[0, 0, -0.02]}>
+        <planeGeometry args={[Math.min(1.6 + subtitle.length * 0.02, 3), 0.5]} />
+        <meshStandardMaterial
+          color="#e2e8f0"
           transparent
-          side={2}
+          opacity={0.9}
+          roughness={0.9}
+          metalness={0.05}
         />
       </mesh>
-      <Text 
-        fontSize={0.1}
-        anchorX={"center"} 
-        anchorY={"middle"}
-        color="#ffffff"
-        outlineWidth={0.01}
-        outlineColor="#000000"
-        maxWidth={2.2}
+
+      {/* Subtle border */}
+      <mesh position={[0, 0, -0.01]}>
+        <planeGeometry args={[Math.min(1.6 + subtitle.length * 0.02, 3) * 1.02, 0.52]} />
+        <meshBasicMaterial color="#cbd5e0" transparent opacity={0.3} />
+      </mesh>
+
+      {/* Smaller, calmer text */}
+      <Text
+        fontSize={0.08}
+        anchorX="center"
+        anchorY="middle"
+        color="#334155"
+        maxWidth={2.6}
+        lineHeight={1.2}
       >
         {subtitle}
-        <meshBasicMaterial attach="material" color="#ffffff" />
       </Text>
-    </group>
+    </a.group>
   );
 }, (prevProps, nextProps) => {
   // Custom comparison function for memo

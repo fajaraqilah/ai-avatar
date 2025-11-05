@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.3 public/models/64f1a714fe61576b46f27ca2.glb -o src/com
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { button, useControls } from "leva";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 
 import * as THREE from "three";
 import { useChat } from "../hooks/useChat";
@@ -106,6 +106,9 @@ const corresponding = {
 
 let setupMode = false;
 
+// Store bone references for gesture animation
+let gestureBones = {};
+
 export function Avatar(props) {
   const { nodes, materials, scene } = useGLTF("/models/67a47721736ce9f3e126d847.glb");
   const { message, onMessagePlayed } = useChat();
@@ -114,73 +117,126 @@ export function Avatar(props) {
   const { animations } = useGLTF("/models/animations.glb");
   const { actions } = useAnimations(animations, group);
 
-  const [animation, setAnimation] = useState("Waving");
+  const [animation, setAnimation] = useState("Idle");
+  const [secondaryAnimation, setSecondaryAnimation] = useState(null);
   const [lipsync, setLipsync] = useState();
   const [currentMessage, setCurrentMessage] = useState(null);
   const [audio, setAudio] = useState(null);
   const [facialExpression, setFacialExpression] = useState("");
+  const [gestureData, setGestureData] = useState({ compressed: { bones: [], frames: [] } });
   
+  // Animation timing
+  const lastUpdateRef = useRef(0);
+  const currentFrameRef = useRef(0);
 
-const talkingAnimations = ["Talking_3"]; // Default animasi
-const availableAnimations = animations.map((a) => a.name);
+  // Log all bone names for debugging
+  useEffect(() => {
+    console.log("Available bones in GLB model:");
+    scene.traverse((child) => {
+      if (child.isBone) {
+        console.log("- Bone:", child.name);
+        gestureBones[child.name] = child;
+      }
+    });
+  }, [scene]);
 
-useEffect(() => {
-  if (message) {
-    setCurrentMessage(message);
-  }
-}, [message]);
-
-useEffect(() => {
-  if (!currentMessage || !currentMessage.audio) return;
-
-  // Pilih animasi dari AI, fallback ke Talking_3
-  const selectedAnim = availableAnimations.includes(currentMessage.animation)
-    ? currentMessage.animation
-    : "Talking_3";
-  setAnimation(selectedAnim);
-
-  setFacialExpression(currentMessage.facialExpression || "smile");
-  setLipsync(currentMessage.lipsync || { mouthCues: [] });
-
-  // Handle both base64 string and file path
-  const audioSrc = currentMessage.audio.startsWith('data:') ? 
-    currentMessage.audio : 
-    "data:audio/mp3;base64," + currentMessage.audio;
-  const audio = new Audio(audioSrc);
-  audio.addEventListener('canplay', () => {
-    // Audio is ready to play
-    audio.play().catch(e => console.error("Audio play error:", e));
-  });
-  setAudio(audio);
-
-  audio.addEventListener('ended', () => {
-    setAnimation("Waving");
-    setFacialExpression("neutral");
-    onMessagePlayed();
-  });
-  
-  // Clean up audio on unmount
-  return () => {
-    if (audio) {
-      audio.pause();
-      audio.removeAttribute('src');
-      audio.load();
-    }
-  };
-}, [currentMessage]);
+  const talkingAnimations = ["Talking_0", "Talking_1", "Talking_2", "Talking_1", "Talking_4", "Talking_5", "Talking_6", "Talking_7"];
+  const availableAnimations = animations.map((a) => a.name);
 
   useEffect(() => {
-    if (!animation || !actions[animation]) {
-      console.warn("⚠️ Animasi tidak ditemukan:", animation);
-      return;
+    if (message) {
+      setCurrentMessage(message);
+      if (message.gesture) {
+        setGestureData(message.gesture);
+        console.log("Gesture data received:", message.gesture);
+        currentFrameRef.current = 0;
+      }
     }
+  }, [message]);
 
-    console.log("🎬 Menjalankan animasi:", animation);
-    actions[animation].reset().fadeIn(0.2).play();
+  useEffect(() => {
+    if (!currentMessage || !currentMessage.audio) return;
+
+    // Pilih animasi dari AI, fallback ke random talking animation
+    let selectedAnim = "Idle";
+    if (currentMessage.animation && availableAnimations.includes(currentMessage.animation)) {
+      selectedAnim = currentMessage.animation;
+    } else if ((currentMessage.animation || currentMessage.text) && talkingAnimations.length > 0) {
+      // If there's text but no specific animation, randomly select a talking animation
+      const randomIndex = Math.floor(Math.random() * talkingAnimations.length);
+      selectedAnim = talkingAnimations[randomIndex];
+    }
+    setAnimation(selectedAnim);
+    
+    // Set secondary animation if provided
+    setSecondaryAnimation(currentMessage.secondaryAnimation || null);
+    
+    console.log(`📥 Received animation data: Primary=${currentMessage.animation}, Secondary=${currentMessage.secondaryAnimation}`);
+    console.log(`🔄 Setting animations: Primary=${selectedAnim}, Secondary=${currentMessage.secondaryAnimation || null}`);
+
+    setFacialExpression(currentMessage.facialExpression || "smile");
+    setLipsync(currentMessage.lipsync || { mouthCues: [] });
+
+    // Handle both base64 string and file path
+    const audioSrc = currentMessage.audio.startsWith('data:') ? 
+      currentMessage.audio : 
+      "data:audio/mp3;base64," + currentMessage.audio;
+    const audio = new Audio(audioSrc);
+    audio.addEventListener('canplay', () => {
+      // Audio is ready to play
+      audio.play().catch(e => console.error("Audio play error:", e));
+    });
+    setAudio(audio);
+
+    audio.addEventListener('ended', () => {
+      setAnimation("Idle");
+      setSecondaryAnimation(null);
+      setFacialExpression("neutral");
+      onMessagePlayed();
+    });
+  
+    // Clean up audio on unmount
     return () => {
-      actions[animation]?.fadeOut(0.2);
+      if (audio) {
+        audio.pause();
+        audio.removeAttribute('src');
+        audio.load();
+      }
     };
-  }, [animation, actions]);
+  }, [currentMessage]);
+
+  useEffect(() => {
+    // Handle primary animation
+    if (animation && actions[animation]) {
+      console.log("🎬 Playing primary animation:", animation);
+      actions[animation].reset().fadeIn(0.2).play();
+    } else if (animation) {
+      console.warn("⚠️ Primary animation not found:", animation);
+    }
+    
+    // Handle secondary animation
+    if (secondaryAnimation && actions[secondaryAnimation]) {
+      console.log("🎬 Playing secondary animation:", secondaryAnimation);
+      actions[secondaryAnimation].reset().fadeIn(0.2).play();
+    } else if (secondaryAnimation) {
+      console.warn("⚠️ Secondary animation not found:", secondaryAnimation);
+    }
+    
+    // Log current animation states
+    console.log(`🔄 Current animation states: Primary=${animation}, Secondary=${secondaryAnimation}`);
+    
+    // Cleanup function
+    return () => {
+      if (animation && actions[animation]) {
+        console.log("🛑 Stopping primary animation:", animation);
+        actions[animation]?.fadeOut(0.2);
+      }
+      if (secondaryAnimation && actions[secondaryAnimation]) {
+        console.log("🛑 Stopping secondary animation:", secondaryAnimation);
+        actions[secondaryAnimation]?.fadeOut(0.2);
+      }
+    };
+  }, [animation, secondaryAnimation, actions]);
 
   const lerpMorphTarget = (target, value, speed = 0.1) => {
     scene.traverse((child) => {
@@ -212,7 +268,72 @@ useEffect(() => {
   // const [facialExpression, setFacialExpression] = useState("");
   // const [audio, setAudio] = useState();
 
-  useFrame(() => {
+  useFrame((state, delta) => {
+    // Handle gesture animations
+    if (gestureData && gestureData.compressed && gestureData.compressed.frames.length > 0) {
+      const { bones, frames } = gestureData.compressed;
+      
+      // Update timing
+      const now = performance.now() / 1000; // Convert to seconds
+      if (lastUpdateRef.current === 0) {
+        lastUpdateRef.current = now;
+      }
+      
+      const elapsedTime = now - lastUpdateRef.current;
+      lastUpdateRef.current = now;
+      
+      // Find current and next frames for interpolation
+      let currentFrame = frames[currentFrameRef.current];
+      let nextFrame = frames[Math.min(currentFrameRef.current + 1, frames.length - 1)];
+      
+      // Advance frame based on elapsed time (assuming 30 FPS source)
+      const frameDuration = 1 / 30;
+      if (elapsedTime >= frameDuration) {
+        currentFrameRef.current = Math.min(currentFrameRef.current + 1, frames.length - 1);
+        currentFrame = frames[currentFrameRef.current];
+        nextFrame = frames[Math.min(currentFrameRef.current + 1, frames.length - 1)];
+      }
+      
+      // Apply bone rotations
+      if (currentFrame && currentFrame.rot) {
+        const t = Math.min(1, (elapsedTime % frameDuration) / frameDuration); // Interpolation factor
+        
+        for (let i = 0; i < bones.length; i++) {
+          const boneName = bones[i];
+          const bone = gestureBones[boneName];
+          
+          if (bone && currentFrame.rot[i]) {
+            // Get current and next quaternions
+            const currentQuat = new THREE.Quaternion(
+              currentFrame.rot[i][0],
+              currentFrame.rot[i][1],
+              currentFrame.rot[i][2],
+              currentFrame.rot[i][3]
+            );
+            
+            let finalQuat = currentQuat;
+            
+            // If we have a next frame, interpolate between them
+            if (nextFrame && nextFrame.rot && nextFrame.rot[i]) {
+              const nextQuat = new THREE.Quaternion(
+                nextFrame.rot[i][0],
+                nextFrame.rot[i][1],
+                nextFrame.rot[i][2],
+                nextFrame.rot[i][3]
+              );
+              
+              // Spherical linear interpolation
+              finalQuat = currentQuat.clone().slerp(nextQuat, t);
+            }
+            
+            // Apply rotation to bone
+            bone.quaternion.copy(finalQuat);
+          }
+        }
+      }
+    }
+    
+    // Handle facial expressions and lipsync
     !setupMode &&
       Object.keys(nodes.EyeLeft.morphTargetDictionary).forEach((key) => {
         const mapping = facialExpressions[facialExpression];
@@ -416,4 +537,4 @@ useEffect(() => {
 }
 
 useGLTF.preload("/models/67a47721736ce9f3e126d847.glb");
-useGLTF.preload("/models/animations.glb");
+useGLTF.preload("/models/untitled.glb");
