@@ -1,47 +1,49 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react"; // React hooks for state and context
 
-const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:3000"; // Get backend URL from environment variables or use default
 
-const ChatContext = createContext();
+const ChatContext = createContext(); // Create context for chat functionality
 
+// Chat provider component that manages chat state and functions
 export const ChatProvider = ({ children }) => { 
-  const [userInput, setUserInput] = useState(""); // New state to track user input
+  const [userInput, setUserInput] = useState(""); // State to track user input for display purposes
   
+  // Main chat function that sends user message to backend and processes response
   const chat = async (message) => { 
-    // Store the user's input
+    // Store the user's input for display purposes
     setUserInput(message);
     
-    setLoading(true);
+    setLoading(true); // Set loading state to true while processing
 
     try {
-      // Kirim pertanyaan ke backend: Ollama + TTS + Rhubarb + Gesture AI
+      // Send user message to backend: Ollama + TTS + Rhubarb + Gesture AI
       const replyRes = await fetch(`${backendUrl}/chat`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        method: "POST", // HTTP POST method
+        headers: { "Content-Type": "application/json" }, // Set JSON content type
+        body: JSON.stringify({ message }), // Send user message in request body
       });
 
-      console.log("Response status:", replyRes.status);
-      console.log("Response headers:", [...replyRes.headers.entries()]);
+      console.log("Response status:", replyRes.status); // Log HTTP response status
+      console.log("Response headers:", [...replyRes.headers.entries()]); // Log response headers
 
-      if (!replyRes.ok) {
-        throw new Error(`HTTP error! status: ${replyRes.status}`);
+      if (!replyRes.ok) { // Check if HTTP response is not successful
+        throw new Error(`HTTP error! status: ${replyRes.status}`); // Throw error with status code
       }
       
-      const replyData = await replyRes.json();
+      const replyData = await replyRes.json(); // Parse JSON response from backend
       
-      console.log("Response data:", replyData);
+      console.log("Response data:", replyData); // Log response data
       
-      if (!replyData.success) {
-        throw new Error(replyData.message || "Failed to get response");
+      if (!replyData.success) { // Check if backend processing was unsuccessful
+        throw new Error(replyData.message || "Failed to get response"); // Throw error with message
       }
       
-      const replyText = replyData.text;
-      const subtitles = replyData.subtitles || [replyText];
+      const replyText = replyData.text; // Extract AI response text
+      const subtitles = replyData.subtitles || [replyText]; // Extract subtitles or use response text
 
       // Determine animation based on user message keywords (similar to backend logic)
-      let selectedAnimation = "Idle";
-      let secondaryAnimation = null;
+      let selectedAnimation = "Idle"; // Default primary animation
+      let secondaryAnimation = null; // No secondary animation by default
       
       // Define keywords for double animations using actual available animations
       const doubleAnimationKeywords = {
@@ -80,43 +82,44 @@ export const ChatProvider = ({ children }) => {
       };
       
       // Check if user message contains any double animation keywords
-      const lowerUserMsg = message.toLowerCase();
-      for (const [keyword, animations] of Object.entries(doubleAnimationKeywords)) {
-        if (lowerUserMsg.includes(keyword)) {
-          selectedAnimation = animations[0];
-          secondaryAnimation = animations[1];
-          console.log(`🎯 Double animation triggered: ${keyword} -> Primary: ${selectedAnimation}, Secondary: ${secondaryAnimation}`);
-          break;
+      const lowerUserMsg = message.toLowerCase(); // Convert message to lowercase for case-insensitive matching
+      for (const [keyword, animations] of Object.entries(doubleAnimationKeywords)) { // Iterate through keyword mappings
+        if (lowerUserMsg.includes(keyword)) { // Check if message contains keyword
+          selectedAnimation = animations[0]; // Set primary animation
+          secondaryAnimation = animations[1]; // Set secondary animation
+          console.log(`🎯 Double animation triggered: ${keyword} -> Primary: ${selectedAnimation}, Secondary: ${secondaryAnimation}`); // Log triggered animations
+          break; // Exit loop after first match
         }
       }
       
       // If no keyword matched but there's a message, use a random talking animation
-      if (message.trim() && selectedAnimation === "Idle" && !secondaryAnimation) {
+      if (message.trim() && selectedAnimation === "Idle" && !secondaryAnimation) { // Check if message exists but no animations were triggered
         const talkingAnimations = ["Talking_0", "Talking_1", "Talking_2", "Talking_1", "Talking_4", "Talking_5", "Talking_6", "Talking_7"];
-        const randomIndex = Math.floor(Math.random() * talkingAnimations.length);
-        selectedAnimation = talkingAnimations[randomIndex];
-        console.log(`🎲 Random talking animation selected: ${selectedAnimation}`);
+        const randomIndex = Math.floor(Math.random() * talkingAnimations.length); // Generate random index
+        selectedAnimation = talkingAnimations[randomIndex]; // Select random talking animation
+        console.log(`🎲 Random talking animation selected: ${selectedAnimation}`); // Log selected animation
       }
 
+      // Add the response to the messages queue
       setMessages((prev) => [
         ...prev,
         {
-          text: replyText,
-          subtitles: subtitles,
-          animation: selectedAnimation,
-          secondaryAnimation: secondaryAnimation,
-          facialExpression: "neutral", // Default expression
-          audio: replyData.audio || "",
-          lipsync: replyData.lipsync || { mouthCues: [] },
-          gesture: replyData.gesture || { compressed: { bones: [], frames: [] } } // Add gesture data
+          text: replyText, // AI response text
+          subtitles: subtitles, // Subtitle lines for display
+          animation: selectedAnimation, // Primary animation to play
+          secondaryAnimation: secondaryAnimation, // Secondary animation to play
+          facialExpression: "neutral", // Default facial expression
+          audio: replyData.audio || "", // Audio data in base64 format
+          lipsync: replyData.lipsync || { mouthCues: [] }, // Lip-sync data for mouth animation
+          gesture: replyData.gesture || { compressed: { bones: [], frames: [] } } // Gesture data for body animation
         },
       ]);
-    } catch (err) {
-      console.error("TTS or LLM ERROR:", err);
+    } catch (err) { // Handle any errors that occurred
+      console.error("TTS or LLM ERROR:", err); // Log error
       // Display error to user
       // Determine animation based on user message keywords (similar to backend logic)
-      let selectedAnimation = "Idle";
-      let secondaryAnimation = null;
+      let selectedAnimation = "Idle"; // Default primary animation
+      let secondaryAnimation = null; // No secondary animation by default
       
       // Define keywords for double animations using actual available animations
       const doubleAnimationKeywords = {
@@ -155,79 +158,84 @@ export const ChatProvider = ({ children }) => {
       };
       
       // Check if user message contains any double animation keywords
-      const lowerUserMsg = userInput.toLowerCase();
-      for (const [keyword, animations] of Object.entries(doubleAnimationKeywords)) {
-        if (lowerUserMsg.includes(keyword)) {
-          selectedAnimation = animations[0];
-          secondaryAnimation = animations[1];
-          console.log(`🎯 Double animation triggered: ${keyword} -> Primary: ${selectedAnimation}, Secondary: ${secondaryAnimation}`);
-          break;
+      const lowerUserMsg = userInput.toLowerCase(); // Convert stored user input to lowercase
+      for (const [keyword, animations] of Object.entries(doubleAnimationKeywords)) { // Iterate through keyword mappings
+        if (lowerUserMsg.includes(keyword)) { // Check if message contains keyword
+          selectedAnimation = animations[0]; // Set primary animation
+          secondaryAnimation = animations[1]; // Set secondary animation
+          console.log(`🎯 Double animation triggered: ${keyword} -> Primary: ${selectedAnimation}, Secondary: ${secondaryAnimation}`); // Log triggered animations
+          break; // Exit loop after first match
         }
       }
       
       // If no keyword matched but there's a message, use a random talking animation
-      if (userInput.trim() && selectedAnimation === "Idle" && !secondaryAnimation) {
+      if (userInput.trim() && selectedAnimation === "Idle" && !secondaryAnimation) { // Check if message exists but no animations were triggered
         const talkingAnimations = ["Talking_0", "Talking_1", "Talking_2", "Talking_1", "Talking_4", "Talking_5", "Talking_6", "Talking_7"];
-        const randomIndex = Math.floor(Math.random() * talkingAnimations.length);
-        selectedAnimation = talkingAnimations[randomIndex];
-        console.log(`🎲 Random talking animation selected: ${selectedAnimation}`);
+        const randomIndex = Math.floor(Math.random() * talkingAnimations.length); // Generate random index
+        selectedAnimation = talkingAnimations[randomIndex]; // Select random talking animation
+        console.log(`🎲 Random talking animation selected: ${selectedAnimation}`); // Log selected animation
       }
       
+      // Add error message to the messages queue
       setMessages((prev) => [
         ...prev,
         {
-          text: `Error: ${err.message}`,
-          subtitles: [`Error: ${err.message}`],
-          animation: selectedAnimation,
-          secondaryAnimation: secondaryAnimation,
-          facialExpression: "neutral",
-          audio: "",
-          lipsync: { mouthCues: [] },
-          gesture: { compressed: { bones: [], frames: [] } } // Add empty gesture data
+          text: `Error: ${err.message}`, // Error message text
+          subtitles: [`Error: ${err.message}`], // Error message as subtitle
+          animation: selectedAnimation, // Primary animation for error
+          secondaryAnimation: secondaryAnimation, // Secondary animation for error
+          facialExpression: "neutral", // Neutral facial expression for error
+          audio: "", // No audio for error
+          lipsync: { mouthCues: [] }, // Empty lip-sync data for error
+          gesture: { compressed: { bones: [], frames: [] } } // Empty gesture data for error
         },
       ]);
     }
 
-    setLoading(false);
+    setLoading(false); // Set loading state to false after processing
   };
 
-  const [messages, setMessages] = useState([]); 
-  const [message, setMessage] = useState(); 
-  const [loading, setLoading] = useState(false); 
-  const [cameraZoomed, setCameraZoomed] = useState(true); 
+  const [messages, setMessages] = useState([]); // State to store message queue
+  const [message, setMessage] = useState(); // State to store current message being processed
+  const [loading, setLoading] = useState(false); // State to track loading status
+  const [cameraZoomed, setCameraZoomed] = useState(true); // State to track camera zoom status
   
+  // Function called when a message finishes playing
   const onMessagePlayed = () => { 
-    setMessages((messages) => messages.slice(1)); 
+    setMessages((messages) => messages.slice(1)); // Remove the first message from queue
   };
 
+  // Effect to update current message when messages queue changes
   useEffect(() => { 
-    if (messages.length > 0) {
-      setMessage(messages[0]); 
+    if (messages.length > 0) { // Check if there are messages in queue
+      setMessage(messages[0]); // Set first message as current message
     } else { 
-      setMessage(null); 
+      setMessage(null); // Clear current message if queue is empty
     } 
-  }, [messages]);
+  }, [messages]); // Run effect when messages queue changes
 
+  // Provide chat context values to child components
   return ( 
     <ChatContext.Provider value={{ 
-      chat, 
-      message, 
-      onMessagePlayed, 
-      loading, 
-      cameraZoomed, 
-      setCameraZoomed,
-      userInput, // Expose userInput to context
-      setUserInput // Expose setUserInput to context
+      chat, // Chat function
+      message, // Current message
+      onMessagePlayed, // Function called when message finishes playing
+      loading, // Loading status
+      cameraZoomed, // Camera zoom status
+      setCameraZoomed, // Function to update camera zoom status
+      userInput, // User input text
+      setUserInput // Function to update user input text
     }} > 
-      {children} 
+      {children} // Render child components
     </ChatContext.Provider> 
   ); 
 };
 
+// Custom hook to use chat context in components
 export const useChat = () => { 
-  const context = useContext(ChatContext); 
-  if (!context) { 
-    throw new Error("useChat must be used within a ChatProvider"); 
+  const context = useContext(ChatContext); // Get chat context
+  if (!context) { // Check if used outside ChatProvider
+    throw new Error("useChat must be used within a ChatProvider"); // Throw error if used incorrectly
   } 
-  return context; 
+  return context; // Return chat context
 };
