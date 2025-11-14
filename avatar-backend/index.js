@@ -123,29 +123,49 @@ app.post("/chat", async (req, res) => {
     const cleanText = cleanTextForTTS(text); // Clean AI response for text-to-speech
 
     // === PIPELINE ===
-    // 1. Generate gesture (commented out as per task requirements)
-    // await execPromise(`py Text2gestures/generate_gesture.py"${cleanText}"`);
-    
-    // Read the generated gesture data (using empty gesture data as fallback)
+    // 1. Generate gesture using our new Python API
     let gestureData = {};
     try {
-      // const gestureBuffer = await fs.readFile("audios/gesture.json", "utf-8");
-      // gestureData = JSON.parse(gestureBuffer);
+      // Call our Flask API to generate gesture data in Mixamo-compatible format
+      const gestureResponse = await fetch("http://localhost:5001/generate-gesture-mixamo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text: cleanText,
+          format: "json"  // or "fbx" for FBX file
+        }),
+        timeout: 30000  // 30 second timeout
+      });
       
-      // Using empty gesture data as we've removed the Text2Gestures generation
-      gestureData = {
-        compressed: {
-          bones: [], // Empty bones array
-          frames: [] // Empty frames array
+      if (gestureResponse.ok) {
+        const gestureResult = await gestureResponse.json();
+        if (gestureResult.success) {
+          // Use the Mixamo-compatible gesture data
+          gestureData = gestureResult.data || {
+            bones: [],
+            frames: []
+          };
+        } else {
+          console.log("Failed to generate gesture data, using empty gesture data");
+          console.log("Error details:", gestureResult.error);
+          gestureData = {
+            bones: [],
+            frames: []
+          };
         }
-      };
+      } else {
+        console.log(`Failed to generate gesture data (HTTP ${gestureResponse.status}), using empty gesture data`);
+        gestureData = {
+          bones: [],
+          frames: []
+        };
+      }
     } catch (e) {
-      console.log("No gesture data found, using empty gesture data"); // Log if no gesture data found
+      console.log("Error generating gesture data, using empty gesture data:", e.message);
+      console.error("Full error:", e);
       gestureData = {
-        compressed: {
-          bones: [], // Empty bones array
-          frames: [] // Empty frames array
-        }
+        bones: [],
+        frames: []
       };
     }
     
@@ -178,7 +198,7 @@ app.post("/chat", async (req, res) => {
       subtitles, // Subtitle lines for display
       audio: audioBase64, // Audio data in base64 format
       lipsync: lipsync, // Lip-sync data for animation
-      gesture: gestureData  // Gesture data for animation
+      gesture: gestureData  // Gesture data for animation (Mixamo-compatible)
     });
 
   } catch (error) { // Handle any errors that occurred
@@ -192,10 +212,8 @@ app.post("/chat", async (req, res) => {
       audio: "", // Empty audio data
       lipsync: { mouthCues: [] }, // Empty lip-sync data
       gesture: { // Empty gesture data
-        compressed: {
-          bones: [], // Empty bones array
-          frames: [] // Empty frames array
-        }
+        bones: [], // Empty bones array
+        frames: [] // Empty frames array
       }
     });
   }
