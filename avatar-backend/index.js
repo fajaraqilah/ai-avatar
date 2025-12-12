@@ -22,6 +22,14 @@ function detectLanguage(input) {
   return indo ? "indonesian" : "english"; // Return detected language
 }
 
+// Add greeting detection function
+function isGreeting(text) {
+  const greetingWords = ["hai", "halo", "hello", "hi", "assalam", "assalamu", "selamat pagi", "selamat siang"];
+  const lowerText = text.toLowerCase().trim();
+  return greetingWords.some(word => lowerText.includes(word));
+}
+
+
 // Generate appropriate prompt based on detected language
 function getPrompt(lang, input) {
   return lang === "indonesian"
@@ -54,6 +62,9 @@ function createLineByLineSubtitles(text, maxChars = 100) {
   return lines; // Return array of subtitle lines
 }
 
+// Gesture classification wrapper - uses ML-based classifier from textClassifier.js
+
+
 // Main chat endpoint - handles user messages and generates AI responses
 app.post("/chat", async (req, res) => {
   try {
@@ -75,7 +86,7 @@ app.post("/chat", async (req, res) => {
           method: "POST",
           headers: { "Content-Type": "application/json" }, // Set JSON content type
           body: JSON.stringify({
-            model: "gemma:2b", // Specify AI model to use
+            model: "gemma:2b", // Specify AI model - using gemma:2b (faster than tinyllama)
             prompt: getPrompt(lang, userMsg), // Generate appropriate prompt
             stream: false // Don't stream response
           }),
@@ -103,92 +114,108 @@ app.post("/chat", async (req, res) => {
     const result = await ollamaResponse.json(); // Parse JSON response
     const text = result.response || "No response."; // Extract AI response text
 
-    // Simple animation selection - frontend now handles keyword logic
-    let animationState = "Idle"; // Default animation state
-    let secondaryAnimation = null; // No secondary animation by default
-    
-    // If there's a message, use a random talking animation
-    if (userMsg.trim()) { // Check if user message is not empty
-      const talkingAnimations = ["Talking_0", "Talking_1", "Talking_2", "Talking_1", "Talking_4", "Talking_5", "Talking_6", "Talking_7"];
-      const randomIndex = Math.floor(Math.random() * talkingAnimations.length); // Generate random index
-      animationState = talkingAnimations[randomIndex]; // Select random talking animation
-      console.log(`🎲 Random talking animation selected: ${animationState}`); // Log selected animation
-    }
-    
-    console.log(`📤 Sending animation response: Primary=${animationState}, Secondary=${secondaryAnimation}`); // Log animation info
-
     console.log("Response received, length:", text.length); // Log response length
 
     // Clean text for TTS
     const cleanText = cleanTextForTTS(text); // Clean AI response for text-to-speech
+    
+    // === Gesture classification (Rule-based override first, then ML-based) ===
+    let gestureLabels = [];
+    let rulesTriggered = false;
+    let rawClassifierOutput = null;
+    
+    try {
+      // 1. Check for greeting rule-based override first
+      if (isGreeting(userMsg)) {
+        gestureLabels = ["Greeting"];
+        rulesTriggered = true;
+        console.log('Rule-based greeting detection triggered');
+      } else {
+        // 2. Use ML-based classifier with original user input
+        const classifierTextFile = "audios/temp_text_for_classifier.txt";
+        await fs.writeFile(classifierTextFile, userMsg, "utf-8"); // Use userMsg instead of cleanText
+        // call python classifier
+        const classifierCmd = `py textClassifier.py --file "${classifierTextFile}"`;
+        const classifierOutput = await execPromise(classifierCmd);
+        try {
+          const parsed = JSON.parse(classifierOutput.trim());
+          rawClassifierOutput = parsed;
+          if (parsed && Array.isArray(parsed.predictions) && parsed.predictions.length > 0) {
+            const topPrediction = parsed.predictions[0];
+            // Apply confidence threshold
+            if (topPrediction.confidence >= 0.40) {
+              gestureLabels = [topPrediction.label];
+            } else {
+              // Fallback to "normal" if confidence is low
+              gestureLabels = ["normal"];
+            }
+          } else {
+            // Fallback if no predictions
+            gestureLabels = ["normal"];
+          }
+        } catch (e) {
+          console.log('Could not parse classifier output', e.message);
+          // Fallback on parsing error
+          gestureLabels = ["normal"];
+        }
+      }
+    } catch (classifierErr) {
+      console.log('Classifier call failed:', classifierErr.message);
+      // Fallback on classifier failure
+      gestureLabels = ["normal"];
+    }
 
     // === PIPELINE ===
-    // 1. Generate gesture using our new Python API
-    let gestureData = {};
-    try {
-      // Call our Flask API to generate gesture data in Mixamo-compatible format
-      const gestureResponse = await fetch("http://localhost:5001/generate-gesture-mixamo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          text: cleanText,
-          format: "json"  // or "fbx" for FBX file
-        }),
-        timeout: 30000  // 30 second timeout
-      });
-      
-      if (gestureResponse.ok) {
-        const gestureResult = await gestureResponse.json();
-        if (gestureResult.success) {
-          // Use the Mixamo-compatible gesture data
-          gestureData = gestureResult.data || {
-            bones: [],
-            frames: []
-          };
-        } else {
-          console.log("Failed to generate gesture data, using empty gesture data");
-          console.log("Error details:", gestureResult.error);
-          gestureData = {
-            bones: [],
-            frames: []
-          };
-        }
-      } else {
-        console.log(`Failed to generate gesture data (HTTP ${gestureResponse.status}), using empty gesture data`);
-        gestureData = {
-          bones: [],
-          frames: []
-        };
-      }
-    } catch (e) {
-      console.log("Error generating gesture data, using empty gesture data:", e.message);
-      console.error("Full error:", e);
-      gestureData = {
-        bones: [],
-        frames: []
-      };
-    }
-    
-    // 2. Generate TTS (Text-to-Speech)
+    // 1. Generate TTS (Text-to-Speech) FIRST to get duration
     const tempTextFile = "audios/temp_text.txt"; // Temporary file for text input
     await fs.writeFile(tempTextFile, cleanText, "utf-8"); // Write cleaned text to file
+    // Removed Python TTS script call since we're using a fully Mixamo-based system
     await execPromise(`py tts.py "${tempTextFile}"`); // Execute TTS script
     
-    // 3. Convert to WAV format
-    await execPromise(`..\\ffmpeg\\bin\\ffmpeg.exe -y -i audios/generated.mp3 audios/generated.wav`);
+    // 2. Convert to WAV format
+    try {
+      await execPromise(`..\\ffmpeg\\bin\\ffmpeg.exe -y -i audios/generated.mp3 audios/generated.wav`);
+    } catch (conversionError) {
+      console.log("Warning: Could not convert audio file, may affect lip-sync");
+    }
     
-    // 4. Generate lip-sync data
-    await execPromise(`..\\Rhubarb-Lip-Sync\\bin\\rhubarb.exe -f json -o audios\\generated.json audios\\generated.wav -r phonetic`);
+    // 3. Get audio duration using ffprobe
+    let audioDuration = 3.0; // Default duration
+    try {
+      const durationOutput = await execPromise(`..\\ffmpeg\\bin\\ffprobe.exe -v quiet -show_entries format=duration -of csv=p=0 audios/generated.wav`);
+      audioDuration = parseFloat(durationOutput.trim()) || 3.0;
+      console.log(`Audio duration: ${audioDuration} seconds`);
+    } catch (durationError) {
+      console.log("Could not determine audio duration, using default of 3.0 seconds");
+    }
+  
+    
+    // 5. Generate lip-sync data
+    try {
+      await execPromise(`..\\Rhubarb-Lip-Sync\\bin\\rhubarb.exe -f json -o audios\\generated.json audios\\generated.wav`);
+    } catch (lipsyncError) {
+      console.log("Warning: Could not generate lip-sync data");
+    }
 
     const subtitles = createLineByLineSubtitles(text, 100); // Create subtitles from AI response
     
     // Read the generated lip-sync JSON file
-    const lipsyncData = await fs.readFile("audios/generated.json", "utf-8"); // Read lip-sync data
-    const lipsync = JSON.parse(lipsyncData); // Parse lip-sync JSON
+    let lipsync = { mouthCues: [] }; // Default empty lip-sync data
+    try {
+      const lipsyncData = await fs.readFile("audios/generated.json", "utf-8"); // Read lip-sync data
+      lipsync = JSON.parse(lipsyncData); // Parse lip-sync JSON
+    } catch (lipsyncReadError) {
+      console.log("Warning: Could not read lip-sync data file");
+    }
 
     // Read the generated MP3 file and convert to base64
-    const audioBuffer = await readFile("audios/generated.mp3"); // Read audio file
-    const audioBase64 = audioBuffer.toString('base64'); // Convert to base64 for transmission
+    let audioBase64 = ""; // Default empty audio
+    try {
+      const audioBuffer = await readFile("audios/generated.mp3"); // Read audio file
+      audioBase64 = audioBuffer.toString('base64'); // Convert to base64 for transmission
+    } catch (audioReadError) {
+      console.log("Warning: Could not read audio file");
+    }
 
     // Send response with all generated data
     res.json({
@@ -198,7 +225,8 @@ app.post("/chat", async (req, res) => {
       subtitles, // Subtitle lines for display
       audio: audioBase64, // Audio data in base64 format
       lipsync: lipsync, // Lip-sync data for animation
-      gesture: gestureData  // Gesture data for animation (Mixamo-compatible)
+      gestureLabels: gestureLabels, // Gesture labels predicted by classifier
+      audioDuration // Audio duration for loop calculation
     });
 
   } catch (error) { // Handle any errors that occurred
@@ -211,10 +239,7 @@ app.post("/chat", async (req, res) => {
       subtitles: ["Sorry, I'm having trouble connecting to my AI brain right now.", "Please try again in a moment."],
       audio: "", // Empty audio data
       lipsync: { mouthCues: [] }, // Empty lip-sync data
-      gesture: { // Empty gesture data
-        bones: [], // Empty bones array
-        frames: [] // Empty frames array
-      }
+      audioDuration: 0 // No audio duration
     });
   }
 });
@@ -268,5 +293,139 @@ app.get("/health", async (req, res) => {
       ollama: "disconnected", // Indicate Ollama disconnection
       error: error.message // Include error message
     });
+  }
+});
+
+// Debugging endpoint for classifier alone
+app.post('/classify', async (req, res) => {
+  try {
+    const text = req.body && req.body.text ? String(req.body.text) : '';
+    if (!text) return res.status(400).json({ error: 'Missing text in request body' });
+    
+    // Check for greeting rule-based override first
+    let rulesTriggered = false;
+    let gestureLabels = [];
+    let rawClassifierOutput = null;
+    let confidence = 0;
+    let label = "";
+    
+    if (isGreeting(text)) {
+      gestureLabels = ["Greeting"];
+      rulesTriggered = true;
+      label = "Greeting";
+      confidence = 1.0;
+    } else {
+      const classifierTextFile = 'audios/temp_text_for_classifier.txt';
+      await fs.writeFile(classifierTextFile, text, 'utf-8');
+      const out = await execPromise(`py textClassifier.py --file "${classifierTextFile}"`);
+      let parsed = {};
+      try { 
+        parsed = JSON.parse(out.trim()); 
+        rawClassifierOutput = parsed;
+        if (parsed && Array.isArray(parsed.predictions) && parsed.predictions.length > 0) {
+          const topPrediction = parsed.predictions[0];
+          label = topPrediction.label;
+          confidence = topPrediction.confidence;
+          
+          // Apply confidence threshold
+          if (confidence >= 0.40) {
+            gestureLabels = [label];
+          } else {
+            // Fallback to "normal" if confidence is low
+            gestureLabels = ["normal"];
+            label = "normal";
+            confidence = 1.0 - confidence; // Inverted confidence for fallback
+          }
+        } else {
+          // Fallback if no predictions
+          gestureLabels = ["normal"];
+          label = "normal";
+          confidence = 0.0;
+        }
+      } catch (e) { 
+        parsed = { raw: out }; 
+        gestureLabels = ["normal"];
+        label = "normal";
+        confidence = 0.0;
+      }
+    }
+    
+    res.json({ 
+      success: true, 
+      classifier: {
+        label: label,
+        confidence: confidence,
+        rulesTriggered: rulesTriggered,
+        rawClassifierOutput: rawClassifierOutput,
+        gestureLabels: gestureLabels
+      }
+    });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
+// Add GET /classify endpoint
+app.get('/classify', async (req, res) => {
+  try {
+    const text = req.query && req.query.text ? String(req.query.text) : '';
+    if (!text) return res.status(400).json({ error: 'Missing text query parameter' });
+    
+    // Check for greeting rule-based override first
+    let rulesTriggered = false;
+    let gestureLabels = [];
+    let rawClassifierOutput = null;
+    let confidence = 0;
+    let label = "";
+    
+    if (isGreeting(text)) {
+      gestureLabels = ["Greeting"];
+      rulesTriggered = true;
+      label = "Greeting";
+      confidence = 1.0;
+    } else {
+      const classifierTextFile = 'audios/temp_text_for_classifier.txt';
+      await fs.writeFile(classifierTextFile, text, 'utf-8');
+      const out = await execPromise(`py textClassifier.py --file "${classifierTextFile}"`);
+      let parsed = {};
+      try { 
+        parsed = JSON.parse(out.trim()); 
+        rawClassifierOutput = parsed;
+        if (parsed && Array.isArray(parsed.predictions) && parsed.predictions.length > 0) {
+          const topPrediction = parsed.predictions[0];
+          label = topPrediction.label;
+          confidence = topPrediction.confidence;
+          
+          // Apply confidence threshold
+          if (confidence >= 0.40) {
+            gestureLabels = [label];
+          } else {
+            // Fallback to "normal" if confidence is low
+            gestureLabels = ["normal"];
+            label = "normal";
+            confidence = 1.0 - confidence; // Inverted confidence for fallback
+          }
+        } else {
+          // Fallback if no predictions
+          gestureLabels = ["normal"];
+          label = "normal";
+          confidence = 0.0;
+        }
+      } catch (e) { 
+        parsed = { raw: out }; 
+        gestureLabels = ["normal"];
+        label = "normal";
+        confidence = 0.0;
+      }
+    }
+    
+    res.json({ 
+      label: label,
+      confidence: confidence,
+      rulesTriggered: rulesTriggered,
+      rawClassifierOutput: rawClassifierOutput
+    });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 });

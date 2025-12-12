@@ -1,0 +1,1063 @@
+text,label
+"halo apa kabar",Greeting
+"selamat pagi avatar",Greeting
+"hai, bagaimana kabarmu hari ini",Greeting
+"assalamualaikum, apa kabar",Greeting
+"halo avatar AI, senang bertemu denganmu",Greeting
+"selamat siang, semoga hari mu menyenangkan",Greeting
+"hai avatar, apa kabar hari ini",Greeting
+"selamat sore, bagaimana aktivitasmu",Greeting
+"halo, semoga hari mu indah",Greeting
+"selamat malam, semoga istirahat mu nyenyak",Greeting
+"bisakah kamu jelaskan teknologi cloud",normal
+"tolong jelaskan dengan santai",Talking_1
+"coba jelaskan dengan tegas",normal
+"ceritakan sebuah kisah",Talking_3
+"apa itu kecerdasan buatan",normal
+"jelaskan bagaimana komputer bisa belajar",normal
+"bisakah kamu jelaskan cara kerja jaringan saraf",normal
+"apa itu machine learning",normal
+"jelaskan konsep deep learning",normal
+"bagaimana cara kerja algoritma",normal
+"tolong jelaskan apa itu big data",normal
+"bisakah kamu jelaskan pengertian IoT",normal
+"apa itu blockchain",normal
+"jelaskan konsep cloud computing",normal
+"bagaimana cara kerja robot",normal
+"tolong jelaskan tentang keamanan siber",normal
+"bisakah kamu jelaskan apa itu virtual reality",normal
+"apa itu augmented reality",normal
+"jelaskan konsep internet of things",normal
+"bagaimana cara kerja chatbot",normal
+"tolong jelaskan tentang data science",normal
+"bisakah kamu jelaskan pengertian neural network",normal
+"apa itu algoritma kriptografi",normal
+"jelaskan konsep sistem operasi",normal
+"bagaimana cara kerja database",normal
+"tolong jelaskan tentang jaringan komputer",normal
+"bisakah kamu jelaskan apa itu server",normal
+"apa itu protokol komunikasi",normal
+"jelaskan konsep keamanan jaringan",normal
+"bagaimana cara kerja firewall",normal
+"tolong jelaskan tentang enkripsi data",normal
+"bisakah kamu jelaskan pengertian malware",normal
+"apa itu serangan siber",normal
+"jelaskan konsep kecerdasan buatan",normal
+"bagaimana cara kerja algoritma pencarian",normal
+"tolong jelaskan tentang sistem rekomendasi",normal
+"bisakah kamu jelaskan apa itu data mining",normal
+"apa itu algoritma sorting",normal
+"jelaskan konsep pemrograman berorientasi objek",normal
+"bagaimana cara kerja compiler",normal
+"tolong jelaskan tentang debugging",normal
+"bisakah kamu jelaskan pengertian API",normal
+"apa itu framework pengembangan",normal
+"jelaskan konsep version control",normal
+"bagaimana cara kerja git",normal
+"tolong jelaskan tentang continuous integration",normal
+"bisakah kamu jelaskan apa itu container",normal
+"apa itu microservices",normal
+"jelaskan konsep devops",normal
+"bagaimana cara kerja load balancer",normal
+"tolong jelaskan tentang caching",normal
+"bisakah kamu jelaskan pengertian CDN",normal
+"apa itu edge computing",normal
+"jelaskan konsep serverless",normal
+"bagaimana cara kerja CDN",normal
+"tolong jelaskan tentang content delivery",normal
+"bisakah kamu jelaskan apa itu streaming",normal
+"apa itu real-time processing",normal
+"jelaskan konsep event-driven",normal
+"bagaimana cara kerja message queue",normal
+"tolong jelaskan tentang pub-sub",normal
+"bisakah kamu jelaskan pengertian webhook",normal
+"apa itu callback function",normal
+"jelaskan konsep asynchronous",normal
+"bagaimana cara kerja promise",normal
+"tolong jelaskan tentang async-await",normal
+"bisakah kamu jelaskan apa itu threading",normal
+"apa itu concurrency",normal
+"jelaskan konsep parallel processing",normal
+"bagaimana cara kerja multithreading",normal
+"tolong jelaskan tentang deadlock",normal
+"bisakah kamu jelaskan pengertian race condition",normal
+"apa itu mutex",normal
+"jelaskan konsep semaphore",normal
+"bagaimana cara kerja lock",normal
+"tolong jelaskan tentang synchronization",normal
+"bisakah kamu jelaskan apa itu memory management",normal
+"apa itu garbage collection",normal
+"jelaskan konsep stack dan heap",normal
+"bagaimana cara kerja virtual memory",normal
+"tolong jelaskan tentang paging",normal
+"bisakah kamu jelaskan pengertian segmentation",normal
+"apa itu file system",normal
+"jelaskan konsep database indexing",normal
+"bagaimana cara kerja SQL",normal
+"tolong jelaskan tentang NoSQL",normal
+"bisakah kamu jelaskan apa itu MongoDB",normal
+"apa itu Redis",normal
+"jelaskan konsep caching database",normal
+"bagaimana cara kerja transaction",normal
+"tolong jelaskan tentang ACID",normal
+"bisakah kamu jelaskan pengertian CAP theorem",normal
+"apa itu consistency model",normal
+"jelaskan konsep eventual consistency",normal
+"bagaimana cara kerja replication",normal
+"tolong jelaskan tentang sharding",normal
+"bisakah kamu jelaskan apa itu partitioning",normal
+"apa itu load balancing",normal
+"jelaskan konsep failover",normal
+"bagaimana cara kerja clustering",normal
+"tolong jelaskan tentang high availability",normal
+"bisakah kamu jelaskan pengertian disaster recovery",normal
+"apa itu backup strategy",normal
+"jelaskan konsep monitoring",normal
+"bagaimana cara kerja logging",normal
+"tolong jelaskan tentang alerting",normal
+"bisakah kamu jelaskan apa itu metrics",normal
+"apa itu dashboard monitoring",normal
+"jelaskan konsep tracing",normal
+"bagaimana cara kerja profiling",normal
+"tolong jelaskan tentang debugging tools",normal
+"bisakah kamu jelaskan pengertian performance tuning",normal
+"apa itu optimization",normal
+"jelaskan konsep scalability",normal
+"bagaimana cara kerja auto scaling",normal
+"tolong jelaskan tentang elasticity",normal
+"bisakah kamu jelaskan apa itu resource allocation",normal
+"apa itu capacity planning",normal
+"jelaskan konsep cost optimization",normal
+"bagaimana cara kerja budgeting",normal
+"tolong jelaskan tentang forecasting",normal
+"bisakah kamu jelaskan pengertian analytics",normal
+"apa itu business intelligence",normal
+"jelaskan konsep data visualization",normal
+"bagaimana cara kerja reporting",normal
+"tolong jelaskan tentang dashboard",normal
+"bisakah kamu jelaskan apa itu KPI",normal
+"apa itu metrics tracking",normal
+"jelaskan konsep goal setting",normal
+"bagaimana cara kerja OKR",normal
+"tolong jelaskan tentang SMART goals",normal
+"bisakah kamu jelaskan pengertian project management",normal
+"apa itu agile methodology",normal
+"jelaskan konsep scrum",normal
+"bagaimana cara kerja sprint",normal
+"tolong jelaskan tentang retrospective",normal
+"bisakah kamu jelaskan apa itu standup meeting",normal
+"apa itu daily standup",normal
+"jelaskan konsep kanban",normal
+"bagaimana cara kerja workflow",normal
+"tolong jelaskan tentang task management",normal
+"bisakah kamu jelaskan pengertian time tracking",normal
+"apa itu productivity tools",normal
+"jelaskan konsep collaboration",normal
+"bagaimana cara kerja teamwork",normal
+"tolong jelaskan tentang communication",normal
+"bisakah kamu jelaskan apa itu feedback",normal
+"apa itu performance review",normal
+"jelaskan konsep coaching",normal
+"bagaimana cara kerja mentoring",normal
+"tolong jelaskan tentang leadership",normal
+"bisakah kamu jelaskan pengertian management",normal
+"apa itu team building",normal
+"jelaskan konsep motivation",normal
+"bagaimana cara kerja engagement",normal
+"tolong jelaskan tentang recognition",normal
+"bisakah kamu jelaskan apa itu reward system",normal
+"apa itu incentive program",normal
+"jelaskan konsep career development",normal
+"bagaimana cara kerja training",normal
+"tolong jelaskan tentang education",normal
+"bisakah kamu jelaskan pengertian learning",normal
+"apa itu skill development",normal
+"jelaskan konsep knowledge sharing",normal
+"bagaimana cara kerja documentation",normal
+"tolong jelaskan tentang best practices",normal
+"bisakah kamu jelaskan apa itu standard operating procedure",normal
+"apa itu guidelines",normal
+"jelaskan konsep compliance",normal
+"bagaimana cara kerja regulation",normal
+"tolong jelaskan tentang governance",normal
+"bisakah kamu jelaskan pengertian risk management",normal
+"apa itu threat assessment",normal
+"jelaskan konsep vulnerability",normal
+"bagaimana cara kerja penetration testing",normal
+"tolong jelaskan tentang security audit",normal
+"bisakah kamu jelaskan apa itu compliance check",normal
+"apa itu security policy",normal
+"jelaskan konsep incident response",normal
+"bagaimana cara kerja forensics",normal
+"tolong jelaskan tentang recovery",normal
+"bisakah kamu jelaskan pengertian backup",normal
+"apa itu restore process",normal
+"jelaskan konsep disaster recovery plan",normal
+"bagaimana cara kerja business continuity",normal
+"tolong jelaskan tentang contingency planning",normal
+"bisakah kamu jelaskan apa itu crisis management",normal
+"apa itu emergency response",normal
+"jelaskan konsep incident management",normal
+"bagaimana cara kerja problem solving",normal
+"tolong jelaskan tentang troubleshooting",normal
+"bisakah kamu jelaskan pengertian root cause analysis",normal
+"apa itu corrective action",normal
+"jelaskan konsep preventive action",normal
+"bagaimana cara kerja continuous improvement",normal
+"tolong jelaskan tentang kaizen",normal
+"bisakah kamu jelaskan apa itu lean methodology",normal
+"apa itu six sigma",normal
+"jelaskan konsep quality management",normal
+"bagaimana cara kerja quality control",normal
+"tolong jelaskan tentang quality assurance",normal
+"bisakah kamu jelaskan pengertian testing",normal
+"apa itu unit testing",normal
+"jelaskan konsep integration testing",normal
+"bagaimana cara kerja system testing",normal
+"tolong jelaskan tentang acceptance testing",normal
+"bisakah kamu jelaskan apa itu user testing",normal
+"apa itu usability testing",normal
+"jelaskan konsep performance testing",normal
+"bagaimana cara kerja load testing",normal
+"tolong jelaskan tentang stress testing",normal
+"bisakah kamu jelaskan pengertian security testing",normal
+"apa itu penetration testing",normal
+"jelaskan konsep vulnerability scanning",normal
+"bagaimana cara kerja code review",normal
+"tolong jelaskan tentang static analysis",normal
+"bisakah kamu jelaskan apa itu dynamic analysis",normal
+"apa itu software composition analysis",normal
+"jelaskan konsep dependency checking",normal
+"bagaimana cara kerja license compliance",normal
+"tolong jelaskan tentang open source",normal
+"bisakah kamu jelaskan pengertian proprietary software",normal
+"apa itu freeware",normal
+"jelaskan konsep shareware",normal
+"bagaimana cara kerja trial version",normal
+"tolong jelaskan tentang demo",normal
+"bisakah kamu jelaskan apa itu evaluation",normal
+"apa itu proof of concept",normal
+"jelaskan konsep prototype",normal
+"bagaimana cara kerja MVP",normal
+"tolong jelaskan tentang minimum viable product",normal
+"bisakah kamu jelaskan pengertian agile development",normal
+"apa itu waterfall model",normal
+"jelaskan konsep spiral model",normal
+"bagaimana cara kerja RAD model",normal
+"tolong jelaskan tentang iterative development",normal
+"bisakah kamu jelaskan apa itu incremental development",normal
+"apa itu feature driven development",normal
+"jelaskan konsep test driven development",normal
+"bagaimana cara kerja behavior driven development",normal
+"tolong jelaskan tentang domain driven design",normal
+"bisakah kamu jelaskan pengertian model driven development",normal
+"apa itu service oriented architecture",normal
+"jelaskan konsep microservices architecture",normal
+"bagaimana cara kerja API gateway",normal
+"tolong jelaskan tentang service mesh",normal
+"bisakah kamu jelaskan apa itu container orchestration",normal
+"apa itu Kubernetes",normal
+"jelaskan konsep Docker",normal
+"bagaimana cara kerja container registry",normal
+"tolong jelaskan tentang image management",normal
+"bisakah kamu jelaskan pengertian deployment",normal
+"apa itu release management",normal
+"jelaskan konsep versioning",normal
+"bagaimana cara kerja tagging",normal
+"tolong jelaskan tentang branching strategy",normal
+"bisakah kamu jelaskan apa itu merge request",normal
+"apa itu pull request",normal
+"jelaskan konsep code review process",normal
+"bagaimana cara kerja continuous delivery",normal
+"tolong jelaskan tentang continuous deployment",normal
+"bisakah kamu jelaskan pengertian blue-green deployment",normal
+"apa itu canary release",normal
+"jelaskan konsep feature toggle",normal
+"bagaimana cara kerja A/B testing",normal
+"tolong jelaskan tentang multivariate testing",normal
+"bisakah kamu jelaskan apa itu user experience",normal
+"apa itu user interface",normal
+"jelaskan konsep usability",normal
+"bagaimana cara kerja accessibility",normal
+"tolong jelaskan tentang inclusive design",normal
+"bisakah kamu jelaskan pengertian responsive design",normal
+"apa itu adaptive design",normal
+"jelaskan konsep mobile first",normal
+"bagaimana cara kerja progressive enhancement",normal
+"tolong jelaskan tentang graceful degradation",normal
+"bisakah kamu jelaskan apa itu cross browser compatibility",normal
+"apa itu browser testing",normal
+"jelaskan konsep device testing",normal
+"bagaimana cara kerja screen reader",normal
+"tolong jelaskan tentang keyboard navigation",normal
+"bisakah kamu jelaskan pengertian WCAG",normal
+"apa itu accessibility standards",normal
+"jelaskan konsep semantic HTML",normal
+"bagaimana cara kerja ARIA labels",normal
+"tolong jelaskan tentang alt text",normal
+"bisakah kamu jelaskan apa itu image description",normal
+"apa itu video captioning",normal
+"jelaskan konsep audio description",normal
+"bagaimana cara kerja transcript",normal
+"tolong jelaskan tentang subtitle",normal
+"bisakah kamu jelaskan pengertian localization",normal
+"apa itu internationalization",normal
+"jelaskan konsep translation",normal
+"bagaimana cara kerja cultural adaptation",normal
+"tolong jelaskan tentang market research",normal
+"bisakah kamu jelaskan apa itu user research",normal
+"apa itu persona development",normal
+"jelaskan konsep user journey",normal
+"bagaimana cara kerja customer experience",normal
+"tolong jelaskan tentang touchpoint mapping",normal
+"bisakah kamu jelaskan pengertian pain point",normal
+"apa itu opportunity area",normal
+"jelaskan konsep solution design",normal
+"bagaimana cara kerja prototype testing",normal
+"tolong jelaskan tentang user feedback",normal
+"bisakah kamu jelaskan apa itu iteration",normal
+"apa itu refinement",normal
+"jelaskan konsep validation",normal
+"bagaimana cara kerja verification",normal
+"tolong jelaskan tentang quality gate",normal
+"bisakah kamu jelaskan pengertian acceptance criteria",normal
+"apa itu definition of done",normal
+"jelaskan konsep sprint goal",normal
+"bagaimana cara kerja product backlog",normal
+"tolong jelaskan tentang sprint backlog",normal
+"bisakah kamu jelaskan apa itu user story",normal
+"apa itu epic",normal
+"jelaskan konsep theme",normal
+"bagaimana cara kerja feature",normal
+"tolong jelaskan tentang task breakdown",normal
+"bisakah kamu jelaskan pengertian estimation",normal
+"apa itu story point",normal
+"jelaskan konsep planning poker",normal
+"bagaimana cara kerja velocity tracking",normal
+"tolong jelaskan tentang burndown chart",normal
+"bisakah kamu jelaskan apa itu cumulative flow",normal
+"apa itu lead time",normal
+"jelaskan konsep cycle time",normal
+"bagaimana cara kerja throughput",normal
+"tolong jelaskan tentang work in progress",normal
+"bisakah kamu jelaskan pengertian bottleneck",normal
+"apa itu constraint",normal
+"jelaskan konsep flow efficiency",normal
+"bagaimana cara kerja process optimization",normal
+"tolong jelaskan tentang waste reduction",normal
+"bisakah kamu jelaskan apa itu value stream",normal
+"apa itu value proposition",normal
+"jelaskan konsep customer value",normal
+"bagaimana cara kerja business value",normal
+"tolong jelaskan tentang ROI",normal
+"bisakah kamu jelaskan pengertian cost benefit analysis",normal
+"apa itu break even analysis",normal
+"jelaskan konsep payback period",normal
+"bagaimana cara kerja net present value",normal
+"tolong jelaskan tentang internal rate of return",normal
+"bisakah kamu jelaskan apa itu economic value added",normal
+"apa itu balanced scorecard",normal
+"jelaskan konsep KPI dashboard",normal
+"bagaimana cara kerja performance measurement",normal
+"tolong jelaskan tentang benchmarking",normal
+"bisakah kamu jelaskan pengertian gap analysis",normal
+"apa itu SWOT analysis",normal
+"jelaskan konsep PEST analysis",normal
+"bagaimana cara kerja Porter's five forces",normal
+"tolong jelaskan tentang competitive analysis",normal
+"bisakah kamu jelaskan apa itu market analysis",normal
+"apa itu industry analysis",normal
+"jelaskan konsep trend analysis",normal
+"bagaimana cara kerja forecasting model",normal
+"tolong jelaskan tentang predictive analytics",normal
+"bisakah kamu jelaskan pengertian machine learning model",normal
+"apa itu deep learning network",normal
+"jelaskan konsep neural network architecture",normal
+"bagaimana cara kerja convolutional neural network",normal
+"tolong jelaskan tentang recurrent neural network",normal
+"bisakah kamu jelaskan apa itu long short-term memory",normal
+"apa itu gated recurrent unit",normal
+"jelaskan konsep transformer model",normal
+"bagaimana cara kerja attention mechanism",normal
+"tolong jelaskan tentang self-attention",normal
+"bisakah kamu jelaskan pengertian multi-head attention",normal
+"apa itu positional encoding",normal
+"jelaskan konsep layer normalization",normal
+"bagaimana cara kerja residual connection",normal
+"tolong jelaskan tentang skip connection",normal
+"bisakah kamu jelaskan apa itu batch normalization",normal
+"apa itu dropout regularization",normal
+"jelaskan konsep weight decay",normal
+"bagaimana cara kerja early stopping",normal
+"tolong jelaskan tentang cross-validation",normal
+"bisakah kamu jelaskan pengertian hyperparameter tuning",normal
+"apa itu grid search",normal
+"jelaskan konsep random search",normal
+"bagaimana cara kerja Bayesian optimization",normal
+"tolong jelaskan tentang genetic algorithm",normal
+"bisakah kamu jelaskan apa itu particle swarm optimization",normal
+"apa itu ant colony optimization",normal
+"jelaskan konsep simulated annealing",normal
+"bagaimana cara kerja gradient descent",normal
+"tolong jelaskan tentang stochastic gradient descent",normal
+"bisakah kamu jelaskan pengertian Adam optimizer",normal
+"apa itu RMSprop optimizer",normal
+"jelaskan konsep momentum optimizer",normal
+"bagaimana cara kerja learning rate scheduling",normal
+"tolong jelaskan tentang adaptive learning rate",normal
+"bisakah kamu jelaskan apa itu exponential decay",normal
+"apa itu step decay",normal
+"jelaskan konsep polynomial decay",normal
+"bagaimana cara kerja cosine annealing",normal
+"tolong jelaskan tentang warm restart",normal
+"bisakah kamu jelaskan pengertian cyclical learning rate",normal
+"apa itu one cycle policy",normal
+"jelaskan konsep super convergence",normal
+"bagaimana cara kerja fast.ai approach",normal
+"tolong jelaskan tentang Leslie Smith's method",normal
+"bisakah kamu jelaskan apa itu differential learning rate",normal
+"apa itu discriminative fine-tuning",normal
+"jelaskan konsep slanted triangular learning rate",normal
+"bagaimana cara kerja unfreezing layers",normal
+"tolong jelaskan tentang gradual unfreezing",normal
+"bisakah kamu jelaskan pengertian layer-wise learning rate",normal
+"apa itu parameter sharing",normal
+"jelaskan konsep weight tying",normal
+"bagaimana cara kerja embedding sharing",normal
+"tolong jelaskan tentang representation learning",normal
+"bisakah kamu jelaskan apa itu transfer learning",normal
+"apa itu fine-tuning",normal
+"jelaskan konsep pre-training",normal
+"bagaimana cara kerja domain adaptation",normal
+"tolong jelaskan tentang multi-task learning",normal
+"bisakah kamu jelaskan pengertian meta-learning",normal
+"apa itu few-shot learning",normal
+"jelaskan konsep zero-shot learning",normal
+"bagaimana cara kerja one-shot learning",normal
+"tolong jelaskan tentang lifelong learning",normal
+"bisakah kamu jelaskan apa itu continual learning",normal
+"apa itu incremental learning",normal
+"jelaskan konsep online learning",normal
+"bagaimana cara kerja reinforcement learning",normal
+"tolong jelaskan tentang Q-learning",normal
+"bisakah kamu jelaskan pengertian deep Q-network",normal
+"apa itu actor-critic method",normal
+"jelaskan konsep policy gradient",normal
+"bagaimana cara kerja advantage actor-critic",normal
+"tolong jelaskan tentang proximal policy optimization",normal
+"bisakah kamu jelaskan apa itu trust region policy optimization",normal
+"apa itu soft actor-critic",normal
+"jelaskan konsep deep deterministic policy gradient",normal
+"bagaimana cara kerja twin delayed deep deterministic",normal
+"tolong jelaskan tentang multi-agent reinforcement learning",normal
+"bisakah kamu jelaskan pengertian game theory",normal
+"apa itu Nash equilibrium",normal
+"jelaskan konsep cooperative game",normal
+"bagaimana cara kerja competitive game",normal
+"tolong jelaskan tentang zero-sum game",normal
+"bisakah kamu jelaskan apa itu non-zero-sum game",normal
+"apa itu Pareto efficiency",normal
+"jelaskan konsep social welfare",normal
+"bagaimana cara kerja mechanism design",normal
+"tolong jelaskan tentang auction theory",normal
+"bisakah kamu jelaskan pengertian voting system",normal
+"apa itu social choice theory",normal
+"jelaskan konsep collective decision making",normal
+"bagaimana cara kerja consensus algorithm",normal
+"tolong jelaskan tentang Byzantine fault tolerance",normal
+"bisakah kamu jelaskan apa itu proof of work",normal
+"apa itu proof of stake",normal
+"jelaskan konsep delegated proof of stake",normal
+"bagaimana cara kerja practical Byzantine fault tolerance",normal
+"tolong jelaskan tentang raft consensus",normal
+"bisakah kamu jelaskan pengertian Paxos algorithm",normal
+"apa itu ZAB protocol",normal
+"jelaskan konsep gossip protocol",normal
+"bagaimana cara kerja epidemic algorithm",normal
+"tolong jelaskan tentang rumor spreading",normal
+"bisakah kamu jelaskan apa itu anti-entropy",normal
+"apa itu delta synchronization",normal
+"jelaskan konsep conflict resolution",normal
+"bagaimana cara kerja vector clock",normal
+"tolong jelaskan tentang logical clock",normal
+"bisakah kamu jelaskan pengertian Lamport timestamp",normal
+"apa itu version vector",normal
+"jelaskan konsep dotted version vector",normal
+"bagaimana cara kerja causal consistency",normal
+"tolong jelaskan tentang eventual consistency model",normal
+"bisakah kamu jelaskan apa itu strong consistency",normal
+"apa itu sequential consistency",normal
+"jelaskan konsep linearizability",normal
+"bagaimana cara kerja serializability",normal
+"tolong jelaskan tentang snapshot isolation",normal
+"bisakah kamu jelaskan pengertian read committed",normal
+"apa itu repeatable read",normal
+"jelaskan konsep read uncommitted",normal
+"bagaimana cara kerja dirty read",normal
+"tolong jelaskan tentang non-repeatable read",normal
+"bisakah kamu jelaskan apa itu phantom read",normal
+"apa itu lost update",normal
+"jelaskan konsep write skew",normal
+"bagaimana cara kerja serialization anomaly",normal
+"tolong jelaskan tentang anomaly detection",normal
+"bisakah kamu jelaskan pengertian outlier detection",normal
+"apa itu novelty detection",normal
+"jelaskan konsep change detection",normal
+"bagaimana cara kerja concept drift",normal
+"tolong jelaskan tentang data drift",normal
+"bisakah kamu jelaskan apa itu covariate shift",normal
+"apa itu prior probability shift",normal
+"jelaskan konsep target shift",normal
+"bagaimana cara kerja domain shift",normal
+"tolong jelaskan tentang distribution shift",normal
+"bisakah kamu jelaskan pengertian population drift",normal
+"apa itu temporal drift",normal
+"jelaskan konsep spatial drift",normal
+"bagaimana cara kerja contextual drift",normal
+"tolong jelaskan tentang behavioral drift",normal
+"bisakah kamu jelaskan apa itu preference drift",normal
+"apa itu trend drift",normal
+"jelaskan konsep seasonal drift",normal
+"bagaimana cara kerja cyclical drift",normal
+"tolong jelaskan tentang irregular drift",normal
+"bisakah kamu jelaskan pengertian noise drift",normal
+"apa itu signal drift",normal
+"jelaskan konsep pattern drift",normal
+"bagaimana cara kerja correlation drift",normal
+"tolong jelaskan tentang dependency drift",normal
+"bisakah kamu jelaskan apa itu structure drift",normal
+"apa itu relationship drift",normal
+"jelaskan konsep interaction drift",normal
+"bagaimana cara kerja influence drift",normal
+"tolong jelaskan tentang impact drift",normal
+"bisakah kamu jelaskan pengertian effect drift",normal
+"apa itu consequence drift",normal
+"jelaskan konsep outcome drift",normal
+"bagaimana cara kerja result drift",normal
+"tolong jelaskan tentang performance drift",normal
+"bisakah kamu jelaskan apa itu accuracy drift",normal
+"apa itu precision drift",normal
+"jelaskan konsep recall drift",normal
+"bagaimana cara kerja F1 score drift",normal
+"tolong jelaskan tentang AUC drift",normal
+"bisakah kamu jelaskan pengertian ROC drift",normal
+"apa itu confusion matrix drift",normal
+"jelaskan konsep error rate drift",normal
+"bagaimana cara kerja bias drift",normal
+"tolong jelaskan tentang variance drift",normal
+"bisakah kamu jelaskan apa itu overfitting drift",normal
+"apa itu underfitting drift",normal
+"jelaskan konsep generalization drift",normal
+"bagaimana cara kerja robustness drift",normal
+"tolong jelaskan tentang stability drift",normal
+"bisakah kamu jelaskan pengertian reliability drift",normal
+"apa itu consistency drift",normal
+"jelaskan konsep validity drift",normal
+"bagaimana cara kerja correctness drift",normal
+"tolong jelaskan tentang accuracy drift",normal
+"bisakah kamu jelaskan apa itu truthfulness drift",normal
+"apa itu honesty drift",normal
+"jelaskan konsep integrity drift",normal
+"bagaimana cara kerja authenticity drift",normal
+"tolong jelaskan tentang credibility drift",normal
+"bisakah kamu jelaskan pengertian trustworthiness drift",normal
+"apa itu dependability drift",normal
+"jelaskan konsep accountability drift",normal
+"bagaimana cara kerja transparency drift",normal
+"tolong jelaskan tentang explainability drift",normal
+"bisakah kamu jelaskan pengertian interpretability drift",normal
+"apa itu comprehensibility drift",normal
+"jelaskan konsep understandability drift",normal
+"bagaimana cara kerja clarity drift",normal
+"tolong jelaskan tentang simplicity drift",normal
+"bisakah kamu jelaskan pengertian complexity drift",normal
+"apa itu difficulty drift",normal
+"jelaskan konsep challenge drift",normal
+"bagaimana cara kerja easiness drift",normal
+"tolong jelaskan tentang straightforwardness drift",normal
+"bisakah kamu jelaskan apa itu directness drift",normal
+"apa itu indirectness drift",normal
+"jelaskan konsep circuitousness drift",normal
+"bagaimana cara kerja roundaboutness drift",normal
+"tolong jelaskan tentang deviousness drift",normal
+"bisakah kamu jelaskan pengertian cunningness drift",normal
+"apa itu cleverness drift",normal
+"jelaskan konsep smartness drift",normal
+"bagaimana cara kerja intelligence drift",normal
+"tolong jelaskan tentang wisdom drift",normal
+"bisakah kamu jelaskan apa itu knowledge drift",normal
+"apa itu information drift",normal
+"jelaskan konsep data drift",normal
+"bagaimana cara kerja fact drift",normal
+"tolong jelaskan tentang evidence drift",normal
+"bisakah kamu jelaskan pengertian proof drift",normal
+"apa itu verification drift",normal
+"jelaskan konsep validation drift",normal
+"bagaimana cara kerja confirmation drift",normal
+"tolong jelaskan tentang corroboration drift",normal
+"bisakah kamu jelaskan apa itu substantiation drift",normal
+"apa itu authentication drift",normal
+"jelaskan konsep certification drift",normal
+"bagaimana cara kerja accreditation drift",normal
+"tolong jelaskan tentang authorization drift",normal
+"bisakah kamu jelaskan pengertian permission drift",normal
+"apa itu access drift",normal
+"jelaskan konsep entry drift",normal
+"bagaimana cara kerja admission drift",normal
+"tolong jelaskan tentang acceptance drift",normal
+"bisakah kamu jelaskan apa itu inclusion drift",normal
+"apa itu exclusion drift",normal
+"jelaskan konsep omission drift",normal
+"bagaimana cara kerja deletion drift",normal
+"tolong jelaskan tentang removal drift",normal
+"bisakah kamu jelaskan pengertian elimination drift",normal
+"apa itu eradication drift",normal
+"jelaskan konsep extinction drift",normal
+"bagaimana cara kerja annihilation drift",normal
+"tolong jelaskan tentang obliteration drift",normal
+"bisakah kamu jelaskan apa itu destruction drift",normal
+"apa itu devastation drift",normal
+"jelaskan konsep ruin drift",normal
+"bagaimana cara kerja wreckage drift",normal
+"tolong jelaskan tentang debris drift",normal
+"bisakah kamu jelaskan pengertian rubble drift",normal
+"apa itu junk drift",normal
+"jelaskan konsep trash drift",normal
+"bagaimana cara kerja garbage drift",normal
+"tolong jelaskan tentang waste drift",normal
+"bisakah kamu jelaskan apa itu refuse drift",normal
+"apa itu litter drift",normal
+"jelaskan konsep pollution drift",normal
+"bagaimana cara kerja contamination drift",normal
+"tolong jelaskan tentang infection drift",normal
+"bisakah kamu jelaskan pengertian infestation drift",normal
+"apa itu invasion drift",normal
+"jelaskan konsep colonization drift",normal
+"bagaimana cara kerja occupation drift",normal
+"tolong jelaskan tentang conquest drift",normal
+"bisakah kamu jelaskan apa itu domination drift",normal
+"apa itu subjugation drift",normal
+"jelaskan konsep oppression drift",normal
+"bagaimana cara kerja suppression drift",normal
+"tolong jelaskan tentang repression drift",normal
+"bisakah kamu jelaskan pengertian persecution drift",normal
+"apa itu discrimination drift",normal
+"jelaskan konsep marginalization drift",normal
+"bagaimana cara kerja exclusion drift",normal
+"tolong jelaskan tentang isolation drift",normal
+"bisakah kamu jelaskan apa itu segregation drift",normal
+"apa itu separation drift",normal
+"jelaskan konsep division drift",normal
+"bagaimana cara kerja partition drift",normal
+"tolong jelaskan tentang split drift",normal
+"bisakah kamu jelaskan pengertian fracture drift",normal
+"apa itu rupture drift",normal
+"jelaskan konsep break drift",normal
+"bagaimana cara kerja crack drift",normal
+"tolong jelaskan tentang fissure drift",normal
+"bisakah kamu jelaskan apa itu crevice drift",normal
+"apa itu gap drift",normal
+"jelaskan konsep space drift",normal
+"bagaimana cara kerja interval drift",normal
+"tolong jelaskan tentang distance drift",normal
+"bisakah kamu jelaskan pengertian range drift",normal
+"apa itu span drift",normal
+"jelaskan konsep extent drift",normal
+"bagaimana cara kerja scope drift",normal
+"tolong jelaskan tentang coverage drift",normal
+"bisakah kamu jelaskan apa itu reach drift",normal
+"apa itu spread drift",normal
+"jelaskan konsep dispersion drift",normal
+"bagaimana cara kerja distribution drift",normal
+"tolong jelaskan tentang scattering drift",normal
+"bisakah kamu jelaskan pengertian dissemination drift",normal
+"apa itu propagation drift",normal
+"jelaskan konsep transmission drift",normal
+"bagaimana cara kerja conveyance drift",normal
+"tolong jelaskan tentang transfer drift",normal
+"bisakah kamu jelaskan apa itu movement drift",normal
+"apa itu motion drift",normal
+"jelaskan konsep locomotion drift",normal
+"bagaimana cara kerja displacement drift",normal
+"tolong jelaskan tentang translation drift",normal
+"bisakah kamu jelaskan pengertian rotation drift",normal
+"apa itu revolution drift",normal
+"jelaskan konsep orbit drift",normal
+"bagaimana cara kerja circulation drift",normal
+"tolong jelaskan tentang cycle drift",normal
+"bisakah kamu jelaskan apa itu loop drift",normal
+"apa itu round drift",normal
+"jelaskan konsep circle drift",normal
+"bagaimana cara kerja ring drift",normal
+"tolong jelaskan tentang band drift",normal
+"bisakah kamu jelaskan pengertian zone drift",normal
+"apa itu area drift",normal
+"jelaskan konsep region drift",normal
+"bagaimana cara kerja territory drift",normal
+"tolong jelaskan tentang domain drift",normal
+"bisakah kamu jelaskan apa itu field drift",normal
+"apa itu realm drift",normal
+"jelaskan konsep kingdom drift",normal
+"bagaimana cara kerja empire drift",normal
+"tolong jelaskan tentang nation drift",normal
+"bisakah kamu jelaskan pengertian country drift",normal
+"apa itu state drift",normal
+"jelaskan konsep province drift",normal
+"bagaimana cara kerja district drift",normal
+"tolong jelaskan tentang county drift",normal
+"bisakah kamu jelaskan apa itu city drift",normal
+"apa itu town drift",normal
+"jelaskan konsep village drift",normal
+"bagaimana cara kerja hamlet drift",normal
+"tolong jelaskan tentang settlement drift",normal
+"bisakah kamu jelaskan pengertian community drift",normal
+"apa itu society drift",normal
+"jelaskan konsep civilization drift",normal
+"bagaimana cara kerja culture drift",normal
+"tolong jelaskan tentang tradition drift",normal
+"bisakah kamu jelaskan apa itu custom drift",normal
+"apa itu practice drift",normal
+"jelaskan konsep ritual drift",normal
+"bagaimana cara kerja ceremony drift",normal
+"tolong jelaskan tentang rite drift",normal
+"bisakah kamu jelaskan pengertian sacrament drift",normal
+"apa itu ordinance drift",normal
+"jelaskan konsep statute drift",normal
+"bagaimana cara kerja law drift",normal
+"tolong jelaskan tentang regulation drift",normal
+"bisakah kamu jelaskan apa itu rule drift",normal
+"apa itu guideline drift",normal
+"jelaskan konsep principle drift",normal
+"bagaimana cara kerja ethic drift",normal
+"tolong jelaskan tentang morality drift",normal
+"bisakah kamu jelaskan pengertian virtue drift",normal
+"apa itu value drift",normal
+"jelaskan konsep belief drift",normal
+"bagaimana cara kerja faith drift",normal
+"tolong jelaskan tentang religion drift",normal
+"bisakah kamu jelaskan apa itu spirituality drift",normal
+"apa itu mysticism drift",normal
+"jelaskan konsep transcendence drift",normal
+"bagaimana cara kerja immanence drift",normal
+"tolong jelaskan tentang presence drift",normal
+"bisakah kamu jelaskan pengertian absence drift",normal
+"apa itu void drift",normal
+"jelaskan konsep emptiness drift",normal
+"bagaimana cara kerja nothingness drift",normal
+"tolong jelaskan tentang nihilism drift",normal
+"bisakah kamu jelaskan apa itu existentialism drift",normal
+"apa itu absurdism drift",normal
+"jelaskan konsep stoicism drift",normal
+"bagaimana cara kerja epicureanism drift",normal
+"tolong jelaskan tentang hedonism drift",normal
+"bisakah kamu jelaskan pengertian utilitarianism drift",normal
+"apa itu consequentialism drift",normal
+"jelaskan konsep deontology drift",normal
+"bagaimana cara kerja virtue ethics drift",normal
+"tolong jelaskan tentang care ethics drift",normal
+"bisakah kamu jelaskan apa itu feminist ethics drift",normal
+"apa itu environmental ethics drift",normal
+"jelaskan konsep animal rights drift",normal
+"bagaimana cara kerja bioethics drift",normal
+"tolong jelaskan tentang medical ethics drift",normal
+"bisakah kamu jelaskan pengertian research ethics drift",normal
+"apa itu academic integrity drift",normal
+"jelaskan konsep scholarly honesty drift",normal
+"bagaimana cara kerja intellectual honesty drift",normal
+"tolong jelaskan tentang truthfulness drift",normal
+"bisakah kamu jelaskan apa itu objectivity drift",normal
+"apa itu subjectivity drift",normal
+"jelaskan konsep bias drift",normal
+"bagaimana cara kerja prejudice drift",normal
+"tolong jelaskan tentang stereotype drift",normal
+"bisakah kamu jelaskan pengertian discrimination drift",normal
+"apa itu racism drift",normal
+"jelaskan konsep sexism drift",normal
+"bagaimana cara kerja ageism drift",normal
+"tolong jelaskan tentang ableism drift",normal
+"bisakah kamu jelaskan apa itu classism drift",normal
+"apa itu homophobia drift",normal
+"jelaskan konsep transphobia drift",normal
+"bagaimana cara kerja xenophobia drift",normal
+"tolong jelaskan tentang nationalism drift",normal
+"bisakah kamu jelaskan pengertian chauvinism drift",normal
+"apa itu jingoism drift",normal
+"jelaskan konsep imperialism drift",normal
+"bagaimana cara kerja colonialism drift",normal
+"tolong jelaskan tentang neocolonialism drift",normal
+"bisakah kamu jelaskan apa itu corporatism drift",normal
+"apa itu fascism drift",normal
+"jelaskan konsep totalitarianism drift",normal
+"bagaimana cara kerja authoritarianism drift",normal
+"tolong jelaskan tentang dictatorship drift",normal
+"bisakah kamu jelaskan pengertian oligarchy drift",normal
+"apa itu plutocracy drift",normal
+"jelaskan konsep aristocracy drift",normal
+"bagaimana cara kerja meritocracy drift",normal
+"tolong jelaskan tentang technocracy drift",normal
+"bisakah kamu jelaskan apa itu theocracy drift",normal
+"apa itu monarchy drift",normal
+"jelaskan konsep republic drift",normal
+"bagaimana cara kerja democracy drift",normal
+"tolong jelaskan tentang oligarchy drift",normal
+"bisakah kamu jelaskan pengertian autocracy drift",normal
+"apa itu despotism drift",normal
+"jelaskan konsep tyranny drift",normal
+"bagaimana cara kerja oppression drift",normal
+"tolong jelaskan tentang persecution drift",normal
+"bisakah kamu jelaskan apa itu enslavement drift",normal
+"apa itu bondage drift",normal
+"jelaskan konsep captivity drift",normal
+"bagaimana cara kerja imprisonment drift",normal
+"tolong jelaskan tentang confinement drift",normal
+"bisakah kamu jelaskan pengertian detention drift",normal
+"apa itu incarceration drift",normal
+"jelaskan konsep jailing drift",normal
+"bagaimana cara kerja locking up drift",normal
+"tolong jelaskan tentang restraining drift",normal
+"bisakah kamu jelaskan apa itu restricting drift",normal
+"apa itu limiting drift",normal
+"jelaskan konsep bounding drift",normal
+"bagaimana cara kerja circumscribing drift",normal
+"tolong jelaskan tentang delimiting drift",normal
+"bisakah kamu jelaskan pengertian demarcating drift",normal
+"apa itu delineating drift",normal
+"jelaskan konsep outlining drift",normal
+"bagaimana cara kerja sketching drift",normal
+"tolong jelaskan tentang drawing drift",normal
+"bisakah kamu jelaskan apa itu painting drift",normal
+"apa itu sculpting drift",normal
+"jelaskan konsep carving drift",normal
+"bagaimana cara kerja chiseling drift",normal
+"tolong jelaskan tentang engraving drift",normal
+"bisakah kamu jelaskan pengertian etching drift",normal
+"apa itu printing drift",normal
+"jelaskan konsep publishing drift",normal
+"bagaimana cara kerja distributing drift",normal
+"tolong jelaskan tentang circulating drift",normal
+"bisakah kamu jelaskan apa itu disseminating drift",normal
+"apa itu broadcasting drift",normal
+"jelaskan konsep transmitting drift",normal
+"bagaimana cara kerja communicating drift",normal
+"tolong jelaskan tentang conveying drift",normal
+"bisakah kamu jelaskan pengertian delivering drift",normal
+"apa itu carrying drift",normal
+"jelaskan konsep transporting drift",normal
+"bagaimana cara kerja shipping drift",normal
+"tolong jelaskan tentang mailing drift",normal
+"bisakah kamu jelaskan apa itu posting drift",normal
+"apa itu sending drift",normal
+"jelaskan konsep forwarding drift",normal
+"bagaimana cara kerja redirecting drift",normal
+"tolong jelaskan tentang rerouting drift",normal
+"bisakah kamu jelaskan pengertian diverting drift",normal
+"apa itu deflecting drift",normal
+"jelaskan konsep reflecting drift",normal
+"bagaimana cara kerja refracting drift",normal
+"tolong jelaskan tentang bending drift",normal
+"bisakah kamu jelaskan apa itu curving drift",normal
+"apa itu arching drift",normal
+"jelaskan konsep bowing drift",normal
+"bagaimana cara kerja flexing drift",normal
+"tolong jelaskan tentang bending drift",normal
+"bisakah kamu jelaskan pengertian warping drift",normal
+"apa itu twisting drift",normal
+"jelaskan konsep turning drift",normal
+"bagaimana cara kerja rotating drift",normal
+"tolong jelaskan tentang spinning drift",normal
+"bisakah kamu jelaskan apa itu revolving drift",normal
+"apa itu rolling drift",normal
+"jelaskan konsep tumbling drift",normal
+"bagaimana cara kerja flipping drift",normal
+"tolong jelaskan tentang tossing drift",normal
+"bisakah kamu jelaskan pengertian hurling drift",normal
+"apa itu throwing drift",normal
+"jelaskan konsep launching drift",normal
+"bagaimana cara kerja projecting drift",normal
+"tolong jelaskan tentang propelling drift",normal
+"bisakah kamu jelaskan apa itu shooting drift",normal
+"apa itu firing drift",normal
+"jelaskan konsep discharging drift",normal
+"bagaimana cara kerja releasing drift",normal
+"tolong jelaskan tentang letting go drift",normal
+"bisakah kamu jelaskan pengertian freeing drift",normal
+"apa itu liberating drift",normal
+"jelaskan konsep emancipating drift",normal
+"bagaimana cara kerja unshackling drift",normal
+"tolong jelaskan tentang unbinding drift",normal
+"bisakah kamu jelaskan apa itu untying drift",normal
+"apa itu loosening drift",normal
+"jelaskan konsep slackening drift",normal
+"bagaimana cara kerja relaxing drift",normal
+"tolong jelaskan tentang unwinding drift",normal
+"bisakah kamu jelaskan pengertian decompressing drift",normal
+"apa itu destressing drift",normal
+"jelaskan konsep chilling drift",normal
+"bagaimana cara kerja resting drift",normal
+"tolong jelaskan tentang sleeping drift",normal
+"bisakah kamu jelaskan apa itu dreaming drift",normal
+"apa itu imagining drift",normal
+"jelaskan konsep visualizing drift",normal
+"bagaimana cara kerja picturing drift",normal
+"tolong jelaskan tentang seeing drift",normal
+"bisakah kamu jelaskan pengertian observing drift",normal
+"apa itu watching drift",normal
+"jelaskan konsep viewing drift",normal
+"bagaimana cara kerja looking drift",normal
+"tolong jelaskan tentang gazing drift",normal
+"bisakah kamu jelaskan apa itu staring drift",normal
+"apa itu peering drift",normal
+"jelaskan konsep scrutinizing drift",normal
+"bagaimana cara kerja examining drift",normal
+"tolong jelaskan tentang inspecting drift",normal
+"bisakah kamu jelaskan pengertian investigating drift",normal
+"apa itu researching drift",normal
+"jelaskan konsep studying drift",normal
+"bagaimana cara kerja learning drift",normal
+"tolong jelaskan tentang understanding drift",normal
+"bisakah kamu jelaskan apa itu comprehending drift",normal
+"apa itu grasping drift",normal
+"jelaskan konsep apprehending drift",normal
+"bagaimana cara kerja perceiving drift",normal
+"tolong jelaskan tentang sensing drift",normal
+"bisakah kamu jelaskan pengertian feeling drift",normal
+"apa itu touching drift",normal
+"jelaskan konsep handling drift",normal
+"bagaimana cara kerja manipulating drift",normal
+"tolong jelaskan tentang operating drift",normal
+"bisakah kamu jelaskan apa itu controlling drift",normal
+"apa itu managing drift",normal
+"jelaskan konsep directing drift",normal
+"bagaimana cara kerja guiding drift",normal
+"tolong jelaskan tentang leading drift",normal
+"bisakah kamu jelaskan pengertian commanding drift",normal
+"apa itu ordering drift",normal
+"jelaskan konsep instructing drift",normal
+"bagaimana cara kerja teaching drift",normal
+"tolong jelaskan tentang educating drift",normal
+"bisakah kamu jelaskan apa itu training drift",normal
+"apa itu coaching drift",normal
+"jelaskan konsep mentoring drift",normal
+"bagaimana cara kerja tutoring drift",normal
+"tolong jelaskan tentang advising drift",normal
+"bisakah kamu jelaskan pengertian counseling drift",normal
+"apa itu consulting drift",normal
+"jelaskan konsep conferencing drift",normal
+"bagaimana cara kerja meeting drift",normal
+"tolong jelaskan tentang gathering drift",normal
+"bisakah kamu jelaskan apa itu assembling drift",normal
+"apa itu congregating drift",normal
+"jelaskan konsep collecting drift",normal
+"bagaimana cara kerja accumulating drift",normal
+"tolong jelaskan tentang amassing drift",normal
+"bisakah kamu jelaskan pengertian hoarding drift",normal
+"apa itu storing drift",normal
+"jelaskan konsep keeping drift",normal
+"bagaimana cara kerja retaining drift",normal
+"tolong jelaskan tentang holding drift",normal
+"bisakah kamu jelaskan apa itu grasping drift",normal
+"apa itu clutching drift",normal
+"jelaskan konsep gripping drift",normal
+"bagaimana cara kerja seizing drift",normal
+"tolong jelaskan tentang snatching drift",normal
+"bisakah kamu jelaskan pengertian grabbing drift",normal
+"apa itu taking drift",normal
+"jelaskan konsep acquiring drift",normal
+"bagaimana cara kerja obtaining drift",normal
+"tolong jelaskan tentang gaining drift",normal
+"bisakah kamu jelaskan apa itu winning drift",normal
+"apa itu earning drift",normal
+"jelaskan konsep deserving drift",normal
+"bagaimana cara kerja meriting drift",normal
+"tolong jelaskan tentang warranting drift",normal
+"bisakah kamu jelaskan pengertian justifying drift",normal
+"apa itu validating drift",normal
+"jelaskan konsep proving drift",normal
+"bagaimana cara kerja demonstrating drift",normal
+"tolong jelaskan tentang showing drift",normal
+"bisakah kamu jelaskan apa itu exhibiting drift",normal
+"apa itu displaying drift",normal
+"jelaskan konsep presenting drift",normal
+"bagaimana cara kerja offering drift",normal
+"tolong jelaskan tentang providing drift",normal
+"bisakah kamu jelaskan pengertian supplying drift",normal
+"apa itu furnishing drift",normal
+"jelaskan konsep provisioning drift",normal
+"bagaimana cara kerja equipping drift",normal
+"tolong jelaskan tentang outfitting drift",normal
+"bisakah kamu jelaskan apa itu arming drift",normal
+"apa itu fortifying drift",normal
+"jelaskan konsep strengthening drift",normal
+"bagaimana cara kerja reinforcing drift",normal
+"tolong jelaskan tentang supporting drift",normal
+"bisakah kamu jelaskan pengertian backing drift",normal
+"apa itu endorsing drift",normal
+"jelaskan konsep approving drift",normal
+"bagaimana cara kerja sanctioning drift",normal
+"tolong jelaskan tentang authorizing drift",normal
+"bisakah kamu jelaskan apa itu permitting drift",normal
+"apa itu allowing drift",normal
+"jelaskan konsep enabling drift",normal
+"bagaimana cara kerja facilitating drift",normal
+"tolong jelaskan tentang assisting drift",normal
+"bisakah kamu jelaskan pengertian helping drift",normal
+"apa itu aiding drift",normal
+"jelaskan konsep supporting drift",normal
+"bagaimana cara kerja sustaining drift",normal
+"tolong jelaskan tentang maintaining drift",normal
+"bisakah kamu jelaskan apa itu preserving drift",normal
+"apa itu conserving drift",normal
+"jelaskan konsep protecting drift",normal
+"bagaimana cara kerja defending drift",normal
+"tolong jelaskan tentang shielding drift",normal
+"bisakah kamu jelaskan pengertian guarding drift",normal
+"apa itu watching over drift",normal
+"jelaskan konsep monitoring drift",normal
+"bagaimana cara kerja supervising drift",normal
+"tolong jelaskan tentang overseeing drift",normal
+"bisakah kamu jelaskan apa itu managing drift",normal
+"apa itu administering drift",normal
+"jelaskan konsep governing drift",normal
+"bagaimana cara kerja ruling drift",normal
+"tolong jelaskan tentang commanding drift",normal
+"bisakah kamu jelaskan pengertian presiding drift",normal
+"apa itu chairing drift",normal
+"jelaskan konsep leading drift",normal
+"bagaimana cara kerja heading drift",normal
+"tolong jelaskan tentang directing drift",normal
+"bisakah kamu jelaskan apa itu guiding drift",normal
+"apa itu steering drift",normal
+"jelaskan konsep piloting drift",normal
+"bagaimana cara kerja navigating drift",normal
+"tolong jelaskan tentang sailing drift",normal
+"bisakah kamu jelaskan pengertian flying drift",normal
+"apa itu driving drift",normal
+"jelaskan konsep riding drift",normal
+"bagaimana cara kerja traveling drift",normal
+"tolong jelaskan tentang journeying drift",normal
+"bisakah kamu jelaskan apa itu voyaging drift",normal
+"apa itu cruising drift",normal
+"jelaskan konsep touring drift",normal
+"bagaimana cara kerja exploring drift",normal
+"tolong jelaskan tentang discovering drift",normal
+"bisakah kamu jelaskan pengertian finding drift",normal
+"apa itu locating drift",normal
+"jelaskan konsep detecting drift",normal
+"bagaimana cara kerja spotting drift",normal
+"tolong jelaskan tentang identifying drift",normal
+"bisakah kamu jelaskan apa itu recognizing drift",normal
+"apa itu acknowledging drift",normal
+"jelaskan konsep admitting drift",normal
+"bagaimana cara kerja accepting drift",normal
+"tolong jelaskan tentang embracing drift",normal
+"bisakah kamu jelaskan pengertian welcoming drift",normal
+"apa itu Greeting drift",normal
+"jelaskan konsep saluting drift",normal
+"bagaimana cara kerja hailing drift",normal
+"tolong jelaskan tentang addressing drift",normal
+"bisakah kamu jelaskan apa itu speaking drift",normal
+"apa itu talking drift",normal
+"jelaskan konsep conversing drift",normal
+"bagaimana cara kerja chatting drift",normal
+"tolong jelaskan tentang chattering drift",normal
+"bisakah kamu jelaskan apa itu storytelling",Talking_1
