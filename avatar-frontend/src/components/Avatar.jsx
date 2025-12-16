@@ -209,7 +209,7 @@ export function Avatar(props) {
     const t = text.toLowerCase();
     // Simple keyword mapping - fallback when backend gestureLabels not present
     if (/\b(hello|hi|halo|hai|selamat)\b/.test(t)) return ['Greeting'];
-    if (/\b(explain|jelaskan|mengapa|why|how)\b/.test(t)) return ['normal'];
+    if (/\b(explain|jelaskan|mengapa|why|how)\b/.test(t)) return [' '];
     if (/\b(santai|lucu|bahagia|happy)\b/.test(t)) return ['Laughing'];
     if (/\b(ask|tanya|question|pertanyaan)\b/.test(t)) return ['Talking_2'];
     if (/\b(thanks|terima kasih)\b/.test(t)) return ['Greeting'];

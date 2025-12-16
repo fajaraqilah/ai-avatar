@@ -1,0 +1,108 @@
+text,label
+"halo",Greeting
+"hai",Greeting
+"hello",Greeting
+"hi",Greeting
+"assalamualaikum",Greeting
+"selamat pagi",Greeting
+"selamat siang",Greeting
+"selamat sore",Greeting
+"selamat malam",Greeting
+"apa kabar",Greeting
+"bagaimana kabarmu",Greeting
+"senang bertemu denganmu",Greeting
+"apa kabar hari ini",Greeting
+"bagaimana aktivitasmu",Greeting
+"semoga hari mu menyenangkan",Greeting
+"semoga hari mu indah",Greeting
+"semoga istirahat mu nyenyak",Greeting
+"halo apa kabar",Greeting
+"selamat pagi avatar",Greeting
+"hai bagaimana kabarmu hari ini",Greeting
+"assalamualaikum apa kabar",Greeting
+"halo avatar AI senang bertemu denganmu",Greeting
+"selamat siang semoga hari mu menyenangkan",Greeting
+"hai avatar apa kabar hari ini",Greeting
+"selamat sore bagaimana aktivitasmu",Greeting
+"halo semoga hari mu indah",Greeting
+"selamat malam semoga istirahat mu nyenyak",Greeting
+"hello jelaskan konsep AI",Greeting
+"hai bisakah kamu menjelaskan machine learning",Greeting
+"halo tolong jelaskan tentang deep learning",Greeting
+"selamat pagi apa itu neural network",Greeting
+"assalamualaikum jelaskan bagaimana komputer bisa belajar",Greeting
+"hi bisakah kamu jelaskan cara kerja jaringan saraf",Greeting
+"hai tolong jelaskan konsep cloud computing",Greeting
+"hello apa itu blockchain",Greeting
+"selamat siang jelaskan konsep internet of things",Greeting
+"halo bisakah kamu jelaskan apa itu virtual reality",Greeting
+"jelaskan teknologi cloud",normal
+"tolong jelaskan dengan santai",Talking_1
+"coba jelaskan dengan tegas",normal, terbuka
+"ceritakan sebuah kisah",Talking_3
+"apa itu kecerdasan buatan",normal
+"jelaskan bagaimana komputer bisa belajar",normal
+"bisakah kamu jelaskan cara kerja jaringan saraf",normal
+"apa itu machine learning",normal
+"jelaskan konsep deep learning",normal
+"bagaimana cara kerja algoritma",normal
+"tolong jelaskan apa itu big data",normal
+"bisakah kamu jelaskan pengertian IoT",normal
+"apa itu blockchain",normal
+"jelaskan konsep cloud computing",normal
+"bagaimana cara kerja robot",normal
+"tolong jelaskan tentang keamanan siber",normal
+"bisakah kamu jelaskan apa itu virtual reality",normal
+"apa itu augmented reality",normal
+"jelaskan konsep internet of things",normal
+"bagaimana cara kerja chatbot",normal
+"tolong jelaskan tentang data science",normal
+"bisakah kamu jelaskan pengertian neural network",normal
+"apa itu algoritma kriptografi",normal
+"jelaskan konsep sistem operasi",normal
+"bagaimana cara kerja database",normal
+"tolong jelaskan tentang jaringan komputer",normal
+"bisakah kamu jelaskan apa itu server",normal
+"apa itu protokol komunikasi",normal
+"jelaskan konsep keamanan jaringan",normal
+"bagaimana cara kerja firewall",normal
+"tolong jelaskan tentang enkripsi data",normal
+"bisakah kamu jelaskan pengertian malware",normal
+"apa itu serangan siber",normal
+"jelaskan konsep kecerdasan buatan",normal
+"bagaimana cara kerja algoritma pencarian",normal
+"tolong jelaskan tentang sistem rekomendasi",normal
+"bisakah kamu jelaskan apa itu data mining",normal
+"apa itu algoritma sorting",normal
+"jelaskan konsep pemrograman berorientasi objek",normal
+"bagaimana cara kerja compiler",normal
+"tolong jelaskan tentang debugging",normal
+"bisakah kamu jelaskan pengertian API",normal
+"apa itu framework pengembangan",normal
+"jelaskan konsep version control",normal
+"bagaimana cara kerja git",normal
+"tolong jelaskan tentang continuous integration",normal
+"bisakah kamu jelaskan apa itu container",normal
+"apa itu microservices",normal
+"jelaskan konsep devops",normal
+"bagaimana cara kerja load balancer",normal
+"tolong jelaskan tentang caching",normal
+"bisakah kamu jelaskan pengertian CDN",normal
+"apa itu edge computing",normal
+"jelaskan konsep serverless",normal
+"bagaimana cara kerja CDN",normal
+"tolong jelaskan tentang content delivery",normal
+"bisakah kamu jelaskan apa itu streaming",normal
+"apa itu real-time processing",normal
+"jelaskan konsep event-driven",normal
+"bagaimana cara kerja message queue",normal
+"tolong jelaskan tentang pub-sub",normal
+"bisakah kamu jelaskan pengertian webhook",normal
+"apa itu callback function",normal
+"jelaskan konsep asynchronous",normal
+"bagaimana cara kerja promise",normal
+"tolong jelaskan tentang async-await",normal
+"bisakah kamu jelaskan apa itu threading",normal
+"apa itu concurrency",normal
+"jelaskan konsep parallel processing",normal
+"bagaimana cara kerja multithreading",normal

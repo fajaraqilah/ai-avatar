@@ -8,6 +8,7 @@ class GestureManager {
     // Define which animations must loop
     this.loopingAnimations = new Set([
       'normal',
+      'terbuka',
       'Talking_0',
       'Talking_1',
       'Talking_2',

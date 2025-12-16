@@ -29,7 +29,6 @@ function isGreeting(text) {
   return greetingWords.some(word => lowerText.includes(word));
 }
 
-
 // Generate appropriate prompt based on detected language
 function getPrompt(lang, input) {
   return lang === "indonesian"
@@ -61,9 +60,6 @@ function createLineByLineSubtitles(text, maxChars = 100) {
   if (current.trim()) lines.push(current.trim()); // Add final line if not empty
   return lines; // Return array of subtitle lines
 }
-
-// Gesture classification wrapper - uses ML-based classifier from textClassifier.js
-
 
 // Main chat endpoint - handles user messages and generates AI responses
 app.post("/chat", async (req, res) => {
@@ -141,13 +137,14 @@ app.post("/chat", async (req, res) => {
           const parsed = JSON.parse(classifierOutput.trim());
           rawClassifierOutput = parsed;
           if (parsed && Array.isArray(parsed.predictions) && parsed.predictions.length > 0) {
-            const topPrediction = parsed.predictions[0];
-            // Apply confidence threshold
-            if (topPrediction.confidence >= 0.40) {
-              gestureLabels = [topPrediction.label];
+            // Filter by confidence threshold
+            const confidentPredictions = parsed.predictions.filter(p => p.confidence >= 0.40);
+            
+            if (confidentPredictions.length > 0) {
+              gestureLabels = [confidentPredictions[0].label]; // Take only the highest confidence label
             } else {
-              // Fallback to "normal" if confidence is low
-              gestureLabels = ["normal"];
+              // Fallback to highest confidence prediction or "normal"
+              gestureLabels = [parsed.predictions[0].label];
             }
           } else {
             // Fallback if no predictions
@@ -189,7 +186,6 @@ app.post("/chat", async (req, res) => {
       console.log("Could not determine audio duration, using default of 3.0 seconds");
     }
   
-    
     // 5. Generate lip-sync data
     try {
       await execPromise(`..\\Rhubarb-Lip-Sync\\bin\\rhubarb.exe -f json -o audios\\generated.json audios\\generated.wav`);
@@ -329,7 +325,7 @@ app.post('/classify', async (req, res) => {
           
           // Apply confidence threshold
           if (confidence >= 0.40) {
-            gestureLabels = [label];
+            gestureLabels = [label]; // Take only the highest confidence label
           } else {
             // Fallback to "normal" if confidence is low
             gestureLabels = ["normal"];
@@ -398,7 +394,7 @@ app.get('/classify', async (req, res) => {
           
           // Apply confidence threshold
           if (confidence >= 0.40) {
-            gestureLabels = [label];
+            gestureLabels = [label]; // Take only the highest confidence label
           } else {
             // Fallback to "normal" if confidence is low
             gestureLabels = ["normal"];

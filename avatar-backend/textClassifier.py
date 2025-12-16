@@ -13,6 +13,7 @@ import argparse
 import json
 import os
 import sys
+import numpy as np
 
 MODEL_PATH = "classifier_model.pkl"
 CSV_PATH = "dataset_gesture_training.csv"
@@ -24,6 +25,7 @@ def train():
     try:
         import pandas as pd
         from sklearn.feature_extraction.text import TfidfVectorizer
+        from sklearn.multioutput import MultiOutputClassifier
         from sklearn.linear_model import LogisticRegression
         from sklearn.pipeline import make_pipeline
         from joblib import dump
@@ -36,16 +38,34 @@ def train():
         sys.exit(2)
 
     df = pd.read_csv(CSV_PATH)
-    if 'text' not in df.columns or 'label' not in df.columns:
-        eprint('CSV must contain `text` and `label` columns')
+    if 'text' not in df.columns or 'labels' not in df.columns:
+        eprint('CSV must contain `text` and `labels` columns')
         sys.exit(2)
 
     X = df['text'].astype(str).tolist()
-    y = df['label'].astype(str).tolist()
+    
+    # Process multi-label data
+    all_labels = set()
+    for labels_str in df['labels']:
+        labels = labels_str.split('|')
+        all_labels.update(labels)
+    
+    all_labels = sorted(list(all_labels))
+    
+    # Create binary matrix for multi-label classification
+    y = np.zeros((len(df), len(all_labels)))
+    for i, labels_str in enumerate(df['labels']):
+        labels = labels_str.split('|')
+        for label in labels:
+            if label in all_labels:
+                y[i, all_labels.index(label)] = 1
 
-    clf = make_pipeline(TfidfVectorizer(max_features=5000, ngram_range=(1,2)), LogisticRegression(max_iter=1000, class_weight="balanced"))
+    clf = make_pipeline(
+        TfidfVectorizer(max_features=5000, ngram_range=(1,2)), 
+        MultiOutputClassifier(LogisticRegression(max_iter=1000, class_weight="balanced"))
+    )
     clf.fit(X, y)
-    dump(clf, MODEL_PATH)
+    dump((clf, all_labels), MODEL_PATH)
     eprint('Model trained and saved to', MODEL_PATH)
 
 def predict_text(text):
@@ -59,21 +79,55 @@ def predict_text(text):
         eprint('Model not found, run with --train first')
         sys.exit(2)
 
-    clf = load(MODEL_PATH)
-    # scikit-learn pipeline: predict_proba may be available
+    clf, all_labels = load(MODEL_PATH)
     labels = []
+    
     try:
-        probs = clf.predict_proba([text])[0]
-        candidates = clf.classes_
-        pairs = sorted(zip(candidates, probs), key=lambda x: -x[1])
-        for lab, p in pairs[:5]:
-            # Only include predictions with reasonable confidence
-            if float(p) >= 0.1:  # Minimum confidence threshold
-                labels.append({"label": str(lab), "confidence": float(p)})
-    except Exception:
-        pred = clf.predict([text])[0]
-        labels.append({"label": str(pred), "confidence": 1.0})
+        preds = clf.predict([text])[0]
+        probs = clf.predict_proba([text])
+        
+        # For MultiOutputClassifier, probs is a list of arrays, one for each label
+        # Each array has shape (n_samples, 2) where [:, 1] is probability of positive class
+        for i, (pred, prob_array) in enumerate(zip(preds, probs)):
+            if pred == 1:
+                # prob_array shape is (1, 2), we want the probability of positive class (index 1)
+                confidence = prob_array[0][1] if prob_array.shape[1] > 1 else 0.5
+                if confidence >= 0.1:  # Minimum confidence threshold
+                    labels.append({
+                        "label": all_labels[i], 
+                        "confidence": float(confidence)
+                    })
+    except Exception as e:
+        eprint('Prediction error:', e)
+        # Fallback to single label prediction
+        try:
+            single_pred = clf.predict([text])[0]
+            if isinstance(single_pred, (list, np.ndarray)) and len(single_pred) > 0:
+                # If it's a multi-output prediction
+                if hasattr(single_pred, '__len__') and len(single_pred) > 1:
+                    # Handle multi-output case
+                    for i, pred in enumerate(single_pred):
+                        if pred == 1 and i < len(all_labels):
+                            labels.append({
+                                "label": all_labels[i], 
+                                "confidence": 0.5  # Default confidence for fallback
+                            })
+                else:
+                    # Single prediction
+                    pred_label = single_pred if isinstance(single_pred, str) else str(single_pred)
+                    labels.append({
+                        "label": pred_label, 
+                        "confidence": 1.0
+                    })
+        except:
+            # Final fallback
+            labels.append({
+                "label": "normal", 
+                "confidence": 1.0
+            })
 
+    # Sort by confidence
+    labels.sort(key=lambda x: x['confidence'], reverse=True)
     print(json.dumps({"predictions": labels}))
 
 def main():
