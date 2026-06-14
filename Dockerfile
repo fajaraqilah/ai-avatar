@@ -1,7 +1,7 @@
-# Multi-stage Dockerfile to build Guru Virtual AI backend with Node.js, Python, FFmpeg, and Rhubarb Lip Sync.
+# Dockerfile khusus Hugging Face Spaces (Diletakkan di Root Folder)
 FROM node:20-bullseye-slim
 
-# Install system dependencies (Python3, pip, curl, unzip, ffmpeg)
+# Install system dependencies (Python3, pip, ffmpeg, curl, unzip)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
@@ -12,37 +12,37 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Set python3 as default python
+# Set python3 sebagai default python cmd
 RUN ln -s /usr/bin/python3 /usr/bin/py || true
 
-# Set working directory
+# Set working directory ke /app
 WORKDIR /app
 
-# Download and install Rhubarb Lip Sync for Linux
+# Download dan install Rhubarb Lip Sync Linux
 RUN curl -L -o rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip \
     && unzip rhubarb.zip \
     && mv Rhubarb-Lip-Sync-1.13.0-Linux /app/Rhubarb-Lip-Sync \
     && rm rhubarb.zip
 
-# Copy backend dependencies
-COPY package*.json ./
-COPY requirements.txt ./
+# Copy backend dependencies ke container
+COPY avatar-backend/package*.json ./
+COPY avatar-backend/requirements.txt ./
 
 # Install Node.js dependencies
 RUN npm ci --omit=dev
 
-# Install Python dependencies
+# Install Python dependencies & gTTS
 RUN pip3 install --no-cache-dir -r requirements.txt gTTS
 
-# Copy the rest of the application files
-COPY . .
+# Copy seluruh file backend ke working directory
+COPY avatar-backend/ .
 
-# Buat link symlink agar kode execPromise dapat mencari Rhubarb & FFmpeg secara seragam baik di lokal maupun di Render
-# Di lokal pathnya: ..\Rhubarb-Lip-Sync\bin\rhubarb.exe dan ..\ffmpeg\bin\ffmpeg.exe
-# Di Docker Linux kita letakkan di folder yang setara di luar /app/
+# Buat symlink agar kode execPromise dapat mencari Rhubarb & FFmpeg secara seragam
 RUN mkdir -p /ffmpeg/bin && ln -s /usr/bin/ffmpeg /ffmpeg/bin/ffmpeg.exe || true \
     && mkdir -p /Rhubarb-Lip-Sync/bin && ln -s /app/Rhubarb-Lip-Sync/rhubarb /Rhubarb-Lip-Sync/bin/rhubarb.exe || true
 
-EXPOSE 3000
+# Hugging Face menggunakan PORT default 7860 untuk Spaces (Docker)
+ENV PORT=7860
+EXPOSE 7860
 
 CMD ["node", "index.js"]

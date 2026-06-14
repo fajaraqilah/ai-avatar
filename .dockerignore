@@ -1,0 +1,12 @@
+# Mengabaikan folder yang tidak perlu masuk ke Docker image Hugging Face
+avatar-frontend/
+node_modules/
+avatar-backend/node_modules/
+avatar-backend/audios/*
+ffmpeg/
+Rhubarb-Lip-Sync/
+.git
+.github
+.vscode
+*.zip
+*.log
