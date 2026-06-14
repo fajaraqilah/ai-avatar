@@ -13,6 +13,16 @@ dist/
 # Environment files
 .env*
 !.env.example
+avatar-backend/.env
+avatar-backend/.env.*
+avatar-backend/audios/*.mp3
+avatar-backend/audios/*.wav
+avatar-backend/audios/*.json
+avatar-backend/audios/*.txt
+avatar-frontend/.env
+avatar-frontend/.env.*
+
+
 
 # Logs
 logs
@@ -130,6 +140,8 @@ Thumbs.db
 # Project specific
 audios/generated.*
 avatar-backend/audios/generated.*
+ffmpeg/
+Rhubarb-Lip-Sync/
 
 # FFmpeg temporary files
 *.tmp
@@ -137,6 +149,7 @@ avatar-backend/audios/generated.*
 
 # Rhubarb Lip Sync files
 *.rhubarb
+
 
 # Python cache files
 __pycache__/

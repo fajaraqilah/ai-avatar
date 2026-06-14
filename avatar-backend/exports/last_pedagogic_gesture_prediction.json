@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "input_text": "Metode kuantitatif lebih fokus pada penggunaan angka dan statistik untuk mengumpulkan data, sementara metode kualitatif lebih fokus pada penggunaan kata-kata dan deskripsi untuk mengumpulkan data.",
+  "gesture_label": "TALKING_COMPARING",
+  "canonical_label": "TALKING_COMPARING",
+  "animation_file": "Talking_Comparing.glb",
+  "animation_clip": "TALKING_COMPARING",
+  "frontend_animation_clip": "TALKING_COMPARING",
+  "frontend_animation_path": "/animations/gesture_pedagogik/Talking_Comparing.glb",
+  "confidence": 0.0861,
+  "decision_source": "ml",
+  "ml_prediction": "Talking_Comparing.glb",
+  "ml_canonical": "TALKING_COMPARING",
+  "rule_hits": 0,
+  "top3": [
+    {
+      "gesture_label": "TALKING_COMPARING",
+      "canonical_label": "TALKING_COMPARING",
+      "animation_file": "Talking_Comparing.glb",
+      "score": 0.0861
+    },
+    {
+      "gesture_label": "LOOKING",
+      "canonical_label": "LOOKING",
+      "animation_file": "Looking.glb",
+      "score": 0.0699
+    },
+    {
+      "gesture_label": "TALKING_ARGUMEN",
+      "canonical_label": "TALKING_ARGUMEN",
+      "animation_file": "Talking_Argumen.glb",
+      "score": 0.0613
+    }
+  ],
+  "pedagogic_category": "3. Fase Eksplanasi / Perbandingan Konsep",
+  "pedagogic_analysis": "Membandingkan konsep, metode, atau kondisi pembelajaran",
+  "data_type": "Dinamis / Sekuensial",
+  "gesture_function": "Membandingkan konsep, metode, atau kondisi pembelajaran",
+  "pedagogical_context": "3. Fase Eksplanasi / Perbandingan Konsep"
+}

@@ -1,10 +1,13 @@
 import { useRef, useState } from "react"; // React hooks for refs and state
 import { useChat } from "../hooks/useChat"; // Custom hook for chat functionality
+import SentenceGestureMappingPanel from "./SentenceGestureMappingPanel";
+import GestureAnnotationPanel from "./GestureAnnotationPanel";
+import MLGestureResultPanel from "./MLGestureResultPanel";
 
 // UI component that provides the user interface for interacting with the AI avatar
 export const UI = ({ hidden, ...props }) => {
   const input = useRef(); // Ref to access the input element
-  const { chat, loading, cameraZoomed, setCameraZoomed, message } = useChat(); // Get chat functions and state from context
+  const { chat, loading, cameraZoomed, setCameraZoomed, message, persistentMessage } = useChat(); // Get chat functions and state from context
   const [isListening, setIsListening] = useState(false); // State to track speech recognition status
   const [recognition, setRecognition] = useState(null); // State to store speech recognition instance
 
@@ -82,12 +85,27 @@ export const UI = ({ hidden, ...props }) => {
   // Main UI rendering
   return (
     <>
+      <SentenceGestureMappingPanel
+        message={message}
+        persistentMessage={persistentMessage}
+        audioUrl="http://localhost:3000/audios/generated.mp3"
+        apiBaseUrl="http://localhost:3000/api"
+      />
+      <GestureAnnotationPanel
+        message={message}
+        persistentMessage={persistentMessage}
+        apiBaseUrl="http://localhost:3000/api"
+      />
+      <MLGestureResultPanel
+        message={message}
+        persistentMessage={persistentMessage}
+      />
       {/* Main UI container with flex layout */}
       <div className="fixed top-0 left-0 right-0 bottom-0 z-10 flex justify-between p-4 flex-col pointer-events-none">
         {/* Header section with virtual teacher info */}
         <div className="self-start backdrop-blur-md bg-white/80 p-4 rounded-xl shadow-lg">
           <h1 className="font-black text-xl text-gray-800">Guru Virtual</h1> {/* Virtual teacher title */}
-          <p className="text-gray-600 font-medium">Nuraini Purwandari, S.kom.,MMSI 📚</p> {/* Teacher name and credentials */}
+          <p className="text-gray-600 font-medium">Nuraini Purwandari, S.T.,MMSI 📚</p> {/* Teacher name and credentials */}
         </div>
         
         {/* Right side controls */}

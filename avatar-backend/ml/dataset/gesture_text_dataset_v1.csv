@@ -1,0 +1,361 @@
+id,text,pedagogical_context,gesture_label,animation_clip,gesture_function,language,source
+appreciation_017,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+closing_020,"Baik, materi arsitektur komputer kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+greeting_025,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+instruction_039,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+instruction_034,Coba tuliskan contoh penerapan data mining dalam kehidupan sehari-hari.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+pointing_021,Bagian yang saya tunjukkan menjelaskan hubungan antar komponen.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+instruction_027,Coba tuliskan contoh penerapan arsitektur komputer dalam kehidupan sehari-hari.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+idle_024,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+pointing_003,Perhatikan diagram manajemen proyek TI yang terlihat pada layar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+instruction_014,Coba tuliskan contoh penerapan basis data dalam kehidupan sehari-hari.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+correction_039,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+explain_011,sistem pendukung keputusan adalah konsep yang digunakan untuk mengelola data dan informasi.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+instruction_003,Silakan buka modul pembelajaran pada bagian jaringan komputer.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+correction_032,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+pointing_017,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+explain_034,"Dalam pembelajaran ini, data mining akan dijelaskan melalui beberapa tahapan.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+pointing_016,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+appreciation_007,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_026,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+idle_036,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+correction_013,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+idle_012,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+instruction_002,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+appreciation_025,"Hebat, Anda sudah memahami konsep data mining.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+correction_005,"Jawaban tersebut mendekati benar, tetapi perlu dilengkapi.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+appreciation_012,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+greeting_009,"Selamat pagi, hari ini kita akan mulai materi data mining.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+correction_036,Coba perhatikan kembali definisi perancangan sistem.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+explain_001,"Secara umum, arsitektur komputer dapat dipahami sebagai bagian penting dalam proses bisnis.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_008,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+closing_023,"Pembelajaran hari ini selesai, silakan pelajari kembali materinya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+emphasis_036,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+idle_017,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+appreciation_013,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+closing_038,"Demikian pembelajaran hari ini, sampai bertemu pada sesi berikutnya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+pointing_028,Silakan lihat tabel berikut untuk memahami contoh kecerdasan buatan.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+explain_012,Materi kecerdasan buatan menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+greeting_002,"Assalamualaikum, mari kita mulai kelas tentang keamanan informasi.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+emphasis_039,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+explain_004,"Secara umum, data mining dapat dipahami sebagai bagian penting dalam proses bisnis.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+pointing_010,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+pointing_019,Silakan lihat tabel berikut untuk memahami contoh basis data.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+appreciation_029,"Sangat baik, contoh yang Anda berikan relevan.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_021,"Baik, saya siap membantu Anda.",menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+greeting_006,"Selamat datang, hari ini kita akan membahas kecerdasan buatan.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+pointing_034,Silakan lihat tabel berikut untuk memahami contoh machine learning.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+greeting_032,"Selamat pagi, hari ini kita akan mulai materi manajemen proyek TI.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+explain_029,jaringan komputer adalah konsep yang digunakan untuk mengelola data dan informasi.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_032,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+greeting_018,"Assalamualaikum, mari kita mulai kelas tentang jaringan komputer.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+instruction_009,Silakan kerjakan latihan tentang pemrograman web setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+idle_004,Saya menunggu pertanyaan Anda berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+idle_032,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+correction_016,Coba perhatikan kembali definisi kecerdasan buatan.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+closing_016,Terima kasih atas perhatian Anda dalam pembelajaran hari ini.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+idle_025,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+pointing_012,Silakan lihat tabel berikut untuk memahami contoh cloud computing.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+explain_028,enterprise architecture adalah konsep yang digunakan untuk mengelola data dan informasi.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+correction_038,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+pointing_027,Silakan lihat tabel berikut untuk memahami contoh enterprise architecture.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+correction_002,"Jawaban tersebut mendekati benar, tetapi perlu dilengkapi.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+emphasis_034,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+emphasis_024,Catat bahwa kualitas informasi sangat dipengaruhi oleh kualitas data.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+correction_031,Mari kita ulangi lagi agar konsepnya lebih jelas.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+emphasis_009,Catat bahwa kualitas informasi sangat dipengaruhi oleh kualitas data.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+pointing_026,Lihat bagian ini untuk memahami alur analisis sistem.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+correction_023,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+idle_016,"Baik, saya siap membantu Anda.",menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+greeting_035,"Assalamualaikum, mari kita mulai kelas tentang basis data.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+greeting_020,"Assalamualaikum, mari kita mulai kelas tentang basis data.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+idle_038,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+correction_028,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+idle_033,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+pointing_030,Silakan lihat tabel berikut untuk memahami contoh sistem pendukung keputusan.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+instruction_007,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+idle_034,Saya menunggu pertanyaan Anda berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+pointing_002,Lihat bagian ini untuk memahami alur machine learning.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+closing_017,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+instruction_004,Coba tuliskan contoh penerapan analisis sistem dalam kehidupan sehari-hari.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+pointing_038,Silakan lihat tabel berikut untuk memahami contoh data mining.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+greeting_037,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+appreciation_009,"Luar biasa, Anda dapat menjelaskan dengan runtut.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_029,"Baik, saya siap membantu Anda.",menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+greeting_038,"Assalamualaikum, mari kita mulai kelas tentang machine learning.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+explain_021,"Konsep data mining berkaitan dengan manusia, proses, data, dan teknologi.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+instruction_037,Silakan kerjakan latihan tentang cloud computing setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+appreciation_010,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+closing_004,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+greeting_001,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+closing_008,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+closing_037,"Demikian pembelajaran hari ini, sampai bertemu pada sesi berikutnya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+correction_022,"Jawaban Anda belum sepenuhnya tepat, mari kita perbaiki bersama.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+greeting_023,"Assalamualaikum, mari kita mulai kelas tentang pemrograman web.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+instruction_019,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+closing_031,"Demikian pembelajaran hari ini, sampai bertemu pada sesi berikutnya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+closing_027,"Baik, materi jaringan komputer kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+closing_036,"Baik, materi arsitektur komputer kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+greeting_034,"Selamat pagi, hari ini kita akan mulai materi sistem pendukung keputusan.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+greeting_028,"Halo semuanya, sebelum mulai mari kita siapkan perhatian.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+instruction_028,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+emphasis_030,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+correction_021,Mari kita ulangi lagi agar konsepnya lebih jelas.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+greeting_013,"Selamat pagi, hari ini kita akan mulai materi machine learning.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+instruction_038,Coba tuliskan contoh penerapan perancangan sistem dalam kehidupan sehari-hari.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+appreciation_021,"Sangat baik, contoh yang Anda berikan relevan.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+correction_004,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+pointing_040,Lihat bagian ini untuk memahami alur sistem informasi.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+emphasis_028,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+greeting_040,"Assalamualaikum, mari kita mulai kelas tentang perancangan sistem.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+appreciation_038,"Hebat, Anda sudah memahami konsep cloud computing.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+instruction_005,Coba tuliskan contoh penerapan sistem informasi dalam kehidupan sehari-hari.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+pointing_031,Lihat bagian ini untuk memahami alur manajemen proyek TI.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+emphasis_011,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+correction_027,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+explain_018,"Dalam pembelajaran ini, jaringan komputer akan dijelaskan melalui beberapa tahapan.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+correction_035,Mari kita ulangi lagi agar konsepnya lebih jelas.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+appreciation_035,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+pointing_020,Perhatikan diagram manajemen proyek TI yang terlihat pada layar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+greeting_029,"Selamat datang, hari ini kita akan membahas analisis sistem.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+explain_040,Materi basis data menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+closing_007,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+explain_037,arsitektur komputer adalah konsep yang digunakan untuk mengelola data dan informasi.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+closing_040,"Baik, materi sistem pendukung keputusan kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+explain_014,"Secara umum, cloud computing dapat dipahami sebagai bagian penting dalam proses bisnis.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+correction_006,Coba perhatikan kembali definisi analisis sistem.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+idle_006,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+closing_030,"Pembelajaran hari ini selesai, silakan pelajari kembali materinya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+explain_024,"Konsep kecerdasan buatan berkaitan dengan manusia, proses, data, dan teknologi.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+correction_025,"Jawaban Anda belum sepenuhnya tepat, mari kita perbaiki bersama.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+instruction_001,Silakan buka modul pembelajaran pada bagian manajemen proyek TI.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+closing_018,"Baik, materi data mining kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+closing_006,"Baik, materi keamanan informasi kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+instruction_032,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+greeting_019,"Selamat pagi, hari ini kita akan mulai materi sistem pendukung keputusan.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+instruction_011,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+closing_028,"Demikian pembelajaran hari ini, sampai bertemu pada sesi berikutnya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+greeting_017,"Halo semuanya, sebelum mulai mari kita siapkan perhatian.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+greeting_030,"Selamat datang, hari ini kita akan membahas cloud computing.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+emphasis_025,Perlu diperhatikan bahwa kecerdasan buatan tidak hanya berkaitan dengan teknologi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+instruction_024,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+closing_003,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+instruction_016,Coba tuliskan contoh penerapan kecerdasan buatan dalam kehidupan sehari-hari.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+appreciation_034,"Hebat, Anda sudah memahami konsep arsitektur komputer.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_037,"Baik, saya siap membantu Anda.",menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+closing_025,"Baik, materi arsitektur komputer kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+emphasis_001,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+idle_005,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+emphasis_027,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+closing_010,"Pembelajaran hari ini selesai, silakan pelajari kembali materinya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+closing_035,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+appreciation_011,"Luar biasa, Anda dapat menjelaskan dengan runtut.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+emphasis_038,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+explain_035,Materi data mining menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+instruction_036,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+closing_011,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+greeting_012,"Selamat datang, hari ini kita akan membahas kecerdasan buatan.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+correction_007,Coba perhatikan kembali definisi sistem pendukung keputusan.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+greeting_033,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+emphasis_017,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+greeting_004,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+explain_038,"Konsep sistem pendukung keputusan berkaitan dengan manusia, proses, data, dan teknologi.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+explain_006,"Dalam pembelajaran ini, kecerdasan buatan akan dijelaskan melalui beberapa tahapan.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+pointing_013,Perhatikan diagram pemrograman web yang terlihat pada layar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+closing_015,"Pembelajaran hari ini selesai, silakan pelajari kembali materinya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+appreciation_006,"Hebat, Anda sudah memahami konsep analisis sistem.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_030,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+idle_011,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+explain_033,"Dalam pembelajaran ini, pemrograman web akan dijelaskan melalui beberapa tahapan.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+appreciation_031,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+emphasis_015,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+emphasis_031,Catat bahwa kualitas informasi sangat dipengaruhi oleh kualitas data.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+appreciation_028,"Luar biasa, Anda dapat menjelaskan dengan runtut.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+emphasis_004,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+closing_012,"Demikian pembelajaran hari ini, sampai bertemu pada sesi berikutnya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+instruction_021,Silakan kerjakan latihan tentang kecerdasan buatan setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+explain_008,"Konsep keamanan informasi berkaitan dengan manusia, proses, data, dan teknologi.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+appreciation_015,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+correction_019,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+instruction_022,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+pointing_001,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+explain_010,keamanan informasi adalah konsep yang digunakan untuk mengelola data dan informasi.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+greeting_031,"Assalamualaikum, mari kita mulai kelas tentang pemrograman web.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+explain_020,"Secara umum, manajemen proyek TI dapat dipahami sebagai bagian penting dalam proses bisnis.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+idle_020,"Baik, saya siap membantu Anda.",menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+appreciation_001,"Luar biasa, Anda dapat menjelaskan dengan runtut.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_014,"Baik, saya siap membantu Anda.",menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+pointing_037,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+appreciation_030,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_013,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+idle_027,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+emphasis_021,"Inti dari materi ini adalah hubungan antara data, proses, dan informasi.",penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+instruction_031,Silakan buka modul pembelajaran pada bagian pemrograman web.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+idle_007,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+pointing_009,Lihat bagian ini untuk memahami alur jaringan komputer.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+emphasis_016,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+emphasis_022,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+appreciation_014,"Sangat baik, contoh yang Anda berikan relevan.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+pointing_015,Perhatikan diagram basis data yang terlihat pada layar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+emphasis_029,Catat bahwa kualitas informasi sangat dipengaruhi oleh kualitas data.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+instruction_010,Silakan buka modul pembelajaran pada bagian data mining.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+correction_026,Mari kita ulangi lagi agar konsepnya lebih jelas.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+correction_012,"Jawaban tersebut mendekati benar, tetapi perlu dilengkapi.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+correction_040,"Jawaban Anda belum sepenuhnya tepat, mari kita perbaiki bersama.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+pointing_024,Lihat bagian ini untuk memahami alur jaringan komputer.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+explain_017,"Dalam pembelajaran ini, kecerdasan buatan akan dijelaskan melalui beberapa tahapan.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+explain_036,arsitektur komputer adalah konsep yang digunakan untuk mengelola data dan informasi.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+greeting_024,"Assalamualaikum, mari kita mulai kelas tentang sistem pendukung keputusan.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+greeting_005,"Selamat datang, hari ini kita akan membahas basis data.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+appreciation_003,"Luar biasa, Anda dapat menjelaskan dengan runtut.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+closing_033,"Pembelajaran hari ini selesai, silakan pelajari kembali materinya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+appreciation_019,"Hebat, Anda sudah memahami konsep arsitektur komputer.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+instruction_023,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+correction_018,"Jawaban Anda belum sepenuhnya tepat, mari kita perbaiki bersama.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+emphasis_002,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+instruction_017,Silakan kerjakan latihan tentang cloud computing setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+correction_029,Mari kita ulangi lagi agar konsepnya lebih jelas.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+idle_003,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+appreciation_027,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+correction_017,Bagian ini perlu dikoreksi karena masih kurang sesuai.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+pointing_025,Bagian yang saya tunjukkan menjelaskan hubungan antar komponen.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+instruction_025,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+closing_002,Terima kasih atas perhatian Anda dalam pembelajaran hari ini.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+closing_001,Terima kasih atas perhatian Anda dalam pembelajaran hari ini.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+explain_009,Materi enterprise architecture menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_013,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+greeting_003,"Selamat pagi, hari ini kita akan mulai materi jaringan komputer.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+idle_002,Saya menunggu pertanyaan Anda berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+explain_031,"Dalam pembelajaran ini, pemrograman web akan dijelaskan melalui beberapa tahapan.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+appreciation_032,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+closing_034,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+emphasis_033,Perlu diperhatikan bahwa jaringan komputer tidak hanya berkaitan dengan teknologi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+correction_014,Coba perhatikan kembali definisi keamanan informasi.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+correction_015,"Jawaban Anda belum sepenuhnya tepat, mari kita perbaiki bersama.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+pointing_008,Silakan lihat tabel berikut untuk memahami contoh pemrograman web.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+explain_027,"Dalam pembelajaran ini, basis data akan dijelaskan melalui beberapa tahapan.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+appreciation_005,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+correction_024,Mari kita ulangi lagi agar konsepnya lebih jelas.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+correction_030,"Jawaban Anda belum sepenuhnya tepat, mari kita perbaiki bersama.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+closing_005,Terima kasih atas perhatian Anda dalam pembelajaran hari ini.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+explain_007,Materi cloud computing menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+closing_014,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+appreciation_018,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_040,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+greeting_008,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+pointing_007,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+pointing_018,Perhatikan diagram keamanan informasi yang terlihat pada layar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+instruction_012,Silakan kerjakan latihan tentang data mining setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+emphasis_037,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+emphasis_026,Perlu diperhatikan bahwa analisis sistem tidak hanya berkaitan dengan teknologi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+pointing_039,Lihat bagian ini untuk memahami alur pemrograman web.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+closing_021,"Demikian pembelajaran hari ini, sampai bertemu pada sesi berikutnya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+explain_023,"Konsep kecerdasan buatan berkaitan dengan manusia, proses, data, dan teknologi.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+pointing_036,Lihat bagian ini untuk memahami alur basis data.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+appreciation_026,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+explain_032,kecerdasan buatan adalah konsep yang digunakan untuk mengelola data dan informasi.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+explain_005,"Secara umum, jaringan komputer dapat dipahami sebagai bagian penting dalam proses bisnis.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_006,Catat bahwa kualitas informasi sangat dipengaruhi oleh kualitas data.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+instruction_006,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+emphasis_018,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+idle_035,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+closing_019,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+correction_008,"Jawaban Anda belum sepenuhnya tepat, mari kita perbaiki bersama.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+emphasis_019,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+pointing_011,Lihat bagian ini untuk memahami alur data mining.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+appreciation_023,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+closing_026,Terima kasih atas perhatian Anda dalam pembelajaran hari ini.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+appreciation_036,"Luar biasa, Anda dapat menjelaskan dengan runtut.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+instruction_026,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+appreciation_022,"Sangat baik, contoh yang Anda berikan relevan.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+explain_015,"Konsep cloud computing berkaitan dengan manusia, proses, data, dan teknologi.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+correction_011,Coba perhatikan kembali definisi enterprise architecture.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+idle_001,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+greeting_007,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+instruction_015,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+correction_020,Mari kita ulangi lagi agar konsepnya lebih jelas.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+closing_032,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+instruction_030,Silakan kerjakan latihan tentang sistem informasi setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+idle_015,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+correction_033,"Jawaban tersebut mendekati benar, tetapi perlu dilengkapi.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+instruction_018,Kerjakan soal latihan secara mandiri selama sepuluh menit.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+greeting_022,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+explain_022,Materi manajemen proyek TI menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_035,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+explain_013,Materi basis data menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_005,"Inti dari materi ini adalah hubungan antara data, proses, dan informasi.",penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+greeting_039,"Assalamualaikum, mari kita mulai kelas tentang jaringan komputer.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+pointing_022,Perhatikan diagram sistem pendukung keputusan yang terlihat pada layar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+appreciation_004,"Luar biasa, Anda dapat menjelaskan dengan runtut.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+instruction_033,Silakan kerjakan latihan tentang data mining setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+closing_013,Terima kasih atas perhatian Anda dalam pembelajaran hari ini.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+idle_018,Silakan lanjutkan jika ada hal yang ingin ditanyakan.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+explain_016,Materi keamanan informasi menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_040,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+pointing_004,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+closing_022,"Pembelajaran hari ini selesai, silakan pelajari kembali materinya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+pointing_006,Perhatikan diagram enterprise architecture yang terlihat pada layar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+instruction_029,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+emphasis_012,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+appreciation_039,"Hebat, Anda sudah memahami konsep enterprise architecture.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+pointing_032,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+idle_019,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+explain_019,Materi jaringan komputer menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+correction_003,Coba perhatikan kembali definisi manajemen proyek TI.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+explain_025,Materi keamanan informasi menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_003,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+explain_039,Materi sistem pendukung keputusan menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+greeting_011,"Selamat datang, hari ini kita akan membahas keamanan informasi.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+pointing_023,Silakan lihat tabel berikut untuk memahami contoh sistem pendukung keputusan.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+emphasis_007,"Inti dari materi ini adalah hubungan antara data, proses, dan informasi.",penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+greeting_016,"Selamat pagi, hari ini kita akan mulai materi manajemen proyek TI.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+greeting_021,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+greeting_036,"Selamat pagi, hari ini kita akan mulai materi enterprise architecture.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+pointing_035,Perhatikan diagram keamanan informasi yang terlihat pada layar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+instruction_020,Silakan kerjakan latihan tentang pemrograman web setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+greeting_027,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+correction_037,"Jawaban tersebut mendekati benar, tetapi perlu dilengkapi.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+greeting_010,"Selamat datang, hari ini kita akan membahas sistem informasi.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+correction_001,Coba perhatikan kembali definisi cloud computing.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+explain_002,Materi manajemen proyek TI menjelaskan bagaimana komponen saling berhubungan.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+emphasis_010,Catat bahwa kualitas informasi sangat dipengaruhi oleh kualitas data.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+appreciation_016,"Sangat baik, contoh yang Anda berikan relevan.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+emphasis_023,Perlu diperhatikan bahwa keamanan informasi tidak hanya berkaitan dengan teknologi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+idle_009,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+idle_031,Saya menunggu pertanyaan Anda berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+idle_008,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+appreciation_033,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+pointing_029,Lihat bagian ini untuk memahami alur cloud computing.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+instruction_008,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+instruction_035,Perhatikan instruksi berikut sebelum mengerjakan tugas.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+emphasis_014,Bagian ini sangat penting untuk dipahami.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+greeting_026,"Halo semuanya, sebelum mulai mari kita siapkan perhatian.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+pointing_014,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+appreciation_037,"Sangat baik, contoh yang Anda berikan relevan.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+explain_030,"Secara umum, sistem pendukung keputusan dapat dipahami sebagai bagian penting dalam proses bisnis.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+appreciation_020,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_010,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+explain_003,pemrograman web adalah konsep yang digunakan untuk mengelola data dan informasi.,penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+idle_022,"Baik, saya siap membantu Anda.",menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+closing_009,"Baik, materi pemrograman web kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+closing_024,"Demikian pembelajaran hari ini, sampai bertemu pada sesi berikutnya.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+appreciation_002,Jawaban tersebut benar dan sesuai dengan materi.,apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+greeting_014,"Selamat datang, hari ini kita akan membahas analisis sistem.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+correction_034,Mari kita ulangi lagi agar konsepnya lebih jelas.,koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+closing_039,Sampai jumpa pada pertemuan berikutnya.,penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset
+explain_026,"Secara umum, data mining dapat dipahami sebagai bagian penting dalam proses bisnis.",penjelasan materi,explain,Talking_6,Menjelaskan konsep atau materi pembelajaran,id,synthetic_initial_dataset
+appreciation_040,"Hebat, Anda sudah memahami konsep sistem pendukung keputusan.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+pointing_005,Lihat bagian ini untuk memahami alur data mining.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+appreciation_008,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+idle_028,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+idle_023,Silakan ketik pertanyaan berikutnya.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+instruction_013,Silakan kerjakan latihan tentang enterprise architecture setelah penjelasan ini.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+instruction_040,Silakan buka modul pembelajaran pada bagian enterprise architecture.,instruksi tugas atau aktivitas,instruction,Talking_4,Memberikan instruksi kepada siswa,id,synthetic_initial_dataset
+greeting_015,"Halo, selamat datang pada pembelajaran hari ini.",pembuka pembelajaran,greeting,Greeting,Menyapa dan membuka interaksi pembelajaran,id,synthetic_initial_dataset
+correction_009,"Jawaban Anda belum sepenuhnya tepat, mari kita perbaiki bersama.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+appreciation_024,"Bagus, jawaban Anda sudah tepat.",apresiasi atau penguatan positif,appreciation,Talking_5,Memberikan penghargaan terhadap jawaban atau partisipasi,id,synthetic_initial_dataset
+emphasis_020,Poin utama yang harus Anda ingat adalah fungsi sistem dalam organisasi.,penekanan konsep penting,emphasis,Talking_1,Memberikan penekanan pada poin utama,id,synthetic_initial_dataset
+idle_039,Saya akan menunggu respons dari Anda.,menunggu atau transisi,idle,Idle,Diam atau menunggu input berikutnya,id,synthetic_initial_dataset
+correction_010,"Jawaban tersebut mendekati benar, tetapi perlu dilengkapi.",koreksi atau umpan balik perbaikan,correction,Talking_7,Memberikan koreksi atau klarifikasi,id,synthetic_initial_dataset
+pointing_033,Perhatikan komponen utama yang ditunjukkan pada gambar.,penunjukan objek atau bagian visual,pointing,Pointing,"Menunjuk diagram, gambar, papan, atau bagian penting",id,synthetic_initial_dataset
+closing_029,"Baik, materi machine learning kita akhiri sampai di sini.",penutup pembelajaran,closing,Waving,Menutup sesi pembelajaran,id,synthetic_initial_dataset

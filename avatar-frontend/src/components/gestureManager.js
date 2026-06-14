@@ -16,7 +16,24 @@ class GestureManager {
       'Talking_4',
       'Talking_5',
       'Talking_6',
-      'Talking_7'
+      'Talking_7',
+      'TALKING_EXPLAINING',
+      'TALKING_OPEN_HAND',
+      'TALKING_ARGUMEN',
+      'TALKING_COMPARING',
+      'TALKING_PRESENTING',
+      'POINTING',
+      'LOOKING',
+      'COUNTING',
+      'HAND_RAISING',
+      'HEAD_NOD_YES',
+      'SHAKING_HEAD_NO',
+      'CLAPPING',
+      'THANKFUL',
+      'THINKING',
+      'BASHFUL',
+      'PATTING',
+      'STANDING_GREETING'
     ]);
 
     // Define which animations must play only once

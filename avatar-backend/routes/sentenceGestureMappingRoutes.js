@@ -1,0 +1,9 @@
+import express from "express";
+import { buildSentenceGestureMapping } from "../services/sentenceGestureMapper.js";
+import { saveSentenceGestureMapping, getCsvPath, getJsonPath } from "../services/sentenceGestureCsvStore.js";
+const router = express.Router();
+router.post("/sentence-gesture-mapping", (req,res)=>{ try{ const { text, gestureSequence, lipsync, audioDuration, audioFile, sessionId, saveCsv, mode } = req.body; const mapping = buildSentenceGestureMapping({ text, gestureSequence, lipsync, audioDuration, audioFile, sessionId, mode: mode || "weighted" }); let saved=null; if(saveCsv){ saved = saveSentenceGestureMapping(mapping, { session_id: sessionId, audio_file: audioFile, audio_duration: audioDuration || lipsync?.metadata?.duration }, "append"); } res.json({ success:true, message:"Mapping gesture per kalimat berhasil dibuat.", data:mapping, saved }); }catch(error){ console.error("sentence gesture mapping error:", error); res.status(500).json({ success:false, message:"Gagal membuat mapping gesture per kalimat.", error:error.message }); }});
+router.post("/sentence-gesture-mapping/save", (req,res)=>{ try{ const { rows, meta, mode } = req.body; const result=saveSentenceGestureMapping(rows || [], meta || {}, mode || "append"); res.json(result); }catch(error){ res.status(500).json({ success:false, message:"Gagal menyimpan mapping gesture per kalimat.", error:error.message }); }});
+router.get("/sentence-gesture-mapping/export-csv", (req,res)=>{ try{ res.download(getCsvPath(), "sentence_gesture_mapping.csv"); }catch(error){ res.status(500).json({ success:false, message:"Gagal export CSV.", error:error.message }); }});
+router.get("/sentence-gesture-mapping/export-json", (req,res)=>{ try{ res.download(getJsonPath(), "sentence_gesture_mapping.json"); }catch(error){ res.status(500).json({ success:false, message:"Gagal export JSON.", error:error.message }); }});
+export default router;

@@ -1,87 +1,165 @@
 text,labels
-"halo","Greeting"
-"hai","Greeting"
-"hello","Greeting"
-"hi","Waving"
-"assalamualaikum","Greeting"
-"selamat pagi","Greeting"
-"selamat siang","Greeting"
-"selamat sore","Greeting"
-"selamat malam","Greeting"
-"apa kabar","Greeting"
-"bagaimana kabarmu","Greeting"
-"senang bertemu denganmu","Greeting"
-"apa kabar hari ini","Greeting"
-"bagaimana aktivitasmu","Greeting"
-"semoga hari mu menyenangkan","Greeting"
-"semoga hari mu indah","Greeting"
-"semoga istirahat mu nyenyak","Greeting"
-"halo apa kabar","Greeting"
-"selamat pagi avatar","Greeting"
-"hai bagaimana kabarmu hari ini","Greeting"
-"assalamualaikum apa kabar","Greeting"
-"halo avatar AI senang bertemu denganmu","Greeting"
-"selamat siang semoga hari mu menyenangkan","Greeting"
-"hai avatar apa kabar hari ini","Greeting"
-"selamat sore bagaimana aktivitasmu","Greeting"
-"halo semoga hari mu indah","Greeting"
-"selamat malam semoga istirahat mu nyenyak","Greeting"
-
-"saya takut","Terrified"
-"berjalan ke kiri","Walk_left"
-"coba joget","Rumba"
-"coba duduk","Sitting"
-"coba tertawa","Laughing"
-
-"jelaskan konsep AI","normal"
-"bisakah kamu menjelaskan machine learning","normal"
-"tolong jelaskan tentang deep learning","normal"
-"apa itu neural network","normal"
-"jelaskan bagaimana komputer bisa belajar","normal"
-"bisakah kamu jelaskan cara kerja jaringan saraf","normal"
-"tolong jelaskan konsep cloud computing","normal"
-"apa itu blockchain","normal"
-"jelaskan konsep internet of things","normal"
-"bisakah kamu jelaskan apa itu virtual reality","normal"
-"jelaskan teknologi cloud","normal"
-"apa itu kecerdasan buatan","normal"
-"jelaskan bagaimana komputer bisa belajar","normal"
-"bisakah kamu jelaskan cara kerja jaringan saraf","normal"
-"apa itu machine learning","normal"
-"jelaskan konsep deep learning","normal"
-"bagaimana cara kerja algoritma","normal"
-"tolong jelaskan apa itu big data","normal"
-"bisakah kamu jelaskan pengertian IoT","normal"
-
-"buka","terbuka"
-"perlihatkan","terbuka"
-"tunjukkan","terbuka"
-"lihat ini","terbuka"
-"perhatikan","terbuka"
-"periksa ini","terbuka"
-"lihat penjelasan ini","terbuka"
-"perhatikan detailnya","terbuka"
-"tunjukkan contohnya","terbuka"
-"buka penjelasannya","terbuka"
-"perlihatkan cara kerjanya","terbuka"
-"lihat bagaimana ini bekerja","terbuka"
-
-"tolong jelaskan dengan santai","Talking_0"
-"coba jelaskan dengan tegas","Talking_0"
-"ceritakan sebuah kisah","Talking_1"
-"jelaskan dengan detail","Talking_1"
-"uraikan secara lengkap","Talking_1"
-"jelaskan langkah demi langkah","Talking_2"
-"bagaimana prosesnya","Talking_2"
-"apa saja tahapannya","Talking_2"
-"ceritakan pengalamanmu","Talking_3"
-"bagaimana perasaanmu","Talking_3"
-"apa yang kamu rasakan","Talking_3"
-"jelaskan dengan semangat","Talking_4"
-"ceritakan dengan antusiasme","Talking_4"
-"bagaimana pendapatmu","Talking_5"
-"apa opinimu tentang ini","Talking_5"
-"jelaskan dengan tenang","Talking_6"
-"uraikan dengan sabar","Talking_6"
-"bagaimana menurutmu","Talking_7"
-"apa komentarmu","Talking_7"
+halo,Greeting
+hai,Greeting
+hello,Greeting
+hi,Waving
+assalamualaikum,Greeting
+selamat pagi,Greeting
+selamat siang,Greeting
+selamat sore,Greeting
+selamat malam,Greeting
+apa kabar,Greeting
+bagaimana kabarmu,Greeting
+senang bertemu denganmu,Greeting
+apa kabar hari ini,Greeting
+bagaimana aktivitasmu,Greeting
+semoga hari mu menyenangkan,Greeting
+semoga hari mu indah,Greeting
+semoga istirahat mu nyenyak,Greeting
+halo apa kabar,Greeting
+selamat pagi avatar,Greeting
+hai bagaimana kabarmu hari ini,Greeting
+assalamualaikum apa kabar,Greeting
+halo avatar AI senang bertemu denganmu,Greeting
+selamat siang semoga hari mu menyenangkan,Greeting
+hai avatar apa kabar hari ini,Greeting
+selamat sore bagaimana aktivitasmu,Greeting
+halo semoga hari mu indah,Greeting
+selamat malam semoga istirahat mu nyenyak,Greeting
+saya takut,Terrified
+berjalan ke kiri,Walk_left
+coba joget,Rumba
+coba duduk,Sitting
+coba tertawa,Laughing
+jelaskan konsep AI,normal
+bisakah kamu menjelaskan machine learning,normal
+tolong jelaskan tentang deep learning,normal
+apa itu neural network,normal
+jelaskan bagaimana komputer bisa belajar,normal
+bisakah kamu jelaskan cara kerja jaringan saraf,normal
+tolong jelaskan konsep cloud computing,normal
+apa itu blockchain,normal
+jelaskan konsep internet of things,normal
+bisakah kamu jelaskan apa itu virtual reality,normal
+jelaskan teknologi cloud,normal
+apa itu kecerdasan buatan,normal
+apa itu machine learning,normal
+jelaskan konsep deep learning,normal
+bagaimana cara kerja algoritma,normal
+tolong jelaskan apa itu big data,normal
+bisakah kamu jelaskan pengertian IoT,normal
+buka,terbuka
+perlihatkan,terbuka
+tunjukkan,terbuka
+lihat ini,terbuka
+perhatikan,terbuka
+periksa ini,terbuka
+lihat penjelasan ini,terbuka
+perhatikan detailnya,terbuka
+tunjukkan contohnya,terbuka
+buka penjelasannya,terbuka
+perlihatkan cara kerjanya,terbuka
+lihat bagaimana ini bekerja,terbuka
+tolong jelaskan dengan santai,Talking_0
+coba jelaskan dengan tegas,Talking_0
+ceritakan sebuah kisah,Talking_1
+jelaskan dengan detail,Talking_1
+uraikan secara lengkap,Talking_1
+jelaskan langkah demi langkah,Talking_2
+bagaimana prosesnya,Talking_2
+apa saja tahapannya,Talking_2
+ceritakan pengalamanmu,Talking_3
+bagaimana perasaanmu,Talking_3
+apa yang kamu rasakan,Talking_3
+jelaskan dengan semangat,Talking_4
+ceritakan dengan antusiasme,Talking_4
+bagaimana pendapatmu,Talking_5
+apa opinimu tentang ini,Talking_5
+jelaskan dengan tenang,Talking_6
+uraikan dengan sabar,Talking_6
+bagaimana menurutmu,Talking_7
+apa komentarmu,Talking_7
+selamat datang,Greeting
+selamat datang di kelas virtual,Greeting
+senang sekali bertemu lagi,Greeting
+apa kabar semuanya,Greeting
+halo anak-anak,Greeting
+assalamualaikum warahmatullahi wabarakatuh,Greeting
+selamat belajar hari ini,Greeting
+"halo, siap belajar bersama?",Greeting
+selamat pagi semuanya,Greeting
+"hai, senang bisa membantu kamu",Greeting
+selamat berjumpa kembali,Greeting
+halo teman-teman,Greeting
+"selamat siang, mari kita mulai",Greeting
+apa kabar adik-adik,Greeting
+senang berkenalan denganmu,Greeting
+dadah,Waving
+sampai jumpa,Waving
+selamat tinggal,Waving
+dadah teman-teman,Waving
+sampai bertemu lagi besok,Waving
+bye bye,Waving
+sampai nanti ya,Waving
+"dadah, hati-hati di jalan",Waving
+sampai jumpa di pelajaran berikutnya,Waving
+selamat tinggal dan sampai jumpa lagi,Waving
+haha lucu sekali,Laughing
+hahaha,Laughing
+itu sangat lucu,Laughing
+aku jadi tertawa,Laughing
+"wah, itu menggelikan",Laughing
+cerita itu lucu sekali,Laughing
+haha kamu bikin aku tertawa,Laughing
+ini benar-benar kocak,Laughing
+jelaskan pengertian fotosintesis,normal
+apa itu sistem tata surya,normal
+tolong jelaskan materi pecahan,normal
+bagaimana cara kerja panel surya,normal
+jelaskan proses daur air,normal
+apa yang dimaksud ekosistem,normal
+tolong jelaskan konsep gaya gravitasi,normal
+mengapa langit berwarna biru,normal
+jelaskan perbedaan mamalia dan reptil,normal
+bagaimana proses terjadinya hujan,normal
+apa itu energi terbarukan,normal
+jelaskan konsep bilangan prima,normal
+bagaimana cara menyelesaikan persamaan linear,normal
+apa yang dimaksud transformasi digital,normal
+tolong uraikan materi sistem pencernaan,normal
+coba tunjukkan,terbuka
+lihat ke sini,terbuka
+perhatikan bagian ini,terbuka
+tolong perlihatkan contohnya,terbuka
+coba buka halaman berikutnya,terbuka
+lihat gambar ini,terbuka
+tunjukkan langkah pertama,terbuka
+perhatikan gerakan ini,terbuka
+lihat contoh di papan,terbuka
+tolong arahkan ke bagian utama,terbuka
+buka materi ini,terbuka
+silakan lihat ilustrasi berikut,terbuka
+jelaskan dengan nada santai,Talking_0
+tolong ceritakan secara santai,Talking_0
+sampaikan penjelasan dengan tegas,Talking_0
+jelaskan secara rinci,Talking_1
+uraikan dengan lengkap dan jelas,Talking_1
+ceritakan secara mendalam,Talking_1
+jelaskan urutannya,Talking_2
+sebutkan tahap demi tahap,Talking_2
+bagaimana alurnya dari awal sampai akhir,Talking_2
+ceritakan pengalaman belajar hari ini,Talking_3
+apa yang kamu rasakan tentang pelajaran ini,Talking_3
+bagikan pengalamanmu,Talking_3
+jelaskan dengan penuh semangat,Talking_4
+sampaikan dengan antusias,Talking_4
+ceritakan dengan penuh energi,Talking_4
+menurutmu bagaimana topik ini,Talking_5
+apa pendapatmu soal materi ini,Talking_5
+berikan komentarmu tentang ide ini,Talking_5
+jelaskan dengan tenang dan jelas,Talking_6
+tolong uraikan secara sabar,Talking_6
+sampaikan dengan suara yang menenangkan,Talking_6
+apa komentarmu tentang hasil ini,Talking_7
+bagaimana menurutmu hasil percobaan ini,Talking_7
+beri tanggapanmu secara singkat,Talking_7

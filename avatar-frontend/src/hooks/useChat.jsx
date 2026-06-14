@@ -1,129 +1,117 @@
-import { createContext, useContext, useEffect, useState } from "react"; // React hooks for state and context
+import { createContext, useContext, useEffect, useState } from "react";
 
-const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:3000"; // Get backend URL from environment variables or use default
+const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const ChatContext = createContext();
 
-const ChatContext = createContext(); // Create context for chat functionality
-
-// Chat provider component that manages chat state and functions
-export const ChatProvider = ({ children }) => { 
-  const [userInput, setUserInput] = useState(""); // State to track user input for display purposes
-  
-  // Main chat function that sends user message to backend and processes response
-  const chat = async (message) => { 
-    // Store the user's input for display purposes
-    setUserInput(message);
-    
-    setLoading(true); // Set loading state to true while processing
-
-    try {
-      // Send user message to backend: Ollama + TTS + Rhubarb + Gesture AI
-      const replyRes = await fetch(`${backendUrl}/chat`, {
-        method: "POST", // HTTP POST method
-        headers: { "Content-Type": "application/json" }, // Set JSON content type
-        body: JSON.stringify({ message }), // Send user message in request body
-      });
-
-      // console.log("Response status:", replyRes.status); // Log HTTP response status
-      // console.log("Response headers:", [...replyRes.headers.entries()]); // Log response headers
-
-      if (!replyRes.ok) { // Check if HTTP response is not successful
-        throw new Error(`HTTP error! status: ${replyRes.status}`); // Throw error with status code
-      }
-      
-      const replyData = await replyRes.json(); // Parse JSON response from backend
-      
-      console.log("Response data:", replyData); // Log response data
-      
-      if (!replyData.success) { // Check if backend processing was unsuccessful
-        throw new Error(replyData.message || "Failed to get response"); // Throw error with message
-      }
-      
-      const replyText = replyData.text; // Extract AI response text
-      const subtitles = replyData.subtitles || [replyText];
-
-      // Log gesture labels for debugging
-      console.log("Gesture labels:", replyData.gestureLabels);
-      
-      // Validate gesture labels
-      if (replyData.gestureLabels && !Array.isArray(replyData.gestureLabels)) {
-        console.warn("Invalid gesture labels format, expected array. Clearing gestureLabels and letting frontend fallback.");
-        replyData.gestureLabels = [];
-      }
-      
-      // Add the response to the messages queue
-      setMessages((prev) => [
-        ...prev,
-        {
-          text: replyText, // AI response text
-          subtitles: subtitles, // Subtitle lines for display
-          facialExpression: "neutral", // Default facial expression
-          audio: replyData.audio || "", // Audio data in base64 format
-          lipsync: replyData.lipsync || { mouthCues: [] }, // Lip-sync data for mouth animation
-          gestureLabels: replyData.gestureLabels || [], // Gesture labels for body animation
-          audioDuration: replyData.audioDuration || 0 // Audio duration for loop calculation
-        },
-      ]);
-    } catch (err) { // Handle any errors that occurred
-      console.error("TTS or LLM ERROR:", err); // Log error
-      // Add error message to the messages queue
-      setMessages((prev) => [
-        ...prev,
-        {
-          text: `Error: ${err.message}`, // Error message text
-          subtitles: [`Error: ${err.message}`], // Error message as subtitle
-          facialExpression: "neutral", // Neutral facial expression for error
-          audio: "", // No audio for error
-          lipsync: { mouthCues: [] }, // Empty lip-sync data for error
-          gestureLabels: ['Idle'], // Default gesture labels for error
-          audioDuration: 0 // No audio duration for error
-        },
-      ]);
-    }
-
-    setLoading(false); // Set loading state to false after processing
-  };
-
-  const [messages, setMessages] = useState([]); // State to store message queue
-  const [message, setMessage] = useState(); // State to store current message being processed
-  const [loading, setLoading] = useState(false); // State to track loading status
-  const [cameraZoomed, setCameraZoomed] = useState(true); // State to track camera zoom status
-  
-  // Function called when a message finishes playing
-  const onMessagePlayed = () => { 
-    setMessages((messages) => messages.slice(1)); // Remove the first message from queue
-  };
-
-  // Effect to update current message when messages queue changes
-  useEffect(() => { 
-    if (messages.length > 0) { // Check if there are messages in queue
-      setMessage(messages[0]); // Set first message as current message
-    } else { 
-      setMessage(null); // Clear current message if queue is empty
-    } 
-  }, [messages]); // Run effect when messages queue changes
-
-  // Provide chat context values to child components
-  return ( 
-    <ChatContext.Provider value={{ 
-      chat, // Chat function
-      message, // Current message
-      onMessagePlayed, // Function called when message finishes playing
-      loading, // Loading status
-      cameraZoomed, // Camera zoom status
-      setCameraZoomed, // Function to update camera zoom status
-      userInput, // User input text
-      setUserInput // Function to update user input text
-    }} > 
-      {children} // Render child components
-    </ChatContext.Provider> 
-  ); 
+const cleanFrontendText = (text = "") => {
+  return String(text || "")
+    .replace(/\[GESTURES:\s*[^\]]+\]/gim, "")
+    .replace(/GESTURES\s*:\s*.*$/gim, "")
+    .replace(/gesture_label\s*:\s*.*$/gim, "")
+    .replace(/animation_clip\s*:\s*.*$/gim, "")
+    .replace(/animation_file\s*:\s*.*$/gim, "")
+    .replace(/backend_animation_path\s*:\s*.*$/gim, "")
+    .replace(/frontend_animation_path\s*:\s*.*$/gim, "")
+    .replace(/pedagogic_analysis\s*:\s*.*$/gim, "")
+    .replace(/pedagogic_category\s*:\s*.*$/gim, "")
+    .replace(/```json[\s\S]*?```/gim, "")
+    .replace(/```[\s\S]*?```/gim, "")
+    .replace(/\s+/g, " ")
+    .trim();
 };
 
-// Custom hook to use chat context in components
-export const useChat = () => { 
-  const context = useContext(ChatContext); // Get chat context
-  if (!context) { // Check if used outside ChatProvider
-    throw new Error("useChat must be used within a ChatProvider"); // Throw error if used incorrectly
-  } 
-  return context; // Return chat context
+export const ChatProvider = ({ children }) => {
+  const [userInput, setUserInput] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState();
+  const [persistentMessage, setPersistentMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [cameraZoomed, setCameraZoomed] = useState(true);
+
+  const chat = async (inputText) => {
+    setUserInput(inputText);
+    setLoading(true);
+    try {
+      const replyRes = await fetch(`${backendUrl}/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: inputText })
+      });
+      if (!replyRes.ok) throw new Error(`HTTP error! status: ${replyRes.status}`);
+      const data = await replyRes.json();
+      if (!data.success) throw new Error(data.message || "Failed to get response");
+
+      const replyText = cleanFrontendText(data.text || "");
+      if (data.gestureLabels && !Array.isArray(data.gestureLabels)) data.gestureLabels = [];
+
+      const newMessage = {
+        ...data,
+        user_input: inputText,
+        text: replyText,
+        subtitles: data.subtitles || [replyText],
+        facialExpression: "neutral",
+        audio: data.audio || "",
+        lipsync: data.lipsync || { mouthCues: [] },
+        gestureLabels: data.gestureLabels || [],
+        audioDuration: data.audioDuration || data.audio_duration || data.lipsync?.metadata?.duration || 0,
+        sentenceGestureMapping: data.sentenceGestureMapping || [],
+        mlGesture: data.mlGesture || null,
+        predictedGestureLabel: data.predictedGestureLabel || "",
+        predictedAnimationClip: data.predictedAnimationClip || "",
+        mappedTeacherSentence: data.mappedTeacherSentence || "",
+        annotation_id: data.annotation_id || data.session_id || `ANN-${Date.now()}`,
+        session_id: data.session_id || data.annotation_id || `SES-${Date.now()}`
+      };
+      setMessages((prev) => [...prev, newMessage]);
+      setPersistentMessage(newMessage);
+    } catch (err) {
+      console.error("TTS or LLM ERROR:", err);
+      const errorMessage = {
+        text: `Error: ${err.message}`,
+        subtitles: [`Error: ${err.message}`],
+        facialExpression: "neutral",
+        audio: "",
+        lipsync: { mouthCues: [] },
+        gestureLabels: ["Idle"],
+        audioDuration: 0,
+        user_input: inputText,
+        annotation_id: `ERR-${Date.now()}`
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+      setPersistentMessage(errorMessage);
+    }
+    setLoading(false);
+  };
+
+  const onMessagePlayed = () => {
+    setMessages((messages) => messages.slice(1));
+  };
+
+  useEffect(() => {
+    if (messages.length > 0) setMessage(messages[0]);
+    else setMessage(null);
+  }, [messages]);
+
+  return (
+    <ChatContext.Provider value={{
+      chat,
+      message,
+      persistentMessage,
+      onMessagePlayed,
+      loading,
+      cameraZoomed,
+      setCameraZoomed,
+      userInput,
+      setUserInput,
+      backendUrl
+    }}>
+      {children}
+    </ChatContext.Provider>
+  );
+};
+
+export const useChat = () => {
+  const context = useContext(ChatContext);
+  if (!context) throw new Error("useChat must be used within ChatProvider");
+  return context;
 };

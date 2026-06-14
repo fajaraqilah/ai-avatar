@@ -6,6 +6,16 @@ Usage:
   - Train: `py textClassifier.py --train`
   - Predict from file: `py textClassifier.py --file path/to/text.txt`
   - Predict from arg: `py textClassifier.py --text "Some text"`
+  
+  File ini mendukung 2 mode:
+
+1. Training model (membangun model dari dataset CSV).
+2. Prediction (memprediksi label gesture dari input teks).
+
+Konfigurasi path
+
+1. MODEL_PATH = "classifier_model.pkl" → lokasi model hasil training yang disimpan.
+2. CSV_PATH = "dataset_gesture_training.csv" → dataset training wajib berisi kolom text dan labels.
 
 Outputs JSON to stdout: {"predictions":[{"label":"...","confidence":0.9}, ...]}
 """
