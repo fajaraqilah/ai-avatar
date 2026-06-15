@@ -7,7 +7,7 @@ import MLGestureResultPanel from "./MLGestureResultPanel";
 // UI component that provides the user interface for interacting with the AI avatar
 export const UI = ({ hidden, ...props }) => {
   const input = useRef(); // Ref to access the input element
-  const { chat, loading, cameraZoomed, setCameraZoomed, message, persistentMessage } = useChat(); // Get chat functions and state from context
+  const { chat, loading, cameraZoomed, setCameraZoomed, message, persistentMessage, backendUrl } = useChat(); // Get chat functions and state from context
   const [isListening, setIsListening] = useState(false); // State to track speech recognition status
   const [recognition, setRecognition] = useState(null); // State to store speech recognition instance
 
@@ -88,13 +88,13 @@ export const UI = ({ hidden, ...props }) => {
       <SentenceGestureMappingPanel
         message={message}
         persistentMessage={persistentMessage}
-        audioUrl="http://localhost:3000/audios/generated.mp3"
-        apiBaseUrl="http://localhost:3000/api"
+        audioUrl={`${backendUrl}/audios/generated.mp3`}
+        apiBaseUrl={`${backendUrl}/api`}
       />
       <GestureAnnotationPanel
         message={message}
         persistentMessage={persistentMessage}
-        apiBaseUrl="http://localhost:3000/api"
+        apiBaseUrl={`${backendUrl}/api`}
       />
       <MLGestureResultPanel
         message={message}

@@ -37,6 +37,9 @@ RUN pip3 install --no-cache-dir -r requirements.txt gTTS
 # Copy seluruh file backend ke working directory
 COPY avatar-backend/ .
 
+# Generate model artefacts during the Space build instead of committing binary models.
+RUN python3 ml/train_pedagogic_gesture_from_excel.py
+
 # Buat symlink agar kode execPromise dapat mencari Rhubarb & FFmpeg secara seragam
 RUN mkdir -p /ffmpeg/bin && ln -s /usr/bin/ffmpeg /ffmpeg/bin/ffmpeg.exe || true \
     && mkdir -p /Rhubarb-Lip-Sync/bin && ln -s /app/Rhubarb-Lip-Sync/rhubarb /Rhubarb-Lip-Sync/bin/rhubarb.exe || true
